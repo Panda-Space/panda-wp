@@ -1,0 +1,21 @@
+{
+    "name": "pandawp/generator",
+    "type": "project",
+    "description": "PandaWP CLI",
+    "authors": [
+        {
+            "name": "Cleiver Valera",
+            "email": "hola@cleivervalera.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "symfony/console": "^4.0",
+        "timber/timber": "^1.10"                
+    },
+    "autoload": {
+        "psr-4": {
+            "PandaWP\\Console\\": "commands/"
+        }
+    }
+}

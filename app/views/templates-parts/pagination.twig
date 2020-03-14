@@ -1,0 +1,33 @@
+{% if articles.pagination.next or articles.pagination.prev %}
+  <nav class="margin-top-2" aria-label="pagination">
+    <ul class="pagination text-center">
+      {% if articles.pagination.prev %}
+        <li class="pagination-previous">
+          <a href="{{articles.pagination.prev.link}}">Anterior</a>
+        </li>
+      {% else %}
+        <li class="pagination-previous disabled">Anterior</li>
+      {% endif %}
+
+      {% for page in articles.pagination.pages %}
+        {% if page.link %}
+          <li><a href="{{page.link}}" aria-label="{{page.title}}">{{page.title}}</a></li>
+        {% endif %}
+        {% if page.class == 'dots' %}
+          <li class="ellipsis"></li>
+        {% endif %}
+        {% if page.current %}
+          <li class="current">{{page.title}}</li>
+        {% endif %}
+      {% endfor %}
+
+      {% if articles.pagination.next %}
+        <li class="pagination-next">
+          <a href="{{articles.pagination.next.link}}" aria-label="Next page">Siguiente</a>
+        </li>
+      {% else %}
+        <li class="pagination-next disabled">Siguiente</li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

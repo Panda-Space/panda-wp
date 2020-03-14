@@ -1,0 +1,47 @@
+{
+  "entry": {
+    "styles": [
+      "src/scss/wp_login_styles.scss",
+      "src/scss/main.scss"
+    ],
+    "js": [
+      "src/js/main.js",
+      "src/js/galleries.js",
+      "src/js/sliders/sliders-home.js",
+      "src/js/components/map.js",
+      "src/js/components/form.js"
+    ]
+  },
+  "publicPath": "app/static",
+  "globalResources": {
+    "styles": "src/scss/**/*.scss",
+    "js": "src/js/**/*.js",
+    "images": "**/*.{jpg,jpeg,png,svg,ico}",
+    "php": "**/*.php",
+    "twig": "**/*.twig"
+  },
+  "proxy": "localhost/testing",
+  "ignoreFoldersDevelopment": [
+    "src/**/*",
+    "!src/config.json",
+    "!src/{scss,js/!(libs),build}",
+    "!src/{scss,js/!(libs),build}/**/*"
+  ],
+  "ignoreFoldersProduction": [
+    "src/**/*",
+    "!src/config.json",
+    "!src/{scss,js,build}",
+    "!src/{scss,js,build}/**/*"
+  ],
+  "compressFolder": [
+    "**/*",
+    "**/.*",
+    ".*",
+    "!node_modules{,/**}",
+    "!vendor{,/**}",
+    "!bundled{,/**}",
+    "!package-lock.json",
+    "!*.lock",
+    "!*.log"
+  ]
+}

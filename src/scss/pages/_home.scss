@@ -1,0 +1,9 @@
+.c-section--home {
+  outline: none;
+}
+
+@include breakpoint(large) {
+  .c-section--home {
+    outline: none;
+  }
+}

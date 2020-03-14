@@ -1,0 +1,13 @@
+<div class="c-search" id="search">
+  <div class="grid-container">
+    <form class="c-search__form" role="search" method="get" action="{{ site.url }}/">
+      <input type="search" placeholder="Buscar" value="{{ function('get_search_query') }}" name="s" autocomplete="off"/>
+      <button class="button margin-bottom-0">
+        <i class="fal fa-search"></i>
+      </button>
+    </form>
+    <button class="button alert margin-bottom-0 margin-left-1" id="close-search">
+      <i class="fal fa-times"></i>
+    </button>
+  </div>
+</div>

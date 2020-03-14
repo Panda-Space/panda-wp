@@ -1,0 +1,32 @@
+<head>
+  <title>{{ site.name }}</title>
+	<meta charset="{{ site.charset }}">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Notaría de Bracamonte - ..." />
+	<meta name="robots" content="index,follow">	
+	<meta name="keywords" content="">	
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Notaría de Bracamonte" />
+	<meta property="og:image" content="{{ theme.link }}/static/images/og_image.png" />	
+	<link rel="icon" href="{{ theme.link }}/static/images/favicon.png">  
+
+	{{ function('wp_head') }}
+
+	<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+	{#<script type="text/javascript">
+		host = location.host;
+		protocol = location.protocol;
+		window.cookieconsent_options = {
+			"message": "Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia en nuestro sitio web.",
+			"dismiss":"¡Perfecto!",
+			"learnMore":"Más información",
+			"link": protocol + host + "/politica-de-privacidad/",
+			"theme":"dark-bottom"
+		};
+	</script>
+	<script type="text/javascript"
+          src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>#}
+	<!-- End Cookie Consent plugin -->
+</head>

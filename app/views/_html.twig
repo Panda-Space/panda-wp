@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+
+  {% include '_html-head.twig' %}
+
+  <body>
+    {% block hero %}
+      {# Content #}
+    {% endblock %}
+
+    <main id="app" data-site="{{site.url}}" class="c-main">
+      {% block content %}
+        {# Content #}
+      {% endblock %}
+
+      {% include "_html-footer.twig" %}
+    </main>
+
+    {{ function('wp_footer') }}
+    
+    {% block footer %}
+      {# Content #}
+    {% endblock %}
+  </body>
+</html>
