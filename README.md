@@ -1,9 +1,4 @@
-
-<p align="center">
-  <img src="https://pandoramarketing.net/wp-content/themes/pandoramarketing/static/images/logo-black.svg" width="400">
-</p>
-
-<h6 align="center">Pandora Marketing | Wordpress Start Theme</h6>
+<h6 align="center">Panda WP</h6>
 
 ## Plugins:
 - ACF
