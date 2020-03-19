@@ -1,5 +1,3 @@
-<h6 align="center">Panda WP</h6>
-
 ## Plugins:
 - ACF
 - Contact Form 7
