@@ -29,50 +29,21 @@ function register_assets($type, $resource) {
             $resource['in_footer']
         );
         wp_enqueue_script( $resource['handle'] );
+    }else if($type === 'package'){
+        $resource_src = explode('/', $resource['src']);
+
+        if ( file_exists(__DIR__ . '/../static/js/' . $resource_src[ count($resource_src) - 1 ]) ) {
+            wp_register_script(
+                $resource['handle'],
+                $resource['src'],
+                $resource['deps'],
+                $resource['ver'],
+                $resource['in_footer']
+            );
+            wp_enqueue_script( $resource['handle'] );
+        }
     }
 }
-
-
-/**
- * --------------------------------------------------------------------------
- * Helper | dd();
- * --------------------------------------------------------------------------
- *
- * @param $variable
- *
- */
-function dd($variable) {
-    $styles = "
-    #dd {
-        background-color: black;
-        color: #fff;
-    }
-    #dd small {
-        color: #fff000;
-    }
-    ";
-
-    echo "<div id='dd'><pre>";
-    echo "<style>{$styles}</style>";
-    var_dump($variable);
-    echo "</pre></div>";
-}
-
-
-/**
- * --------------------------------------------------------------------------
- * Helper | File version
- * --------------------------------------------------------------------------
- *
- * @param string $version_file
- *
- * @return int|string
- *
- */
-function file_version ( $version_file = '0.0.1' ) {
-    return WP_DEBUG ? time() : $version_file;
-}
-
 
 /**
  * --------------------------------------------------------------------------
@@ -84,7 +55,7 @@ function file_version ( $version_file = '0.0.1' ) {
  * @return array
  *
  */
-function __autoload_functions_by_dir(String $path) {
+function __autoload_functions_by_dir($path) {
     $dir = scandir(get_template_directory() . $path);
     $files = [];
 

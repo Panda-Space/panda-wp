@@ -1,8 +1,0 @@
-<?php
-/**
- * Template Name: {{template_name}}
- */
-
-get_header();
-
-get_footer();

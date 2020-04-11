@@ -1,6 +1,12 @@
 <?php
 
 add_action( 'after_setup_theme', function() {
+    register_nav_menus([
+        'primary-menu' => __( 'Menú Principal', 'pandawp' ),
+        'social-menu'  => __( 'Menú Redes Sociales', 'pandawp' ),
+        'footer-menu'  => __( 'Menú Pie de página', 'pandawp' ),
+    ]);
+
     add_theme_support( 'automatic-feed-links' );
 
     add_theme_support( 'title-tag' );
@@ -20,12 +26,6 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'align-wide' );
 
     add_theme_support( 'editor-styles' );
-});
-
-add_action( 'pre_get_posts', function ( $query ) {
-    if ( is_post_type_archive() ) {
-        set_query_var('posts_per_page', 4);
-    }
 });
 
 add_action( 'widgets_init', function () {

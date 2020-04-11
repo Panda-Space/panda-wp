@@ -7,7 +7,7 @@ function taxonomy_{{name_function}}() {
     'name_register_taxonomy' => '',
     'rewrite_slug'           => '',
     'post_type'              => [],
-    'text_domain'            => 'pandoramarketing'
+    'text_domain'            => 'pandawp'
   ];
 
   $labels = [

@@ -17,7 +17,7 @@ const config = {
   },
 
   optimization: {
-    splitChunks: {
+    splitChunks: { 
       cacheGroups: {
         vendors(module) {
           if (module.context) {
@@ -26,11 +26,11 @@ const config = {
               return {
                 test: `/[\\/]node_modules[\\/]${ packageName[1] }[\\/]/`,
                 name: `package.${packageName[1].replace('@', '')}`,
-                chunks: "all",
+                chunks: "all"
               }
             }
           }
-        },
+        }
       }
     }
   },
@@ -46,6 +46,12 @@ const config = {
   },
 
   target: 'web',
+
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
 
   plugins: [
     new webpack.ProvidePlugin({

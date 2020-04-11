@@ -54,6 +54,7 @@ class GeneratorFileFunction extends Command
         } else {
             $res = 'Error';
         }
+
         $output->writeln($res);
     }
 
@@ -61,17 +62,29 @@ class GeneratorFileFunction extends Command
     {
         file_put_contents(
             "app/registers/{$this->dir}/{$this->filename}.php",
-            $this->compileFileStub()
+            $this->compileFunctionFileStub()
         );
+
+        if( $this->type == 'post-type' ){
+            file_put_contents(
+                "app/views/single-{$this->filename}.twig",
+                $this->compileViewFileStub()
+            );
+        }
     }
 
-    protected function compileFileStub()
+    protected function compileFunctionFileStub()
     {
         return str_replace(
             '{{name_function}}',
             $this->filename,
             file_get_contents("commands/stubs/functions/{$this->type}.stub")
         );
+    }
+
+    protected function compileViewFileStub()
+    {
+        return file_get_contents("commands/stubs/views/post-type.stub");
     }
 
     protected function functionFileExist()

@@ -1,25 +1,32 @@
 <!doctype html>
 <html lang="es">
+  <head>
+    {% include '_html-head.twig' %}
 
-  {% include '_html-head.twig' %}
+    {% block metas %}
+      {% include "_html-seo.twig" %}
+      
+      {# content #}    
+    {% endblock %}
+  </head>
 
   <body>
-    {% block hero %}
-      {# Content #}
-    {% endblock %}
-
     <main id="app" data-site="{{site.url}}" class="c-main">
+      {% block hero %}
+        {# Content #}
+      {% endblock %}
+
       {% block content %}
         {# Content #}
       {% endblock %}
 
-      {% include "_html-footer.twig" %}
+      {% block footer %}
+        {% include "_html-footer.twig" %}
+        
+        {# Content #}
+      {% endblock %}
     </main>
 
     {{ function('wp_footer') }}
-    
-    {% block footer %}
-      {# Content #}
-    {% endblock %}
   </body>
 </html>

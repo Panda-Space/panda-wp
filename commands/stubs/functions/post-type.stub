@@ -9,7 +9,7 @@ function custom_post_type_{{name_function}}() {
     'supports_post_type'      => [ 'title', 'editor', 'thumbnail' ],
     'taxonomy_post_type'      => [],
     'menu_icon_post_type'     => 'dashicons-megaphone',
-    'text_domain'             => 'pandoramarketing'
+    'text_domain'             => 'pandawp'
   ];
 
   $labels = [

@@ -1,13 +1,22 @@
-$('.c-toggle').on('click',function(){
-  if($(this).hasClass('c-toggle--active')){
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-    $(this).removeClass('c-toggle--active');
-    $('.c-header-mobile').removeClass('c-header-mobile--visible');
-
-  }else{
-    
-    $(this).addClass('c-toggle--active');
-    $('.c-header-mobile').addClass('c-header-mobile--visible');
-
-  }
+Vue.component('toggle',{
+  template: /*html*/`
+    <label class="c-toggle button-reset button position-fixed" @click="updateStatusMenu()">
+      <div class="c-icons-container position-absolute overflow-hidden">
+        <div class="c-icons">
+          <div class="c-icon cell grid-y align-center-middle">
+            <span class="cell"><i class="far fa-bars"></i></span>
+          </div>
+          <div class="c-icon cell grid-y align-center-middle">
+            <span class="cell"><i class="far fa-times"></i></span>
+          </div>
+        </div>
+      </div>
+    </label>
+  `,
+  methods: {
+    ...Vuex.mapActions(['updateStatusMenu'])
+  },
 })

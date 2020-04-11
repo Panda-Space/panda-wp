@@ -2,10 +2,9 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use PandaWP\Console\{GeneratorFileFunction, GeneratorFileTemplate};
+use PandaWP\Console\{GeneratorFileFunction, GeneratorFileView};
 use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add(new GeneratorFileFunction());
-$app->add(new GeneratorFileTemplate());
 $app->run();

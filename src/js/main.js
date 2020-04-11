@@ -1,5 +1,3 @@
-import $ from 'jquery';
-import './foundation/foundation-explicit-pieces'
-import './components/toggle';
+import AOS from 'aos';
 
-$(document).foundation();
+AOS.init();

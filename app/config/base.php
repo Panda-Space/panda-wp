@@ -30,40 +30,40 @@ return [
          * Packages
          * */
         'package_jquery' => [
-            'cdn' => 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
-            'local' => get_theme_file_uri('/static/js/libs/jquery/jquery.min.js')
+            'cdn' => 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'
         ],
 
-        'package_foundation' => get_theme_file_uri('/static/js/package.foundation-sites.bundle.js'),
+        'package_vue' => get_theme_file_uri('/static/js/package.vue.bundle.js'),
 
+        'package_vuex' => get_theme_file_uri('/static/js/package.vuex.bundle.js'),
+
+        'package_vue_awesome_swiper' => get_theme_file_uri('/static/js/package.vue-awesome-swiper.bundle.js'),
+        
         'package_fancyapps' => get_theme_file_uri('/static/js/package.fancyapps.bundle.js'),
+
+        'package_aos' => get_theme_file_uri('/static/js/package.aos.bundle.js'),
 
         'package_dom7' => get_theme_file_uri('/static/js/package.dom7.bundle.js'),
 
         'package_swiper' => get_theme_file_uri('/static/js/package.swiper.bundle.js'),
+
+        'package_setimmediate' => get_theme_file_uri('/static/js/package.setimmediate.bundle.js'),
+
+        'package_process' => get_theme_file_uri('/static/js/package.process.bundle.js'),        
 
         /**
          * Styles
          * */
         'style_main' => get_theme_file_uri('/static/css/main.css'),
 
-        /**
-         * Scripts
-         * */
+        //Pages
+        'page_home' => get_theme_file_uri('/static/js/page-home.bundle.js'),
+
+        'page_404' => get_theme_file_uri('/static/js/page-404.bundle.js'),
+
+        //Scripts
         'script_main' => get_theme_file_uri('/static/js/main.bundle.js'),
 
-        //Components
-        'component_map' => get_theme_file_uri('/static/js/map.bundle.js'),
-
-        'component_form' => get_theme_file_uri('/static/js/form.bundle.js'),
-
-        //Pages
-        /* Silence is golden */
-
-        //Galleries
-        'script_galleries' => get_theme_file_uri('/static/js/galleries.bundle.js'),
-
-        //Sliders
-        'sliders_home' => get_theme_file_uri('/static/js/sliders-home.bundle.js'),
+        'script_galleries' => get_theme_file_uri('/static/js/galleries.bundle.js')
     ]
 ];

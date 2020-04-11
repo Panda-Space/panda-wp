@@ -13,7 +13,12 @@ add_filter('timber/context', function($context) {
     $context['footer_menu']  = new \Timber\Menu( 'footer-menu' );
     $context['social_menu']  = new \Timber\Menu( 'social-menu' );
 
-    $context['information']  = get_option('information_page');
+    /*
+    $context['information']  = (object)[
+        "phone" => get_field('phone', 'options'),
+        "email" => get_field('email', 'options')
+    ];
+    */
 
     return $context;
 });

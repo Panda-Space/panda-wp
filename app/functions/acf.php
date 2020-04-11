@@ -1,6 +1,6 @@
 <?php
 
-$config = require_once get_theme_file_path('config/base.php');
+$config = require get_theme_file_path('config/base.php');
 
 /**
  * --------------------------------------------------------------------------

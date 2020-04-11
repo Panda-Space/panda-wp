@@ -5,11 +5,9 @@
       "src/scss/main.scss"
     ],
     "js": [
-      "src/js/main.js",
       "src/js/galleries.js",
-      "src/js/sliders/sliders-home.js",
-      "src/js/components/map.js",
-      "src/js/components/form.js"
+      "src/js/main.js",
+      "src/js/pages/*.js"
     ]
   },
   "publicPath": "app/static",
@@ -20,7 +18,7 @@
     "php": "**/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "localhost/testing",
+  "proxy": "localhost/pandawp",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",
