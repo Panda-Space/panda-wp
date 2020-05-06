@@ -9,8 +9,7 @@
         }
     ],
     "require": {
-        "timber/timber": "^1.10",
-        "phpmailer/phpmailer": "^6.1"
+        "timber/timber": "^1.10"
     },
     "require-dev": {
         "symfony/console": "^4.0"              

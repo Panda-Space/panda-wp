@@ -1,8 +1,7 @@
 {
   "entry": {
     "styles": [
-      "src/scss/core/wp_login_styles.scss",
-      "src/scss/core/wp_redemptions.scss",
+      "src/scss/wp_login_styles.scss",
       "src/scss/main.scss"
     ],
     "js": [
@@ -19,7 +18,7 @@
     "php": "**/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "localhost/asus",
+  "proxy": "localhost/pandawp",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",

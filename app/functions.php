@@ -10,7 +10,7 @@ require_once( __DIR__ . '/../vendor/autoload.php' );
  */
 array_map(function ($file) {
     require_once get_theme_file_path("functions/") . "{$file}.php";
-}, ['helpers', 'setup', 'enqueues', 'filters', 'acf', 'login', 'api/main', 'admin/pages/redemptions/main']);
+}, ['helpers', 'setup', 'enqueues', 'filters', 'acf', 'login']);
 
 
 /**
