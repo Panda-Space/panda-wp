@@ -1,0 +1,38 @@
+<header class="c-header c-header-mobile width-100 padding-bottom-0" :class="{ 'c-header-mobile--visible' : isActiveMenu}">
+  <div class="grid-container">
+    <nav class="c-nav width-100">
+      <div class="c-nav__left width-100 flex-container align-center-middle">
+        <figure class="c-brand c-brand--normal flex-container align-center-middle">
+          <a class="c-brand__link" href="{{ site.url }}">
+            <img class="c-brand__image" src="{{ theme.link }}/static/images/logo.png" alt="Panda WP - Logo" />
+          </a>
+        </figure>       
+      </div>
+      <div class="c-nav__right">
+        <ul class="c-menu dropdown vertical menu accordion-menu flex-container ul-reset" data-accordion-menu data-submenu-toggle="true">
+          {% for item in primary_menu.items %}
+            <li class="flex-container flex-dir-column align-middle {{ item.class }} {% if 'current-menu-item' in item.class %} activate {% endif %}">
+              <a href="{{ item.link }}" class="position-relative flex-container align-middle padding-1">{{ item.name }}</a>
+              {% if item.children %}
+                <ul class="ul-reset menu vertical nested margin-top-1" >
+                  {% for child in item.children %}
+                    {% if loop.index != item.children|length - 1 %}
+                      <li><a class="white" href="{{child.link}}">{{child.name}}</a></li>
+
+                    {% else %}
+                      <li class="margin-bottom-1"><a class="white" href="{{child.link}}">{{child.name}}</a></li>
+
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>   
+      </div>      
+    </nav>
+  </div>
+</header>
+  
+  
+  

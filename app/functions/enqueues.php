@@ -1,6 +1,6 @@
 <?php
 
-$assets_version = '1588754038664';
+$assets_version = '1586586859660';
 $config = require get_theme_file_path('config/base.php');
 
 add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
@@ -58,6 +58,22 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
         'ver'       => $assets_version,
         'in_footer' => true
     ]);
+
+    register_assets('package', [
+        'handle'    => 'pandawp/package/aos',
+        'src'       => $config['resources']['package_aos'],
+        'deps'      => [ ],
+        'ver'       => $assets_version,
+        'in_footer' => true
+    ]);
+    
+    register_assets('script', [
+        'handle'    => 'pandawp/script/main',
+        'src'       => $config['resources']['script_main'],
+        'deps'      => [ ],
+        'ver'       => $assets_version,
+        'in_footer' => true
+    ]);    
 
     /**
      * --------------------------------------------------------------------------
@@ -134,6 +150,30 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
             'deps'      => [ ],
             'ver'       => $assets_version,
             'in_footer' => true
+        ]);  
+
+        register_assets('package', [
+            'handle'    => 'pandawp/package/vue_awesome_swiper',
+            'src'       => $config['resources']['package_vue_awesome_swiper'],
+            'deps'      => [ ],
+            'ver'       => $assets_version,
+            'in_footer' => true
+        ]);    
+    
+        register_assets('package', [
+            'handle'    => 'pandawp/package/fancyapps',
+            'src'       => $config['resources']['package_fancyapps'],
+            'deps'      => [ ],
+            'ver'       => $assets_version,
+            'in_footer' => true
+        ]);
+    
+        register_assets('script', [
+            'handle'    => 'pandawp/js/script/galleries',
+            'src'       => $config['resources']['script_galleries'],
+            'deps'      => [ ],
+            'ver'       => $assets_version,
+            'in_footer' => true
         ]);
 
         register_assets('script', [
@@ -144,14 +184,6 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
             'in_footer' => true
         ]);
 
-        register_assets('script', [
-            'handle'    => 'pandawp/script/main',
-            'src'       => $config['resources']['script_main'],
-            'deps'      => [ ],
-            'ver'       => $assets_version,
-            'in_footer' => true
-        ]);        
-
     }elseif (is_page('404')){
         register_assets('script', [
             'handle'    => 'pandawp/js/page/404',
@@ -160,5 +192,30 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
             'ver'       => $assets_version,
             'in_footer' => true
         ]);
+
+    }elseif (is_page('contacto')){
+        register_assets('script', [
+            'handle'    => 'pandawp/js/component/form',
+            'src'       => $config['resources']['component_form'],
+            'deps'      => [ ],
+            'ver'       => $assets_version,
+            'in_footer' => true
+        ]);
+
+        register_assets('script', [
+            'handle'    => 'pandawp/js/component/map',
+            'src'       => $config['resources']['component_map'],
+            'deps'      => [],
+            'ver'       => $assets_version,
+            'in_footer' => true
+        ]);
+    
+        register_assets('script', [
+            'handle'    => 'api-google-maps',
+            'src'       => $config['resources']['google_maps'],
+            'deps'      => [],
+            'ver'       => $assets_version,
+            'in_footer' => true
+        ]);        
     }
 });

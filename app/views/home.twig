@@ -6,124 +6,23 @@
 
 {% block content %}
   <section class="c-section c-section--home">
-    <section class="init">
-      <div id="slider-banner" class="swiper-container">
-        <div class="swiper-wrapper">
-          {% for slide in banner %}
-            {% set slide = slide.slide %}
-
-            <div class="swiper-slide">
-                <img src="{{slide.bg['url']}}" alt="">
-
-                <div class="section_content">
-                    <div class="inner_content">
-                        <figure class="init_swipper_figure">
-                            <img src="{{slide.processor['url']}}" alt="">
-                        </figure>
-                        <div class="init_swipper_resume">{{slide.desc}}</div>
-                    </div>
-                </div>
-            </div>
-          {% endfor %}
-        </div>
-        <div class="swiper-pagination"></div>
+    <div class="grid-container margin-bottom-2">
+      <h1 class="text-center padding-vertical-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="900">${title} <i class="icon-behance"></i> </h1>
+      <div class="flex-container align-center margin-bottom-1">
+        <button id="control-slider-example-prev" class="c-button bg-pri-color margin-horizontal-1 white">Left</button>
+        <button id="control-slider-example-next" class="c-button bg-pri-color margin-horizontal-1 white">Right</button>
       </div>
-    </section>
-    <section class="section_form">
-      <div class="section_content">
-        <div style="display:none" class="form_resume first_line">
-          <h2 class=" form_container_title">Lorem Impsum</h2>
-          <p class="form_container_text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you.
-          </p>
-        </div>
-        <figure class="section_form_video">
-          <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;">
-            {{form.video}}            
-          </div>
-        </figure>
-        <div class="form_container">
-          <div class="form_resume">
-            <h2 class=" form_container_title">{{form.title}}</h2>
-            <p class="form_container_text">
-              {{form.desc}}
-            </p>
-          </div>
-          <form class="form_rog" @submit="sendRedemption">
-            <div class="input_container" :class="{ valid : firstname.isValid }">
-              <input v-model="firstname.value" placeholder="Nombres" type="text">
-            </div>
-            <div class="input_container" :class="{ valid : lastname.isValid }">
-              <input v-model="lastname.value" placeholder="Apellidos" type="text">
-            </div>
-            <div class="input_container" :class="{ valid : email.isValid }">
-              <input v-model="email.value" placeholder="Mail" type="text">
-            </div>
-            <div class="input_container" :class="{ valid : buy_date.isValid }">
-              <input v-model="buy_date.value" placeholder="Fecha de Compra" type="text">
-            </div>
-            <div class="input_container select one" :class="{ valid : shop.isValid }">
-              <select name="" id="shop">
-                {% for shop in shops %}
-                  <option value="{{shop.shop}}">{{shop.shop}}</option>
-                {% endfor %}
-              </select>
-              <div class="head_select">
-                  Tienda
-              </div>
-              <div class="body_select">
-
-              </div>
-            </div>
-            <div class="input_container select two" :class="{ valid : country.isValid }">
-              <select name="" id="country">
-                {% for key, value in countries %}
-                  <option value="{{key}}">{{value}}</option>
-                {% endfor %}
-              </select>
-              <div class="head_select">
-                País
-              </div>
-              <div class="body_select">
-
-              </div>
-            </div>
-            <div class="input_container" :class="{ valid : serie.isValid }">
-              <input v-model="serie.value" placeholder="Número de Serie" type="text">
-            </div>
-            <div class="input_container" :class="{ valid : invoice_number.isValid }">
-              <input v-model="invoice_number.value" placeholder="Número de boleta o factura" type="text">
-            </div>
-            <div class="input_container file">
-              <input @change="changeInvoiceFile" placeholder="Número de boleta o factura" type="file">
-              <span class="shade">
-                  <span class="red_span">
-                  <i class="fas fa-arrow-circle-up"></i> Subir foto de boleta</span>
-              </span>
-            </div>
-            <div class="checkbox_container">
-              <span class="checkbox_container_check">
-                  <input id="terms" type="checkbox" v-model="terms">
-                  <span class="checkbox_container_check_span"></span>
-              </span>
-              <label for="terms">
-                  He leído y acepto los
-                  <button>Términos y condiciones</button>
-              </label>
-            </div>
-            <div id="html_element" class="captcha_box">
-              <div class="g-recaptcha" data-sitekey="6LeO4fAUAAAAAKEvdFJoa_eTX1Nw89vovnlUv26e"></div>
-            </div>
-            <div class="button_container">
-              <input 
-                :disabled="form.status != 9 || !terms"
-                type="submit" 
-                value="Enviar">
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+      <swiper :options="swiperOptions">
+        <swiper-slide v-for="item of [1,2,3,4,5,6]" :key="item.id">
+          <a href="{{theme.link}}/static/images/example.jpg" data-fancybox="gallery-home">
+            <figure class="width-100">
+              <img class="width-100 height-100 of--cover" src="{{theme.link}}/static/images/example.jpg" alt="">
+            </figure>
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+      </swiper>
+    </div>
   </section>
 {% endblock %}
 
