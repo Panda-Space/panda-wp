@@ -9,4 +9,17 @@
 <meta name="keywords" content="femenino, mujer, mujeres, finanzas, financiero, empoderamiento">
 <link rel="icon" href="{{ theme.link }}/static/images/favicon.png">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="text/javascript">
+  var onloadCallback = function(token) {
+    grecaptcha.ready(function() {
+        grecaptcha.execute("site_key").then(function(token) {
+            console.log("v3 Token: " + token);
+        });
+    });
+  };
+</script>
+
 {{ function('wp_head') }}

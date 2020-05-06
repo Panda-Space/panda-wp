@@ -20,7 +20,7 @@ function baseConfig(store){
 
 function baseState(){
   return Vuex.mapState([
-    'API', 
+    'API',
     'SITE_URL',
     'isActiveMenu',
     'isActiveBrowserToggle'

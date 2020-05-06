@@ -2,3 +2,4 @@ node_modules/slick-carousel
 node_modules/pikaday
 node_modules/@fancyapps
 src/scss/base/_typo.scss
+src/scss/pages/_home.scss
