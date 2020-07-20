@@ -9,7 +9,7 @@
         </figure>    
       </div>
       <div class="c-nav__right">
-        <ul class="c-menu menu flex-container ul-reset">
+        <ul class="c-menu menu ul-reset">
           {% for item in primary_menu.items %}
             <li class="{{ item.class }} {% if 'current-menu-item' in item.class %} activate {% endif %}">
               <a href="{{ item.link }}" class="position-relative">{{ item.name }}</a>

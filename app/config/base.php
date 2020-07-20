@@ -7,24 +7,12 @@ return [
     'GOOGLE_API_KEY' => $GOOGLE_API_KEY,
 
     'resources' => [
-
         /**
          * Google
          * */
         'google_fonts' => 'https://fonts.googleapis.com/css?family=' . $FONTS_FAMILIES . '&display=swap',
 
         'google_maps' => 'https://maps.googleapis.com/maps/api/js?key=' . $GOOGLE_API_KEY . '&callback=initMap',
-
-        /**
-         * Fontawesome
-         * */
-        'fontawesome' => [
-            'cdn' => [
-                'base' => 'https://pandora-space-america.nyc3.digitaloceanspaces.com/statics/icons/5.6.3/js/fontawesome.min.js',
-                'style' => 'https://pandora-space-america.nyc3.digitaloceanspaces.com/statics/icons/5.6.3/js/regular.min.js',
-                'brands' => 'https://pandora-space-america.nyc3.digitaloceanspaces.com/statics/icons/5.6.3/js/brands.min.js'
-            ]
-        ],
 
         /**
          * Packages
@@ -36,8 +24,6 @@ return [
         'package_vue' => get_theme_file_uri('/static/js/package.vue.bundle.js'),
 
         'package_vuex' => get_theme_file_uri('/static/js/package.vuex.bundle.js'),
-
-        'package_vue_awesome_swiper' => get_theme_file_uri('/static/js/package.vue-awesome-swiper.bundle.js'),
         
         'package_fancyapps' => get_theme_file_uri('/static/js/package.fancyapps.bundle.js'),
 

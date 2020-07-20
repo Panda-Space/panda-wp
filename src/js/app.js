@@ -23,7 +23,6 @@ function baseState(){
     'API', 
     'SITE_URL',
     'isActiveMenu',
-    'isActiveBrowserToggle'
   ])
 }
 

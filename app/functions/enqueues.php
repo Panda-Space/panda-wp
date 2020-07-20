@@ -1,6 +1,6 @@
 <?php
 
-$assets_version = '1586586859660';
+$assets_version = '1595212022230';
 $config = require get_theme_file_path('config/base.php');
 
 add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
@@ -99,30 +99,6 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
 
     /**
      * --------------------------------------------------------------------------
-     * Register Fontawesome
-     * --------------------------------------------------------------------------
-     *
-     */
-    wp_register_script($fa['handle'], $fa['src'], $fa['deps'], $fa['ver'], $fa['in_footer']);
-
-    register_assets('script', [
-        'handle'    => 'pandawp/fontawesome/style',
-        'src'       => $config['resources']['fontawesome']['cdn']['style'],
-        'deps'      => [ $fa['handle'] ],
-        'ver'       => $assets_version,
-        'in_footer' => true
-    ]);
-
-    register_assets('script', [
-        'handle'    => 'pandawp/fontawesome/brands',
-        'src'       => $config['resources']['fontawesome']['cdn']['brands'],
-        'deps'      => [ $fa['handle'] ],
-        'ver'       => $assets_version,
-        'in_footer' => true
-    ]);
-
-    /**
-     * --------------------------------------------------------------------------
      * Register google maps script
      * --------------------------------------------------------------------------
      *
@@ -194,22 +170,6 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
         ]);
 
     }elseif (is_page('contacto')){
-        register_assets('script', [
-            'handle'    => 'pandawp/js/component/form',
-            'src'       => $config['resources']['component_form'],
-            'deps'      => [ ],
-            'ver'       => $assets_version,
-            'in_footer' => true
-        ]);
-
-        register_assets('script', [
-            'handle'    => 'pandawp/js/component/map',
-            'src'       => $config['resources']['component_map'],
-            'deps'      => [],
-            'ver'       => $assets_version,
-            'in_footer' => true
-        ]);
-    
         register_assets('script', [
             'handle'    => 'api-google-maps',
             'src'       => $config['resources']['google_maps'],

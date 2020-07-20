@@ -11,26 +11,15 @@ export const store = new Vuex.Store({
 
     //Menu
     isActiveMenu: false,
-
-    //Browser
-    isActiveBrowserToggle: false
   },
   mutations: {
     setStatusMenu(state){
       state.isActiveMenu = !state.isActiveMenu
-    },
-
-    setStatusBrowserToggle(state){
-      state.isActiveBrowserToggle = !state.isActiveBrowserToggle
     },
   },
   actions: {
     updateStatusMenu: ({commit})=>{
       commit('setStatusMenu')
     },
-
-    updateStatusBrowserToggle: ({commit})=>{
-      commit('setStatusBrowserToggle')
-    }
   }
 })

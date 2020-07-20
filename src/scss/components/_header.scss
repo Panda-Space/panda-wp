@@ -23,12 +23,7 @@
 
     &__right {
       .c-menu {
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display: none;
       }
 
       .c-menu .menu-item > a {
@@ -72,6 +67,10 @@
     justify-content: flex-start;
 
     &__right {
+      .c-menu {
+        display: flex;
+      }
+
       .c-menu .menu-item {
         text-align: center;
       }
@@ -156,9 +155,16 @@
         .c-menu {
           opacity: 1;
           visibility: visible;
+          display: flex;
           flex-direction: row;
           justify-content: flex-start;
           height: 100%;
+        }
+
+        .c-menu .menu-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .c-menu .menu-item > a {
@@ -251,19 +257,6 @@
       visibility: hidden;
       opacity: 0;
       transform: translateY(-100%);
-    }
-  }
-
-  .c-header-desktop {
-    &--visible {
-      transform: translateY(0);
-
-      .c-header-top {
-        display: none;
-      }
-
-      opacity: 1;
-      visibility: visible;
     }
   }
 }
