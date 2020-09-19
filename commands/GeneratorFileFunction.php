@@ -65,9 +65,14 @@ class GeneratorFileFunction extends Command
             $this->compileFunctionFileStub()
         );
 
-        if( $this->type == 'post-type' ){
+        if ( $this->type == 'post-type' ){
             file_put_contents(
                 "app/views/single-{$this->filename}.twig",
+                $this->compileViewFileStub()
+            );
+        } elseif ( $this->type == 'taxonomy' ){
+            file_put_contents(
+                "app/views/archive-{$this->filename}s.twig",
                 $this->compileViewFileStub()
             );
         }

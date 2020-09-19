@@ -1,7 +1,7 @@
 {
   "entry": {
     "styles": [
-      "src/scss/wp_login_styles.scss",
+      "src/scss/core/*.scss",
       "src/scss/main.scss"
     ],
     "js": [
@@ -15,10 +15,10 @@
     "styles": "src/scss/**/*.scss",
     "js": "src/js/**/*.js",
     "images": "**/*.{jpg,jpeg,png,svg,ico}",
-    "php": "**/*.php",
+    "php": "app/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "localhost/pandawp",
+  "proxy": "localhost/panda",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",

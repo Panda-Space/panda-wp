@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'after_setup_theme', function() {
+add_action('after_setup_theme', function() {
     register_nav_menus([
         'primary-menu' => __( 'Menú Principal', 'pandawp' ),
         'social-menu'  => __( 'Menú Redes Sociales', 'pandawp' ),
@@ -28,7 +28,7 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'editor-styles' );
 });
 
-add_action( 'widgets_init', function () {
+add_action('widgets_init', function () {
     if ( WP_DEBUG ) {
         register_sidebar( array(
             'name'          => esc_html__( 'Sidebar', 'demo' ),
@@ -43,7 +43,13 @@ add_action( 'widgets_init', function () {
 });
 
 add_action('template_redirect', function () {
-   if ( is_author() ) {
-       wp_redirect(site_url(), 301);
-   }
+    if ( is_author() ) {
+        wp_redirect(site_url(), 301);
+    }
+});
+
+add_action('pre_get_posts', function($query) {
+    if ($query->is_category() || $query->is_tax()) {
+        set_query_var('posts_per_page', 1);
+    }
 });

@@ -1,18 +1,9 @@
 <?php
 
-$assets_version = '1595212022230';
+$assets_version = '1600498734431';
 $config = require get_theme_file_path('config/base.php');
 
 add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
-
-    $fa = [
-        'handle'    => 'pandawp/fontawesome/base',
-        'src'       =>  $config['resources']['fontawesome']['cdn']['base'],
-        'deps'      => [ ],
-        'ver'       => $assets_version,
-        'in_footer' => true
-    ];
-
     /**
      * --------------------------------------------------------------------------
      * Register Scripts
@@ -126,16 +117,8 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
             'deps'      => [ ],
             'ver'       => $assets_version,
             'in_footer' => true
-        ]);  
+        ]);   
 
-        register_assets('package', [
-            'handle'    => 'pandawp/package/vue_awesome_swiper',
-            'src'       => $config['resources']['package_vue_awesome_swiper'],
-            'deps'      => [ ],
-            'ver'       => $assets_version,
-            'in_footer' => true
-        ]);    
-    
         register_assets('package', [
             'handle'    => 'pandawp/package/fancyapps',
             'src'       => $config['resources']['package_fancyapps'],
@@ -169,13 +152,5 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
             'in_footer' => true
         ]);
 
-    }elseif (is_page('contacto')){
-        register_assets('script', [
-            'handle'    => 'api-google-maps',
-            'src'       => $config['resources']['google_maps'],
-            'deps'      => [],
-            'ver'       => $assets_version,
-            'in_footer' => true
-        ]);        
     }
 });

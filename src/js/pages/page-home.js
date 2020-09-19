@@ -13,6 +13,6 @@ const home = new Vue({
     ...baseState()
   },
   methods: {
-    ...baseActions()
+    ...baseActions(),
   }
 })

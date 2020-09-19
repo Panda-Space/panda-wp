@@ -47,24 +47,14 @@ add_filter('acf/settings/load_json', function ($paths) {
  *
  * */
 if( function_exists('acf_add_options_page') ) {
-
-    $pm_general_information = acf_add_options_page([
-        'page_title'      => 'Información General',
-        'menu_title'      => 'Información General',
-        'menu_slug'       => 'options-general',
-        'redirect'        => false, // true
-        'icon_url'        => 'dashicons-performance',
-        'update_button'   => __('Actulizar', 'acf'),
-        'updated_message' => __('Cambios Guardados exitosamente', 'acf')
-    ]);
-
-    acf_add_options_sub_page([
-        'page_title' 	  => 'Configuracion de contacto',
-        'menu_title' 	  => 'Contacto',
+    acf_add_options_page([
+        'page_title'      => 'Información',
+        'menu_title'      => 'Información',
         'menu_slug'       => 'options-contact',
-        'post_id'         => 'options-contact',
-        'parent_slug' 	  => $pm_general_information['menu_slug'],
-        'update_button'   => __('Actulizar', 'acf'),
-        'updated_message' => __('Cambios Guardados exitosamente', 'acf')
+        'redirect'        => false,
+        'icon_url'        => 'dashicons-phone',
+        'position'        => 3,
+        'update_button'   => __('Actualizar', 'acf'),
+        'updated_message' => __('Cambios guardados exitosamente', 'acf')
     ]);
 }

@@ -6,21 +6,16 @@ if (!isset($paged) || !$paged){
     $paged = 1;
 }
 
-$context = Timber::get_context();
+$category               = $wp_query->queried_object;
+$context                = Timber::get_context();
+$context['category']    = $category;
 
-//Category (tax)
-$category = $wp_query->queried_object;
-$context['category'] = $category;
-
-//Get Services
-$arg_articles = [
-    'post_type' => 'post',
+$context['products'] = new \Timber\PostQuery([
+    'post_type' => 'product',
     "posts_per_page" => 6,
     "paged" => $paged,    
     'tag' => $category->slug
-];
+]);
 
-$context['articles'] = new \Timber\PostQuery($arg_articles);
-
-Timber::render( 'page-blog.twig', $context ); 
+Timber::render( 'archive-products.twig', $context ); 
 

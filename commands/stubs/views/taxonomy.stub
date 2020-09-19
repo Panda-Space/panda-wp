@@ -1,15 +1,11 @@
 {% extends '_html.twig' %}
 
-{% block metas %}
-  {# --SEO-- #}
-{% endblock %}
-
 {% block hero %}
   {% include 'template-parts/hero.twig' %}
 {% endblock %}
 
 {% block content %}
-  <section class="c-section c-section--article">
-    <h1 class="text-center">Title</h1>
+  <section class="c-section padding-vertical-3">
+    <h1 class="text-center">Titulo</h1>
   </section>
 {% endblock %}
