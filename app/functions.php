@@ -12,9 +12,9 @@ array_map(function ($file) {
     require_once get_theme_file_path("functions/") . "{$file}.php";
 }, ['helpers', 'setup', 'enqueues', 'filters', 'acf', 'login', 'api/main']);
 
-// array_map(function ($file) {
-//     require_once get_theme_file_path("functions/") . "{$file}.php";
-// }, ['admin/pages/example/main']);
+array_map(function ($file) {
+    require_once get_theme_file_path("functions/") . "{$file}.php";
+}, ['admin/pages/example/main']);
 
 /**
  * --------------------------------------------------------------------------
