@@ -1,6 +1,6 @@
 <?php
 
 require_once(__DIR__ . "/config.php");
-require_once(__DIR__ . "/controllers/TicketController.php");
+require_once(__DIR__ . "/controllers/ParticipantController.php");
 
-new TicketController();
+new ParticipantController();

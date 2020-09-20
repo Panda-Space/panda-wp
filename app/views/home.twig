@@ -1,19 +1,249 @@
 {% extends '_html.twig' %}
 
-{% block hero %}
-  {% include 'template-parts/hero.twig' %}
-{% endblock %}
+{# {% block hero %} #}
+  {# {% include 'template-parts/hero.twig' %} #}
+{# {% endblock %} #}
 
 {% block content %}
   <section class="c-section c-section--home">
-    <div class="grid-container margin-bottom-2">
-      <h1 class="text-center padding-vertical-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="900">${title} <i class="icon-facebook"></i> </h1>
-      <div class="grid-x grid-margin-x grid-margin-y">
-        <div class="cell medium-6 large-4">
-          {% include "components/article.twig" %}
+    <div class="c-banner">
+      <img class="desktop width-100" src="{{ theme.link }}/static/images/banner.png">
+      <img class="mobile width-100" src="{{ theme.link }}/static/images/banner_mobile.png">
+    </div>
+    <div class="c-slider">
+      <img class="desktop width-100" src="{{ theme.link }}/static/images/slider_banner.png">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="width-100" src="{{ theme.link }}/static/images/slider_banner_1.png">
+          </div>
+          <div class="swiper-slide">
+            <img class="width-100" src="{{ theme.link }}/static/images/slider_banner_2.png">
+            
+          </div>
+          <div class="swiper-slide">
+            <img class="width-100" src="{{ theme.link }}/static/images/slider_banner_3.png">            
+          </div>
         </div>
-      </div>       
+        <!-- Add Arrows -->
+        <div class="swiper-button-next arrow"></div>
+        <div class="swiper-button-prev arrow"></div>
+      </div>
+    </div>
+
+    <div class="c-steps">
+      <div class="grid-container">
+        <img class="desktop width-100" src="{{ theme.link }}/static/images/steps.png">
+        <img class="mobile width-100" src="{{ theme.link }}/static/images/steps_mobile.png">
+        <a href="#form" class="c-steps__link"></a>
+      </div>
+    </div>
+    <div class="c-premios">
+      <div class="grid-container">
+        <img class="desktop width-100" src="{{ theme.link }}/static/images/premios.png">
+        <img class="mobile width-100" src="{{ theme.link }}/static/images/premios_mobile.png">
+      </div>
+    </div>
+    <div id="form" class="c-form-container padding-2 text-center ">
+      <h1 class="margin-bottom-2">Registra tus datos para participar<h1>
+      <div class="grid-container">
+        <form @submit="saveParticipant" class="grid-x grid-margin-x grid-margin-y">
+          <div class="c-inputContainer cell large-6">
+            <label>Nombres</label>
+            <input v-model="participant.values.firstname.value" type="text">
+            <p v-if="isWrongField('firstname')" class="margin-0 fs-14 w-regular">
+              Nombres incorrectos
+            </p>
+          </div>
+          <div class="c-inputContainer cell large-6">
+            <label>Apellidos</label>
+            <input v-model="participant.values.lastname.value" type="text">
+            <p v-if="isWrongField('lastname')" class="margin-0 fs-14 w-regular">
+              Apellidos incorrectos
+            </p>            
+          </div>
+          <div class="c-inputContainer cell large-6">
+            <label>DNI</label>
+            <input v-model="participant.values.dni.value" type="text">
+            <p v-if="isWrongField('dni')" class="margin-0 fs-14 w-regular">
+              DNI incorrecto
+            </p>           
+          </div>
+          <div class="c-inputContainer cell large-6">
+            <label>Correo</label>
+            <input v-model="participant.values.email.value" type="text">
+            <p v-if="isWrongField('email')" class="margin-0 fs-14 w-regular">
+              Correo electrónico incorrecto
+            </p>            
+          </div>
+          <div class="c-inputContainer cell medium-6 large-4">
+            <label>Celular</label>
+            <input v-model="participant.values.mobile.value" type="tel">
+            <p v-if="isWrongField('mobile')" class="margin-0 fs-14 w-regular">
+              Celular incorrecto
+            </p>            
+          </div>
+          <div class="c-inputContainer cell medium-6 large-4 c-inputContainer--select">
+            <label>Operador</label>
+            <select v-model="participant.values.mobileOperator.value">
+              <option value="" disabled>Selecciona una opción</option>
+              <option>Claro</option>
+              <option>Movistar</option>
+              <option>Entel</option>
+              <option>Bitel</option>
+            </select>
+            <p v-if="isWrongField('mobileOperator')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>            
+          </div>
+          <div class="c-inputContainer cell medium-12  large-4 c-inputContainer--select">
+            <label>Modalidad</label>
+            <select v-model="participant.values.mobileModality.value">
+              <option value="" disabled>Selecciona una opción</option>
+              <option>Postpago</option>
+              <option>Prepago</option>
+            </select>
+            <p v-if="isWrongField('mobileModality')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>
+          </div>
+          <div class="c-inputContainer cell medium-12 large-4 c-inputContainer--select">
+            <label>Departamento</label>
+            <select v-model="participant.values.department.value" @change="getProvincias">
+              <option value="" disabled>Selecciona una opción</option>
+              <option v-for="dep of departamentos" :key="dep.id" :value="dep.nombre_ubigeo" >
+                ${dep.nombre_ubigeo}
+              </option>
+            </select>
+            <p v-if="isWrongField('department')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>
+          </div>
+          <div class="c-inputContainer cell medium-6 large-4 c-inputContainer--select">
+            <label>Provincia</label>
+            <select v-model="participant.values.province.value" @change="getDistritos">
+              <option value="" disabled>Selecciona una opción</option>
+              <option v-for="prov of provincias" :key="prov.id" :value="prov.nombre_ubigeo" >
+                ${prov.nombre_ubigeo}
+              </option>
+            </select>
+            <p v-if="isWrongField('province')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>
+          </div> 
+          <div class="c-inputContainer cell medium-6 large-4 c-inputContainer--select">
+            <label>Distrito</label>
+            <select v-model="participant.values.district.value">
+              <option value="" disabled>Selecciona una opción</option>
+              <option v-for="dis of distritos" :key="dis.id" :value="dis.nombre_ubigeo" >
+                ${dis.nombre_ubigeo}
+              </option>
+            </select>
+            <p v-if="isWrongField('district')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>
+          </div> 
+          <div class="c-inputContainer cell medium-6 large-4 c-inputContainer--select">
+            <label>Producto comprado</label>
+            <select v-model="participant.values.product.value">
+              <option value="" disabled>Selecciona una opción</option>
+
+              {% for product in products %}
+                <option value="product">{{product}}</option>
+              {% endfor %}
+            </select>
+            <p v-if="isWrongField('product')" class="margin-0 fs-14 w-regular">
+              Seleccione una opción
+            </p>
+          </div> 
+          <div class="c-inputContainer cell medium-6 large-4">
+            <label> Fecha de compra</label>
+            <input v-model="participant.values.dateBuy.value" type="date">
+            <p v-if="isWrongField('dateBuy')" class="margin-0 fs-14 w-regular">
+              Fecha invalida
+            </p>
+          </div>
+          <div class="c-inputContainer cell medium-12 large-4 c-inputContainer--file">
+            <label>Adjuntar voucher de compra</label>
+            <div class="position-relative">
+              <input type="file" @change="changeInvoiceFile" accept=".jpg,.jpeg,.png,.PNG">
+              <span class="file-centinel position-absolute width-100 heigth-100">
+                ${(participant.values.invoiceFile.name) ? participant.values.invoiceFile.name : 'Click para adjuntar'}
+              </span>
+            </div>
+            <p v-if="isWrongField('invoiceFile')" class="margin-0 fs-14 w-regular">
+              Debe adjuntar un voucher
+            </p>
+          </div>
+          <div class="c-inputContainer cell large-12 c-inputContainer--checkbox">
+            <div class="flex-container align-center-middle">
+              <input v-model="participant.values.terms" class="margin-0" type="checkbox"><label>Acepto los <span data-toggle="modal" data-target="#modal_terminos">Términos y Condiciones</span></label>              
+            </div>
+            <p v-if="isWrongField('terms', false)" class="margin-0 fs-14 w-regular">
+              Debe aceptar los términos
+            </p>
+            <div class="flex-container align-center-middle margin-top-1">
+              <input v-model="participant.values.politics" class="margin-0" type="checkbox"><label>Acepto las <span data-toggle="modal" data-target="#modal_politicas">Políticas de Privacidad</span></label>              
+            </div>
+            <p v-if="isWrongField('politics', false)" class="margin-0 fs-14 w-regular">
+              Debe aceptar las politicas
+            </p>
+          </div> 
+          <div class="c-inputContainer cell large-12 text-center">
+            <button>Enviar</button>
+          </div>       
+        </form>
+      </div>
+    </div>
+    <div class="c-banner-finale">
+      <img class="width-100" src="{{ theme.link }}/static/images/banner_finale.png">
+    </div>
+
+    <div class="c-message width-100 height-100 flex-container align-center-middle padding-1">
+      <div class="c-message__content text-center ">
+        <h4 class="margin-0">Mensaje de Registro</h4>
+        <p class="margin-0">
+          lorem lorem lore 
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal Terminos-->
+    <div class="modal fade" id="modal_terminos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Términos y Condiciones</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Modal Políticas -->
+    <div class="modal fade" id="modal_politicas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Políticas de Privacidad</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 {% endblock %}
-

@@ -2,7 +2,7 @@
 
 use Timber\Timber;
 
-class TicketModel{    
+class ParticipantModel{    
     public function __construct(){
 
     }
@@ -29,32 +29,41 @@ class TicketModel{
         }
     }
 
-    public static function save($request){
-        $tickets = true;
-
-        for ($i=0; $i < $request['count']; $i++) { 
-            $tickets =  DBConnection::getConnection()->query("
-                INSERT INTO
-                    wp_tickets(
-                        date_at,
-                        user,
-                        competition,
-                        package,
-                        price,
-                        discount
-                    ) 
-                VALUES(
-                    '". date("Y-m-d G:i:s") ."',
-                    '". $request['user'] ."',
-                    '". $request['competitionId'] ."',
-                    '". $request['count'] ."',
-                    '". $request['price'] ."',
-                    '". $request['discount'] ."'
-                )
-            ");
-        }
-
-        return $tickets;
+    public static function save($request, $filename){
+        return DBConnection::getConnection()->query("
+            INSERT INTO 
+                wp_participants(
+                    date_at,
+                    firstname,
+                    lastname,
+                    dni,
+                    mobile,
+                    mobileOperator,
+                    mobileModality,
+                    email,
+                    department,
+                    district,
+                    province,
+                    dateBuy,
+                    product,
+                    invoice_file)
+            VALUES(
+                '". date("Y-m-d G:i:s") ."',
+                '". $request['firstname'] ."',
+                '". $request['lastname'] ."',
+                '". $request['dni'] ."',
+                '". $request['mobile'] ."',
+                '". $request['mobileOperator'] ."',
+                '". $request['mobileModality'] ."',
+                '". $request['email'] ."',
+                '". $request['department'] ."',
+                '". $request['district'] ."',
+                '". $request['province'] ."',
+                '". $request['dateBuy'] ."',
+                '". $request['product'] ."',
+                '". $filename ."'
+            )
+        ");
     }
 
     public static function getByPage($page){
