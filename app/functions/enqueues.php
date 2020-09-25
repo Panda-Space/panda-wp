@@ -1,7 +1,18 @@
 <?php
 
-$assets_version = '1600498734431';
-$config = require get_theme_file_path('config/base.php');
+
+function __getResourceURL($type, $resource){
+    $staticDir  = (ENV['STAGE'] == 'dev') ? 'temp/' : '';
+
+    if ($type == 'css') {
+        return "/static/{$staticDir}css/{$resource}";
+    } elseif ($type == 'js') {
+        return "/static/{$staticDir}js/{$resource}";
+    }
+}
+
+$assets_version = '1601008316094';
+$config         = require_once(get_theme_file_path('config/base.php'));
 
 add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
     /**

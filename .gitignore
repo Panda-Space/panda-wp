@@ -31,3 +31,6 @@ bundled/
 *.lock
 package-lock.json
 .env
+.env.php
+app/static/temp/*
+
