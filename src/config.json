@@ -18,7 +18,7 @@
     "php": "app/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "lg-vea.local",
+  "proxy": "localhost/panda",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",
