@@ -9,10 +9,13 @@
         }
     ],
     "require": {
-        "timber/timber": "^1.10"
+        "timber/timber": "^1.10",
+        "kint-php/kint": "^3.3",
+        "illuminate/database": "^7.28",
+        "phpoffice/phpspreadsheet": "^1.14"
     },
     "require-dev": {
-        "symfony/console": "^4.0"              
+        "symfony/console": "^5.0"              
     },
     "autoload": {
         "psr-4": {

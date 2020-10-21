@@ -20,7 +20,6 @@ class ExampleOptionPage {
     }
 
     public function create_admin_page() {
-        include_once __DIR__.'/../assets/enqueue.php';
         include_once __DIR__.'/view.php';
     }
     

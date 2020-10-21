@@ -2,6 +2,8 @@
 
 require_once( __DIR__ . '/../vendor/autoload.php' );
 
+define('ENV', require(__DIR__ . '/../.env.php'));
+
 /**
  * --------------------------------------------------------------------------
  * Functions
