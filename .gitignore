@@ -33,3 +33,7 @@ package-lock.json
 .env
 .env.php
 app/static/temp/*
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ce53f4dbb1ed0e40cf7b29157577febf58b766e
