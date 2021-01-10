@@ -10,7 +10,7 @@ function __getResourceURL($type, $resource){
     }
 }
 
-$assets_version = '1610266884563';
+$assets_version = '1610267089589';
 $config         = require get_theme_file_path('config/base.php');
 
 function __enqueueGlobalPackges($config, $assets_version) {
