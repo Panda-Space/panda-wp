@@ -2,15 +2,8 @@
 
 use Timber\Timber;
 
+$context = Timber::get_context();
 
-$text = $_GET['s'];
-$args = [
-    's' => $text
-];
+addContextVariables($context);
 
-$context           = Timber::get_context();
-$context['result'] = get_search_query();
-$context['post']   = Timber::get_post();
-$context['posts']  = Timber::get_posts($args);
-
-Timber::render( 'search.twig', $context );
+Timber::render('app.twig', $context);

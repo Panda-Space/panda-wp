@@ -5,9 +5,7 @@
       "src/scss/main.scss"
     ],
     "js": [
-      "src/js/galleries.js",
       "src/js/main.js",
-      "src/js/pages/*.js",
       "src/js/core/pages/*.js"
     ]
   },
@@ -15,11 +13,12 @@
   "globalResources": {
     "styles": "src/scss/**/*.scss",
     "js": "src/js/**/*.js",
+    "vue": "src/js/**/*.vue",
     "images": "**/*.{jpg,jpeg,png,svg,ico}",
     "php": "app/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "localhost/panda",
+  "proxy": "panda.site",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",

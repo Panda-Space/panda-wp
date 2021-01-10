@@ -4,10 +4,9 @@
 
 ##  Plugins:
 - ACF
-- Contact Form 7 (Sometimes)
-
 ##  Packages:
 - jquery
+- vue
 - foundation-sites
 - @fancyapps/fancybox
 - swiper
@@ -25,4 +24,9 @@ $ npm run start
 * For Production
 ````bash
 $ npm run build
+````
+
+* Install fonts
+````bash
+$ npm run font:install
 ````

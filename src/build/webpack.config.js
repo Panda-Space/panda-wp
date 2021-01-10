@@ -1,14 +1,12 @@
 const webpack = require('webpack')
-const merge = require('merge')
 const yargs = require('yargs')
 
 const env = yargs.argv.env
 const configDev = require('./webpack.dev')
 const configProd = require('./webpack.prod')
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const config = {
-
   mode: env,
 
   output: {
@@ -17,19 +15,12 @@ const config = {
   },
 
   optimization: {
-    splitChunks: { 
+    splitChunks: {
       cacheGroups: {
-        vendors(module) {
-          if (module.context) {
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)
-            if (packageName) {
-              return {
-                test: `/[\\/]node_modules[\\/]${ packageName[1] }[\\/]/`,
-                name: `package.${packageName[1].replace('@', '')}`,
-                chunks: "all"
-              }
-            }
-          }
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
         }
       }
     }
@@ -41,6 +32,10 @@ const config = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -48,6 +43,7 @@ const config = {
   target: 'web',
 
   resolve: {
+    extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -58,18 +54,22 @@ const config = {
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery"
-    })
+    }),
+    new VueLoaderPlugin()
   ],
-
-  externals: {
-    jquery: 'jQuery'
-  }
 };
 
 if( env === 'development' ) {
-  module.exports = merge(config, configDev)
+  module.exports = {
+    ...config,
+    ...configDev
+  }
 }
 
 if ( env === 'production' ) {
-  module.exports = merge(config, configProd)
+  module.exports = {
+    ...config,
+    ...configProd,
+    plugins: [...config.plugins, ...configProd.plugins]
+  }
 }

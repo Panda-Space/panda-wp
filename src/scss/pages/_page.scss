@@ -1,5 +1,11 @@
 .c-section {
   outline: none;
+
+  &__title {
+    font-size: $fs-25;
+    color: $black;
+    font-weight: $bold-font;
+  }
 }
 
 @include breakpoint(large) {

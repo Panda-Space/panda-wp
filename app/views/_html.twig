@@ -11,21 +11,7 @@
   </head>
 
   <body>
-    <main id="app" data-site="{{site.url}}" data-theme="{{theme.link}}" class="c-main">
-      {% block hero %}
-        {# Content #}
-      {% endblock %}
-
-      {% block content %}
-        {# Content #}
-      {% endblock %}
-
-      {% block footer %}
-        {% include "_html-footer.twig" %}
-
-        {# Content #}
-      {% endblock %}
-    </main>
+    <main id="app" class="c-main"></main>
 
     {{ function('wp_footer') }}
   </body>

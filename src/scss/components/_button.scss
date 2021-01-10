@@ -1,18 +1,29 @@
 .c-button {
   font-size: $fs-16;
   padding: 0.7rem 1rem;
+  display: inline-block;
 
-  @include b-radious(10px);
+  @include b-radious(5px);
   @include transition(0.2s);
 
-  &:hover {
-    transform: translateY(-0.35rem);
-  }
-
   &--primary {
+    background-color: $primary-color;
+    color: $white;
+
     &:hover,
     &:focus {
+      background-color: $primary-alt;
       color: $white;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    color: $primary-color;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
     }
   }
 }

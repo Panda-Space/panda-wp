@@ -13,6 +13,7 @@ $secondary-colors: (
 );
 
 $gray-colors: (
+  'color': $gray,
   'light': $light-gray,
   'medium': $medium-gray,
   'dark': $dark-gray,
@@ -127,6 +128,10 @@ $font-families: (
 //5. etc
 // --------------
 .br {
+  &--small {
+    border-radius: 5px;
+  }
+
   &--medium {
     border-radius: 10px;
   }

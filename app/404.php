@@ -2,7 +2,8 @@
 
 use Timber\Timber;
 
-
 $context = Timber::get_context();
 
-Timber::render( '404.twig', $context );
+addContextVariables($context);
+
+Timber::render('app.twig', $context);

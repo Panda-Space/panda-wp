@@ -1,5 +1,4 @@
 const configDev = {
-  plugins: [],
   stats: {
     // assets: false,
     hash: false,

@@ -8,7 +8,6 @@ import postcss from 'gulp-postcss'
 import sourcemaps from 'gulp-sourcemaps'
 import gulpStylelint from 'gulp-stylelint'
 import cssImport from 'gulp-cssimport'
-import zip from "gulp-zip";
 
 import yargs from 'yargs'
 import named from 'vinyl-named'
@@ -19,7 +18,6 @@ import browserSync from "browser-sync";
 
 import webpackConfig from './src/build/webpack.config'
 import config from './src/config'
-import info from "./package.json";
 
 const env = yargs.argv.env
 const publicPath = (folder = '') => {
@@ -99,6 +97,7 @@ export const watchForChanges = () => {
   watch([config.globalResources.styles], parallel(styles, lintCss))
   watch(config.ignoreFoldersDevelopment, series(reload))
   watch([config.globalResources.js], series(scripts, reload))
+  watch([config.globalResources.vue], series(scripts, reload))
   watch([config.globalResources.images], reload);
   watch([config.globalResources.php], reload);
   watch([config.globalResources.twig], reload);

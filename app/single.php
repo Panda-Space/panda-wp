@@ -2,21 +2,13 @@
 
 use Timber\Timber;
 
-$context         = Timber::get_context();
-$context['post'] = Timber::get_post();
+$context            = Timber::get_context();
+$context['post']    = Timber::get_post();
 
-$templates = [
-    'single-' . $post->post_type . '.twig',
-    'single.twig'
-];
+$context['post']->title;
+$context['post']->thumbnail->src;
+$context['post']->content;
 
-$args_other_articles = [
-    "post_type" => "post",
-    "posts_per_page" => 3,
-    "post__not_in" => [$post->ID],
-    "orderby" => "rand"
-];
+addContextVariables($context);
 
-$context['other_articles'] = new \Timber\PostQuery($args_other_articles);
-
-Timber::render( $templates, $context );
+Timber::render('single.twig', $context);

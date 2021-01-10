@@ -5,11 +5,10 @@
 
 use Timber\Timber;
 
-if (!isset($paged) || !$paged){
-    $paged = 1;
-}
+$context                = Timber::get_context();
+$context['post']        = Timber::get_post();
+$context['acf_field']   = 'Hi world!!';
 
-$context         = Timber::get_context();
-$context['post'] = Timber::get_post();
+addContextVariables($context);
 
-Timber::render('page.twig', $context);
+Timber::render('app.twig', $context);

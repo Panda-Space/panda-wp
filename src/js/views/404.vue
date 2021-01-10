@@ -1,10 +1,4 @@
-{% extends '_html.twig' %}
-
-{% block hero %}
-  {% include 'template-parts/hero.twig' %}
-{% endblock %}
-
-{% block content %}
+<template>
   <section class="c-section c-section--404">
     <div class="grid-container padding-vertical-3">
       <h1 class="c-section-content-title text-center pri-color w-sbold margin-bottom-1">Error 404</h1>
@@ -16,11 +10,19 @@
           1. primary-color     
         -->
         <figure class="c-pic">
-          <img src="{{theme.link}}/static/images/404.png" alt="">
+          <img :src="`${ context.theme.uri }/static/images/404.png`" alt="">
         </figure>
       </div>
     </div>
   </section>
-{% endblock %}
+</template>
 
-
+<script>
+export default {
+  data() {
+    return {
+      context: {...panda},
+    }
+  },
+}
+</script>

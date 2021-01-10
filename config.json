@@ -38,7 +38,7 @@
     },
     {
       "uid": "47a1f80457068fbeab69fdb83d7d0817",
-      "css": "youtube-play",
+      "css": "youtube",
       "code": 61802,
       "src": "fontawesome"
     },
@@ -53,6 +53,18 @@
       "css": "linkedin",
       "code": 61665,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c21d309f797d3644dc8d28c4617738ce",
+      "css": "arrow-left",
+      "code": 59394,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "1d35198f5190ec004dd4ec742fbe19ca",
+      "css": "arrow-right",
+      "code": 59395,
+      "src": "mfglabs"
     }
   ]
 }
