@@ -7,6 +7,12 @@ import AOS from 'aos';
 
 AOS.init();
 
+Vue.mixin({
+  methods: {
+    asset: (file) => `${ panda.assets }/${ file }?key=${ panda.vertion }`
+  }
+})
+
 new Vue({
   router,
   store,

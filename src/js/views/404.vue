@@ -10,7 +10,7 @@
           1. primary-color     
         -->
         <figure class="c-pic">
-          <img :src="`${ context.theme.uri }/static/images/404.png`" alt="">
+          <img :src="`${ context.assets }/images/404.png`" alt="">
         </figure>
       </div>
     </div>

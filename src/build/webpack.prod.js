@@ -4,13 +4,13 @@ const configProd = {
   plugins: [
     new ReplaceInFileWebpackPlugin([
       {
-        dir: 'app/functions',
-        files: ['enqueues.php'],
+        dir: 'app/config',
+        files: ['base.php'],
         rules: [
           {
-            search: new RegExp("version = '[0-9a-zA-Z]+'"),
+            search: new RegExp("'vertion' => '[0-9a-zA-Z]+'"),
             replace: function(match){
-              return `version = '${Date.now()}'`
+              return `'vertion' => '${Date.now()}'`
             }
           }
         ]

@@ -8,6 +8,7 @@ import postcss from 'gulp-postcss'
 import sourcemaps from 'gulp-sourcemaps'
 import gulpStylelint from 'gulp-stylelint'
 import cssImport from 'gulp-cssimport'
+import imagemin from 'gulp-imagemin'
 
 import yargs from 'yargs'
 import named from 'vinyl-named'
@@ -84,21 +85,38 @@ export const scripts = () => {
     .pipe(dest(publicPath('js')))
 }
 
+/*
+ * Images
+ * */
+export const images = () => {
+  return src(config.entry.images)
+    .pipe(imagemin())
+    .pipe(dest(publicPath('images')))
+}
+
+/*
+ * Fonts
+ * */
+export const fonts = () => {
+  return src(config.entry.fonts)
+    .pipe(dest(publicPath('fonts')))
+}
 
 /*
  * Clean
  * */
-export const clean = () => del([publicPath('css'), publicPath('js')])
+export const clean = () => del( [publicPath('css'), publicPath('js'), publicPath('images'), publicPath('fonts')] )
 
 /*
  * Watch
  * */
 export const watchForChanges = () => {
-  watch([config.globalResources.styles], parallel(styles, lintCss))
   watch(config.ignoreFoldersDevelopment, series(reload))
+  watch([config.globalResources.styles], parallel(styles, lintCss))
   watch([config.globalResources.js], series(scripts, reload))
   watch([config.globalResources.vue], series(scripts, reload))
-  watch([config.globalResources.images], reload);
+  watch([config.globalResources.images], series(images, reload));
+  watch([config.globalResources.fonts], series(fonts, reload));
   watch([config.globalResources.php], reload);
   watch([config.globalResources.twig], reload);
 }
@@ -106,7 +124,7 @@ export const watchForChanges = () => {
 /*
  * Compilation
  * */
-export const dev = series(clean, parallel(styles, scripts), lintCss, serve, watchForChanges)
-export const build = series(clean, parallel(styles, scripts))
+export const dev = series(clean, parallel(styles, scripts, images, fonts), lintCss, serve, watchForChanges)
+export const build = series(clean, parallel(styles, scripts, images, fonts))
 
 export default dev

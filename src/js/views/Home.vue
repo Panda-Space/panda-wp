@@ -17,8 +17,8 @@
       </div>
       <div class="grid-x grid-margin-x grid-margin-y">
         <div class="cell large-4">
-          <a :href="`${ context.theme.uri }/static/images/example.jpg`" data-fancybox="gallery-main">
-            <img :src="`${ context.theme.uri }/static/images/example.jpg`" alt="">
+          <a :href="asset('images/example.jpg')" data-fancybox="gallery-main">
+            <img :src="asset('images/example.jpg')" alt="">
           </a>
         </div>
       </div>

@@ -7,6 +7,12 @@
     "js": [
       "src/js/main.js",
       "src/js/core/pages/*.js"
+    ],
+    "images": [
+      "src/images/**/*"
+    ],
+    "fonts": [
+      "src/fonts/**/*"
     ]
   },
   "publicPath": "app/static",
@@ -14,7 +20,8 @@
     "styles": "src/scss/**/*.scss",
     "js": "src/js/**/*.js",
     "vue": "src/js/**/*.vue",
-    "images": "**/*.{jpg,jpeg,png,svg,ico}",
+    "images": "src/images/**/*.{jpg,jpeg,png,svg,ico}",
+    "fonts": "src/fonts/**/*.{ttf,otf,eot,woff,woff2,svg}",
     "php": "app/*.php",
     "twig": "**/*.twig"
   },

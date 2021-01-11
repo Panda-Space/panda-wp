@@ -7,7 +7,7 @@
   "scripts": {
     "start": "gulp --env=development",
     "build": "gulp build --env=production",
-    "font:install": "rm -Rf app/static/fonts/fontello/* && fontello-cli install && mv fontello-*/font/* app/static/fonts/fontello && mv fontello-*/css/fontello.css src/scss/icons/ && rm -Rf fontello-*"
+    "font:install": "rm -Rf src/fonts/fontello/* && fontello-cli install && mv fontello-*/font/* src/fonts/fontello && mv fontello-*/css/fontello.css src/scss/icons/ && rm -Rf fontello-*"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -18,7 +18,7 @@
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
-    "fontello-cli": "^0.5.0",
+    "fontello-cli": "^0.6.2",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-cssimport": "^7.0.0",

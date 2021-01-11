@@ -4,7 +4,7 @@ $GOOGLE_API_KEY = '***************************************';
 $FONTS_FAMILIES = 'Mulish:wght@400;500;600;700;800'; /* Should be empty for non used */
 
 return [
-    'GOOGLE_API_KEY' => $GOOGLE_API_KEY,
+    'GOOGLE_API_KEY'    => $GOOGLE_API_KEY,
 
     'resources' => [
         /**
@@ -33,5 +33,6 @@ return [
         'wp_example' => get_theme_file_uri(__getResourceURL('js', 'wp_example.bundle.js')),
 
         'script_main'       => get_theme_file_uri(__getResourceURL('js', 'main.bundle.js')),
-    ]
+    ],
+    'vertion' => '1610337233454',
 ];

@@ -36,7 +36,7 @@ const config = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
-      }
+      },
     ]
   },
 

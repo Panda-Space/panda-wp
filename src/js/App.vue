@@ -11,6 +11,8 @@
 </template>
 
 <script>
+
+
 import Header from './components/header/Main.vue';
 import HeaderMobile from './components/header/Mobile.vue';
 import Toggle from './components/header/Toggle.vue';

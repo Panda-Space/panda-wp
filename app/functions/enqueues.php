@@ -10,33 +10,32 @@ function __getResourceURL($type, $resource){
     }
 }
 
-$assets_version = '1610267089589';
-$config         = require get_theme_file_path('config/base.php');
+$config = require get_theme_file_path('config/base.php');
 
-function __enqueueGlobalPackges($config, $assets_version) {
+function __enqueueGlobalPackages($config) {
     register_assets('package', [
         'handle'    => 'pandawp/base/vendors',
         'src'       => $config['resources']['vendors'],
         'deps'      => [ ],
-        'ver'       => $assets_version,
+        'ver'       => $config['vertion'],
         'in_footer' => true
     ]);
 };
 
-add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
+add_action( 'wp_enqueue_scripts', function () use ($config) {
     /**
      * --------------------------------------------------------------------------
      * Register Scripts
      * --------------------------------------------------------------------------
      *
      */
-    __enqueueGlobalPackges($config, $assets_version);
+    __enqueueGlobalPackages($config);
 
     register_assets('script', [
         'handle'    => 'pandawp/script/main',
         'src'       => $config['resources']['script_main'],
         'deps'      => [ ],
-        'ver'       => $assets_version,
+        'ver'       => $config['vertion'],
         'in_footer' => true
     ]);
 
@@ -50,7 +49,7 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
         'handle' => 'pandawp/google/font',
         'src'    => $config['resources']['google_fonts'],
         'deps'   => [ ],
-        'ver'    => $assets_version,
+        'ver'    => $config['vertion'],
         'media'  => 'all'
     ]);
 
@@ -58,7 +57,7 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
         'handle' => 'pandawp/style/main',
         'src'    => $config['resources']['style_main'],
         'deps'   => [ ],
-        'ver'    => $assets_version,
+        'ver'    => $config['vertion'],
         'media'  => 'all'
     ]);
 
@@ -87,26 +86,26 @@ add_action( 'wp_enqueue_scripts', function () use ($config, $assets_version) {
     setContextVariables();
 });
 
-add_action( 'admin_head', function() use ($config, $assets_version) {
+add_action( 'admin_head', function() use ($config) {
     $current = get_current_screen();
 
     register_assets('style', [
         'handle' => 'pandawp/style/admin',
         'src'    => $config['resources']['style_admin'],
         'deps'   => [ ],
-        'ver'    => $assets_version,
+        'ver'    => $config['vertion'],
         'media'  => 'all'
     ]);
 
     switch ($current->base) {
         case 'toplevel_page_examples': {
-                __enqueueGlobalPackges($config, $assets_version);
+                __enqueueGlobalPackages($config);
 
                 register_assets('script', [
                     'handle'    => 'pandawp/wp/example',
                     'src'       =>  $config['resources']['wp_example'],
                     'deps'      => [ ],
-                    'ver'       => $assets_version,
+                    'ver'       => $config['vertion'],
                     'in_footer' => true
                 ]); 
 

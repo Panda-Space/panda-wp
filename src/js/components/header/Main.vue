@@ -5,7 +5,7 @@
         <div class="c-nav__left flex-container align-center-middle">
           <figure class="c-brand c-brand--normal flex-container align-center-middle">
             <a class="c-brand__link" :href="context.site.url">
-              <img class="c-brand__image" :src="`${ context.theme.uri }/static/images/logo.png`" alt="Panda WP - Logo" />
+              <img class="c-brand__image" :src="asset('images/logo.png')" alt="Panda WP - Logo" />
             </a>
           </figure>    
         </div>
