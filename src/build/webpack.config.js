@@ -1,3 +1,5 @@
+import config from '../config';
+
 const webpack = require('webpack')
 const yargs = require('yargs')
 
@@ -6,12 +8,12 @@ const configDev = require('./webpack.dev')
 const configProd = require('./webpack.prod')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const config = {
+const baseConfig = {
   mode: env,
-
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
+    publicPath: (env == 'development') ? `/wp-content/themes/${ config.theme }/${ config.publicPath }/temp/js/` : `/wp-content/themes/${ config.theme }/${ config.publicPath }/js/`,
   },
 
   optimization: {
@@ -61,15 +63,15 @@ const config = {
 
 if( env === 'development' ) {
   module.exports = {
-    ...config,
+    ...baseConfig,
     ...configDev
   }
 }
 
 if ( env === 'production' ) {
   module.exports = {
-    ...config,
+    ...baseConfig,
     ...configProd,
-    plugins: [...config.plugins, ...configProd.plugins]
+    plugins: [...baseConfig.plugins, ...configProd.plugins]
   }
 }

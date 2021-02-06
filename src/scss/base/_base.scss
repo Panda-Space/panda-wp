@@ -17,7 +17,19 @@ body {
   overflow-x: hidden;
 }
 
-//Fancybox
+/* Fancybox */
 body.compensate-for-scrollbar {
   overflow-y: auto !important;
+}
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.3s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
 }
