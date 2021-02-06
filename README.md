@@ -47,23 +47,18 @@ $ npm run font:install
 * For Development
 
 ````bash
-
 $ npm run start
 
 ````
-
 * For Production
 
 ````bash
-
 $ npm run build
 
 ````
-
 * Install fonts
 
 ````bash
-
 $ npm run font:install
 
 ````
