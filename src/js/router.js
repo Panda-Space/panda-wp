@@ -3,27 +3,25 @@ import Router from 'vue-router';
 
 Vue.use(Router)
 
-import Home from './views/Home.vue';
-import Blog from './views/Blog.vue';
-// import Archive from './views/Archive.vue';
-import Article from './views/Article.vue';
-import Search from './views/Search.vue';
-import Error404 from './views/404.vue';
-
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: Home },
+    { path: '/', component: import(/* webpackChunkName: "home" */'./views/Home.vue') },
     { path: '/about', component: () => import(/* webpackChunkName: "about" */'./views/Example.vue') },
     {
       path: '/blog',
       component: Blog,
       children: [
-        {path: 'page/:page_index', component: Blog},
+        {path: 'page/:page_index', component: import(/* webpackChunkName: "blog" */'./views/Blog.vue')},
       ]
     },
-    { path: '/blog/:article_slug', component: (panda.body_class == 'error404') ? Error404 : Article },
-    { path: '/search', component: Search },
-    { path: '*', component: Error404 },
+    { 
+      path: '/blog/:article_slug',
+      component: (panda.body_class == 'error404')
+        ? import(/* webpackChunkName: "error404" */'./views/404.vue')
+        : import(/* webpackChunkName: "article" */'./views/Article.vue')
+    },
+    { path: '/search', component: import(/* webpackChunkName: "search" */'./views/Search.vue') },
+    { path: '*', component: import(/* webpackChunkName: "error404" */'./views/404.vue') },
   ],
 })
