@@ -33,3 +33,12 @@ body.compensate-for-scrollbar {
     opacity: 0;
   }
 }
+
+.v-lazy-image {
+  filter: blur(20px) grayscale(100%);
+  transition: filter 0.7s;
+
+  &-loaded {
+    filter: blur(0) grayscale(0);
+  }
+}

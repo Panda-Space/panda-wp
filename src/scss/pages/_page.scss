@@ -6,6 +6,10 @@
     color: $black;
     font-weight: $bold-font;
   }
+
+  .c-card-image {
+    height: 200px;
+  }
 }
 
 @include breakpoint(large) {
