@@ -6,11 +6,11 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: import(/* webpackChunkName: "home" */'./views/Home.vue') },
+    { path: '/', component: () => import(/* webpackChunkName: "home" */'./views/Home.vue') },
     { path: '/about', component: () => import(/* webpackChunkName: "about" */'./views/Example.vue') },
     {
       path: '/blog',
-      component: Blog,
+      component: () => import(/* webpackChunkName: "blog" */'./views/Blog.vue'),
       children: [
         {path: 'page/:page_index', component: import(/* webpackChunkName: "blog" */'./views/Blog.vue')},
       ]
