@@ -12,6 +12,16 @@ function __getResourceURL($type, $resource){
 
 $config = require get_theme_file_path('config/base.php');
 
+function __removeGlobalPackages() {
+    wp_dequeue_script('wp-embed'); wp_deregister_script('wp-embed');
+
+    wp_dequeue_style('wp-block-library'); wp_deregister_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme'); wp_deregister_style('wp-block-library-theme');
+
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+}
+
 function __enqueueGlobalPackages($config) {
     register_assets('package', [
         'handle'    => 'pandawp/base/vendors',
@@ -23,6 +33,8 @@ function __enqueueGlobalPackages($config) {
 };
 
 add_action( 'wp_enqueue_scripts', function () use ($config) {
+    if ( !get_current_user_id() ) __removeGlobalPackages();
+
     /**
      * --------------------------------------------------------------------------
      * Register Scripts

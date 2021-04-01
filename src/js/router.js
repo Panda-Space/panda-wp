@@ -12,16 +12,16 @@ export default new Router({
       path: '/blog',
       component: () => import(/* webpackChunkName: "blog" */'./views/Blog.vue'),
       children: [
-        {path: 'page/:page_index', component: import(/* webpackChunkName: "blog" */'./views/Blog.vue')},
+        {path: 'page/:page_index', component: () => import(/* webpackChunkName: "blog" */'./views/Blog.vue')},
       ]
     },
     { 
       path: '/blog/:article_slug',
-      component: (panda.body_class == 'error404')
+      component: () => (panda.body_class == 'error404')
         ? import(/* webpackChunkName: "error404" */'./views/404.vue')
         : import(/* webpackChunkName: "article" */'./views/Article.vue')
     },
-    { path: '/search', component: import(/* webpackChunkName: "search" */'./views/Search.vue') },
-    { path: '*', component: import(/* webpackChunkName: "error404" */'./views/404.vue') },
+    { path: '/search', component: () => import(/* webpackChunkName: "search" */'./views/Search.vue') },
+    { path: '*', component: () => import(/* webpackChunkName: "error404" */'./views/404.vue') },
   ],
 })
