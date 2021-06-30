@@ -15,8 +15,8 @@ class PageController {
             case 'post-type':
                 $post = Timber::get_post(['post_type' => $request['type-name'], 'name' => $request['slug']]);
 
-                $post->title;
-                $post->content;
+                if ($post) $post->title;
+                if ($post) $post->content;
 
                 if ($post->thumbnail) $post->thumbnail->src;
 

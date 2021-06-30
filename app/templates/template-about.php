@@ -11,7 +11,7 @@ $context['params']  = [
     'view' => 'about'
 ];
 
-$context = array_merge( $context, (new \App\Controllers\PageController())->show(['type' => 'page', 'slug' => 'about'])->data );
+$context = array_merge( $context, (new \App\Controllers\PageController())->show(['type' => 'page', 'type-name' => 'page', 'slug' => 'about'])->data );
 
 addContextVariables($context);
 
