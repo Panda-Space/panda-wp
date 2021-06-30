@@ -4,10 +4,15 @@ use Timber\Timber;
 
 $context            = Timber::get_context();
 $context['post']    = Timber::get_post();
+$context['params']  = [
+    'view' => $post->slug
+];
 
-$context['post']->title;
-$context['post']->thumbnail->src;
-$context['post']->content;
+$context = array_merge( $context, (new \App\Controllers\PageController())->show([
+        'type' => 'post-type',
+        'type-name' => $post->post_type,
+        'slug' => $post->slug
+    ])->data);
 
 addContextVariables($context);
 

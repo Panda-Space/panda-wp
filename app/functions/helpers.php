@@ -34,7 +34,7 @@ function register_assets($type, $resource) {
         $resource_src   = explode('/', $resource['src']);
         $resource_exist = false;
 
-        if (ENV['STAGE'] == 'dev') {
+        if (ENV['APP_ENV'] == 'dev') {
             $resource_exist = file_exists(__DIR__ . '/../static/temp/js/' . $resource_src[ count($resource_src) - 1 ]);
         } else {
             $resource_exist = file_exists(__DIR__ . '/../static/js/' . $resource_src[ count($resource_src) - 1 ]);

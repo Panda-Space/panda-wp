@@ -23,3 +23,12 @@ Routes::map('search', function($routeParams) {
 
     Routes::load('app.php', $params, "", 200);
 });
+
+Routes::map('productos', function($routeParams) {
+    $params = [
+        'route' => $routeParams,
+        'view'  => 'productos',
+    ];
+
+    Routes::load('app.php', $params, "", 200);
+});

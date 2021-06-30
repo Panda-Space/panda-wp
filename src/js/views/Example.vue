@@ -1,7 +1,7 @@
 <template>
   <section class="c-section c-section--404">
     <div class="grid-container padding-vertical-2">
-      <h1 class="c-section__title margin-bottom-1">Pagina de ejemplo</h1>
+      <h1 class="c-section__title margin-bottom-1 text-center">Pagina de ejemplo {{ context.example }}</h1>
       <div class="grid-x grid-margin-x grid-margin-y">
         <div v-for="image of images" :key="image.id" class="cell medium-4 large-3">
           <div class="c-card-image overflow-hidden">
@@ -49,6 +49,9 @@ export default {
   },
   components: {
     VLazyImage,
+  },
+  created() {
+    this.getFullContext('page', 'page', 'about');
   },
 }
 </script>

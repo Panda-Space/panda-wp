@@ -4,7 +4,11 @@
     <HeaderMobile :switcher="isActiveMenu"></HeaderMobile>
     <Toggle :switcher.sync="isActiveMenu"></Toggle>
 
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
 
     <Footer></Footer>
   </section>

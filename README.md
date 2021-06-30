@@ -1,7 +1,8 @@
 ##  Setup:
 
-1. Clone **`.env.copy.php`** to **`.env.php`**
-2. Change **`STAGE`** by **`dev`**
+1. Clone **`.env.example`** to **`.env`**
+2. Change **`APP_ENV`** by **`dev`**
+3. Update permalinks on Wordpress removing the last slash
 
 ##  Plugins:
 

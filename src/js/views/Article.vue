@@ -17,5 +17,8 @@ export default {
       context: {...panda},
     }
   },
+  created() {
+    this.getFullContext('post-type', 'post', this.$route.params.article_slug);
+  },
 }
 </script>

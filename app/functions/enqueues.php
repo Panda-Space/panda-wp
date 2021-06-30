@@ -1,7 +1,7 @@
 <?php
 
 function __getResourceURL($type, $resource){
-    $staticDir  = (ENV['STAGE'] == 'dev') ? 'temp/' : '';
+    $staticDir  = (ENV['APP_ENV'] == 'dev') ? 'temp/' : '';
 
     if ($type == 'css') {
         return "/static/{$staticDir}css/{$resource}";

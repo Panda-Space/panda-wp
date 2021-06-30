@@ -9,9 +9,33 @@ add_filter('script_loader_tag', function($tag, $handle) {
 }, 10, 2);
 
 add_filter('timber/context', function($context) {
-    $context['primary_menu'] = new \Timber\Menu( 'primary-menu' );
-    $context['footer_menu']  = new \Timber\Menu( 'footer-menu' );
     $context['social_menu']  = new \Timber\Menu( 'social-menu' );
+
+    $primaryMenu    = new \Timber\Menu( 'primary-menu' );
+    $footerMenu     = new \Timber\Menu( 'footer-menu' );
+
+    $primaryMenu->items = array_map(function($item) {
+        $url = explode('/', $item->url);
+        $url = array_filter($url, function($element){ return $element != ''; });
+
+        $item->slug = end($url);
+        $item->url  = '/' . $item->slug;
+
+        return $item;
+    }, $primaryMenu->items);
+
+    $footerMenu->items = array_map(function($item) {
+        $url = explode('/', $item->url);
+        $url = array_filter($url, function($element){ return $element != ''; });
+
+        $item->slug = end($url);
+        $item->url  = '/' . $item->slug;
+
+        return $item;
+    }, $footerMenu->items);
+
+    $context['primary_menu'] = $primaryMenu;
+    $context['footer_menu']  = $footerMenu;
 
     /*
     $context['information']  = (object)[

@@ -4,9 +4,9 @@
       <nav class="c-nav width-100">
         <div class="c-nav__left flex-container align-center-middle">
           <figure class="c-brand c-brand--normal flex-container align-center-middle">
-            <a class="c-brand__link" :href="context.site.url">
+            <router-link class="c-brand__link" to="/">
               <img class="c-brand__image" :src="asset('images/logo.png')" alt="Panda WP - Logo" />
-            </a>
+            </router-link>
           </figure>    
         </div>
         <div class="c-nav__right">
@@ -14,8 +14,8 @@
             <li
               v-for="item of context.primary_menu.items"
               :key="item.id"
-              :class="[item.class, {'activate' : item.classes.includes('current-menu-item')}]">
-              <a :href="item.url" class="position-relative">{{ item.name }}</a>
+              :class="[item.class, {'activate' : isAtiveMenuItem(item)}]">
+              <router-link :to="item.url" class="position-relative" replace>{{ item.name }}</router-link>
             </li>
           </ul>
           <a href="item.link" class="c-button c-button--primary bg-success w-medium font-sec fs-18 white display-block">
@@ -36,5 +36,10 @@ export default {
       context: {...panda},
     }
   },
+  methods: {
+    isAtiveMenuItem: function(item) {
+      return (item.slug == this.$route.name) ? true : false;
+    },
+  }
 }
 </script>

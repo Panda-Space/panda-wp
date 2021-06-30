@@ -4,9 +4,9 @@
       <nav class="c-nav width-100">
         <div class="c-nav__left width-100 flex-container align-center-middle">
           <figure class="c-brand c-brand--normal flex-container align-center-middle">
-            <a class="c-brand__link" :href="context.site.url">
+            <router-link class="c-brand__link" to="/">
               <img class="c-brand__image" :src="asset('images/logo.png')" alt="Panda WP - Logo" />
-            </a>
+            </router-link>
           </figure>       
         </div>
         <div class="c-nav__right">
@@ -15,7 +15,7 @@
               v-for="item of context.primary_menu.items"
               :key="item.id"
               :class="['flex-container flex-dir-column align-middle', item.class, {'activate' : item.classes.includes('current-menu-item')}]">
-              <a :href="item.url" class="position-relative flex-container align-middle padding-1">{{ item.name }}</a>
+              <router-link :to="item.url" class="position-relative flex-container align-middle padding-1">{{ item.name }}</router-link>
               <ul v-if="item.children.length" class="ul-reset menu vertical nested margin-top-1" >
                 <li
                   v-for="child of item.children" 

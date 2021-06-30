@@ -5,7 +5,7 @@ if (!isset($_SESSION['context'])) {
 }
 
 function setContextVariables($context = []) {
-    $staticDir  = (ENV['STAGE'] == 'dev') ? '/temp/' : '';
+    $staticDir  = (ENV['APP_ENV'] == 'dev') ? '/temp/' : '';
     $context    = array_merge($context, [
         'nonce'     => wp_create_nonce( 'wp_rest' ),
         'api'       => get_rest_url() . "custom/v1",

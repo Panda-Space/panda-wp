@@ -27,7 +27,7 @@ switch ($params['view']) {
                     'title'     => $value->title,
                     'thumbnail' => $value->thumbnail,
                     'slug'      => $value->slug,
-                    'link'      => $value->link,
+                    'link'      => '/blog/' . $value->slug,
                 ]
             );
         }

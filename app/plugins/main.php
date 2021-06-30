@@ -23,6 +23,20 @@ function my_theme_register_required_plugins() {
 		),
 
 		array(
+			'name'                  => 'Pixabay Free Images',
+			'slug'                  => 'free-images',
+			'force_activation'  	=> false,
+			'force_deactivation' 	=> false,
+		),
+
+		array(
+			'name'                  => 'ACF Duplicate Repeater',
+			'slug'                  => 'acf-duplicate-repeater',
+			'force_activation'  	=> false,
+			'force_deactivation' 	=> false,
+		),
+
+		array(
 			'name'        			=> 'SVG Support',
 			'slug'        			=> 'svg-support',
 			'force_activation'  	=> false,

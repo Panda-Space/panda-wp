@@ -34,3 +34,4 @@ package-lock.json
 .env.php
 .fontello-session
 app/static/temp/*
+composer.phar

@@ -16,7 +16,7 @@
         </form>
       </div>
       <div class="grid-x grid-margin-x grid-margin-y">
-        <div class="cell large-4">
+        <div v-for="i of [1,2,3,4,5,8,6,7]" :key="i" class="cell large-4">
           <a :href="asset('images/example.jpg')" data-fancybox="gallery-main">
             <img :src="asset('images/example.jpg')" loading="lazy" alt="">
           </a>

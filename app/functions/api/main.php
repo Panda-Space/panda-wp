@@ -2,11 +2,12 @@
 
 require_once(__DIR__ . "/config.php");
 require_once(__DIR__ . "/database/main.php");
+require_once(__DIR__ . "/routes/core/Router.php");
 
-require_once(__DIR__ . "/app/models/Example.php");
-require_once(__DIR__ . "/app/controllers/ExampleController.php");
+$appModels         = ['Example'];
+$appControllers    = ['PageController', 'ExampleController'];
+$appRoutes         = ['PageRouter', 'ExampleRouter'];
 
-require_once(__DIR__ . "/routes/Router.php");
-require_once(__DIR__ . "/routes/ExampleRouter.php");
-
-new ExampleRouter();
+__importProviders('model', $appModels);
+__importProviders('controller', $appControllers);
+__importProviders('router', $appRoutes);
