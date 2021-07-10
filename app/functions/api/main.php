@@ -4,9 +4,9 @@ require_once(__DIR__ . "/config.php");
 require_once(__DIR__ . "/database/main.php");
 require_once(__DIR__ . "/routes/core/Router.php");
 
-$appModels         = ['Lead'];
-$appControllers    = ['PageController', 'LeadController'];
-$appRoutes         = ['PageRouter', 'LeadRouter'];
+$appModels         = ['Example'];
+$appControllers    = ['PageController', 'ExampleController'];
+$appRoutes         = ['PageRouter', 'ExampleRouter'];
 
 __importProviders('model', $appModels);
 __importProviders('controller', $appControllers);
