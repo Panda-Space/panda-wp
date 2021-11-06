@@ -1,9 +1,23 @@
 {
   "name": "pandawp",
   "version": "1.5.0",
-  "author": "Cleiver Valera <hola@cleivervalera.com>",
+  "author": "Cleiver Valera Flores <hola@cleivervalera.com>",
   "license": "MIT",
-  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/pincelkey/panda-wp.git"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress vue",
+    "vue",
+    "spa",
+    "eloquent",
+    "wordpress api",
+    "wordpress controllers",
+    "wordpress models"
+  ],
   "scripts": {
     "start": "gulp --env=development",
     "build": "gulp build --env=production",
