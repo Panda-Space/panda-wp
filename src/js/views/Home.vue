@@ -4,6 +4,7 @@
       <h1 class="text-center padding-vertical-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="900">
         {{ title }}
         <i class="icon-facebook"></i>
+        <router-link to="example">About</router-link>
       </h1>
       <div class="margin-bottom-2 bg-light-gray padding-1">
         <form

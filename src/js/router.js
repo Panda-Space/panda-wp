@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import RouterPrefetch from 'vue-router-prefetch';
 
 Vue.use(Router)
+Vue.use(RouterPrefetch)
 
 export default new Router({
   scrollBehavior() {
@@ -18,12 +20,7 @@ export default new Router({
       path: '/about',
       component: () => import(/* webpackChunkName: "about" */'./views/Example.vue'),
       name: 'about',
-    }, /* FIXME: Remove after */
-    {
-      path: '/productos',
-      component: () => import(/* webpackChunkName: "productos" */'./views/Example.vue'),
-      name: 'productos',
-    }, /* FIXME: Remove after */
+    },
     {
       path: '/example',
       component: () => import(/* webpackChunkName: "example" */'./views/Example.vue'),

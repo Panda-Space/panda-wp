@@ -16,7 +16,7 @@
     ]
   },
   "publicPath": "app/static",
-  "theme": "panda-wp",
+  "theme": "panda",
   "globalResources": {
     "styles": "src/scss/**/*.scss",
     "js": "src/js/**/*.js",
