@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router.js';
 import store from './store.js';
+import '../scss/main.scss';
 
 import AOS from 'aos';
 

@@ -34,5 +34,5 @@ return [
 
         'script_main'       => get_theme_file_uri(__getResourceURL('js', 'main.bundle.js')),
     ],
-    'vertion' => '1640563510081',
+    'vertion' => '1642917462244',
 ];

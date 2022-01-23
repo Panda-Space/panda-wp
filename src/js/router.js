@@ -5,6 +5,8 @@ import RouterPrefetch from 'vue-router-prefetch';
 Vue.use(Router)
 Vue.use(RouterPrefetch)
 
+import Home from './views/Home.vue';
+
 export default new Router({
   scrollBehavior() {
     return { x: 0, y: 0 };
@@ -13,7 +15,7 @@ export default new Router({
   routes: [
     { 
       path: '/',
-      component: () => import(/* webpackChunkName: "home" */'./views/Home.vue'),
+      component: Home,
       name: 'home',
     },
     {

@@ -25,13 +25,15 @@ const publicPath = (folder = '') => {
   return (env == 'development') ? `${config.publicPath}/temp/${folder}` : `${config.publicPath}/${folder}`;
 }
 
+
 /*
  * Server Live
  * */
 const server = browserSync.create();
+
 export const serve = done => {
   server.init({
-    proxy: config.proxy
+    proxy: config.proxy,
   });
   done();
 };
@@ -56,7 +58,7 @@ export const styles = () => {
     .pipe(sassGlob())
     .pipe(sass({includePaths: ['node_modules'], importCss: true}).on('error', sass.logError))
     .pipe(gulpif(env === 'production', postcss([autoprefixer])))
-    .pipe(gulpif(env === 'production', cleanCss({inline: ['none'], compatibility:'ie8', })) )
+    .pipe(gulpif(env === 'production', cleanCss({inline: ['none'], compatibility:'ie8', level: 2 })) )
     .pipe(gulpif(env === 'development', sourcemaps.write()))
     .pipe(cssImport(options))
     .pipe(dest(publicPath('css')))
@@ -114,7 +116,7 @@ export const watchForChanges = () => {
   watch(config.ignoreFoldersDevelopment, series(reload))
   watch([config.globalResources.styles], parallel(styles, lintCss))
   watch([config.globalResources.js], series(scripts, reload))
-  watch([config.globalResources.vue], series(scripts, reload))
+  // watch([config.globalResources.vue], series(scripts, reload))
   watch([config.globalResources.images], series(images, reload));
   watch([config.globalResources.fonts], series(fonts, reload));
   watch([config.globalResources.php], reload);
@@ -124,7 +126,7 @@ export const watchForChanges = () => {
 /*
  * Compilation
  * */
-export const dev = series(clean, parallel(styles, scripts, images, fonts), lintCss, serve, watchForChanges)
+export const dev = series(clean, parallel(styles, scripts, images, fonts), lintCss)
 export const build = series(clean, parallel(styles, scripts, images, fonts))
 
 export default dev

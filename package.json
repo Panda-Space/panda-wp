@@ -19,8 +19,8 @@
     "wordpress models"
   ],
   "scripts": {
-    "start": "gulp --env=development",
-    "build": "gulp build --env=production",
+    "start": "webpack --watch --config ./src/build/webpack.config.js --env=development",
+    "build": "webpack --watch --config ./src/build/webpack.config.js --env=production",
     "font:install": "rm -Rf src/fonts/fontello/* && fontello-cli install && mv fontello-*/font/* src/fonts/fontello && mv fontello-*/css/fontello.css src/scss/icons/ && rm -Rf fontello-*"
   },
   "devDependencies": {
@@ -31,7 +31,11 @@
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "browsersync-webpack-plugin": "^0.6.0",
+    "css-loader": "^5.1.1",
     "del": "^5.1.0",
+    "error-overlay-webpack-plugin": "^1.0.0",
     "fontello-cli": "^0.6.2",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
@@ -45,15 +49,18 @@
     "gulp-stylelint": "^11.0.0",
     "gulp-zip": "^5.0.1",
     "merge": "^1.2.1",
+    "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.13.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
+    "sass-loader": "^10.1.1",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^19.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "vinyl-named": "^1.1.0",
-    "vue-loader": "^15.9.5",
+    "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.41.5",
+    "webpack": "^4.45.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {

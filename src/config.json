@@ -1,13 +1,17 @@
 {
   "entry": {
     "styles": [
-      "src/scss/core/*.scss",
-      "src/scss/main.scss"
+      "./src/scss/core/*.scss"
     ],
-    "js": [
-      "src/js/main.js",
-      "src/js/core/pages/*.js"
-    ],
+    "js": {
+      "main": [
+        "./src/js/main.js",
+        "./src/scss/main.scss"
+      ],
+      "wp_example": [
+        "./src/js/core/pages/wp_example.js"
+      ]
+    },
     "images": [
       "src/images/**/*"
     ],
@@ -16,7 +20,7 @@
     ]
   },
   "publicPath": "app/static",
-  "theme": "panda",
+  "theme": "pandawp",
   "globalResources": {
     "styles": "src/scss/**/*.scss",
     "js": "src/js/**/*.js",
@@ -26,7 +30,7 @@
     "php": "app/*.php",
     "twig": "**/*.twig"
   },
-  "proxy": "panda.site",
+  "proxy": "pandawp.site",
   "ignoreFoldersDevelopment": [
     "src/**/*",
     "!src/config.json",

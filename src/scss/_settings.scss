@@ -72,13 +72,14 @@ $foundation-palette: (
   secondary: #6600ec,
   success: #3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #ff002b,
 );
 
 $light-gray: #f3f3f3;
 $medium-gray: #e5e5e5;
 $gray: #cfcfcf;
 $dark-gray: #6d6d6d;
+
 $black: #434343;
 $white: #fff;
 
@@ -88,13 +89,13 @@ $primary-alt: #0053ec;
 $secondary-alt: #ac8cd6;
 
 //Font Weights
-$light-font: 300;
-$regular-font: 400;
-$medium-font: 500;
-$semibold-font: 600;
-$bold-font: 700;
-$extrabold-font: 800;
-$black-font: 900;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-extrabold: 800;
+$font-black: 900;
 
 $body-background: $white;
 $body-font-color: $dark-gray;
@@ -222,6 +223,7 @@ $fs-21: 21px;
 $fs-18: 18px;
 $fs-16: 16px;
 $fs-14: 14px;
+$fs-12: 12px;
 
 // 5. Typography Helpers
 // ---------------------

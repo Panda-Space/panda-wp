@@ -4,8 +4,11 @@
       <h1 class="text-center padding-vertical-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="900">
         {{ title }}
         <i class="icon-facebook"></i>
-        <router-link to="example">About</router-link>
+        <router-link to="example">Example</router-link>
       </h1>
+      <p class="bg-pri-color white padding-1">
+        Hola como estsssan?ss
+      </p>
       <div class="margin-bottom-2 bg-light-gray padding-1">
         <form
           class="flex-container"

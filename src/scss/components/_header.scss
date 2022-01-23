@@ -30,7 +30,7 @@
         color: $black;
         padding: 1rem;
         font-family: $font-family-secondary;
-        font-weight: $medium-font;
+        font-weight: $font-medium;
         font-size: $fs-18;
 
         @include transition(0.2s);
@@ -213,7 +213,7 @@
           color: $white;
           font-family: $font-family-secondary;
           font-size: $fs-16;
-          font-weight: $semibold-font;
+          font-weight: $font-semibold;
 
           @include transition(0.2s);
         }

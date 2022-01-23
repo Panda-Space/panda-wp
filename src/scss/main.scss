@@ -1,13 +1,17 @@
-@charset "utf-8";
+// @charset "utf-8";
 
-@import "settings";
-@import "base/**/*";
-@import "autoload/**/*";
-@import "utilities/**/*";
+// @import "settings";
+// @import "base/**/*";
+// @import "autoload/**/*";
+// @import "utilities/**/*";
 
-/**
- * Custom Styles
- **/
-@import "components/**/*";
-@import "sections/**/*";
-@import "pages/**/*";
+// /**
+//  * Custom Styles
+//  **/
+// @import "components/**/*";
+// @import "sections/**/*";
+// @import "pages/**/*";
+
+body {
+  background-color: blue;
+}
