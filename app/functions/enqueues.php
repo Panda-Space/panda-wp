@@ -4,9 +4,9 @@ function __getResourceURL($type, $resource){
     $staticDir  = (ENV['APP_ENV'] == 'dev') ? 'temp/' : '';
 
     if ($type == 'css') {
-        return "/static/{$staticDir}css/{$resource}";
+        return "/static/admin/{$staticDir}css/{$resource}";
     } elseif ($type == 'js') {
-        return "/static/{$staticDir}js/{$resource}";
+        return "/static/admin/{$staticDir}js/{$resource}";
     }
 }
 
@@ -23,7 +23,7 @@ function __removeGlobalPackages() {
 }
 
 function __enqueueGlobalPackages($config) {
-    register_assets('package', [
+    register_assets('script', [
         'handle'    => 'pandawp/base/vendors',
         'src'       => $config['resources']['vendors'],
         'deps'      => [ ],
@@ -41,15 +41,17 @@ add_action( 'wp_enqueue_scripts', function () use ($config) {
      * --------------------------------------------------------------------------
      *
      */
-    __enqueueGlobalPackages($config);
-
-    register_assets('script', [
-        'handle'    => 'pandawp/script/main',
-        'src'       => $config['resources']['script_main'],
-        'deps'      => [ ],
-        'ver'       => $config['vertion'],
-        'in_footer' => true
-    ]);
+    array_map(function ($file) {
+        if ( !strpos($file, '.map') ) {
+            register_assets('script', [
+                'handle'    => 'pandawp/script/' . $file,
+                'src'       => get_theme_file_uri("/static/public/js/{$file}"),
+                'deps'      => [ ],
+                'ver'       => '1.0.0',
+                'in_footer' => true
+            ]);
+        }
+    }, __autoload_functions_by_dir('/static/public/js'));
 
     /**
      * --------------------------------------------------------------------------
@@ -57,45 +59,15 @@ add_action( 'wp_enqueue_scripts', function () use ($config) {
      * --------------------------------------------------------------------------
      *
      */
-    register_assets('style', [
-        'handle' => 'pandawp/google/font',
-        'src'    => $config['resources']['google_fonts'],
-        'deps'   => [ ],
-        'ver'    => $config['vertion'],
-        'media'  => 'all'
-    ]);
-
-    register_assets('style', [
-        'handle' => 'pandawp/style/main',
-        'src'    => $config['resources']['style_main'],
-        'deps'   => [ ],
-        'ver'    => $config['vertion'],
-        'media'  => 'all'
-    ]);
-
-    /**
-     * --------------------------------------------------------------------------
-     * Register google maps script
-     * --------------------------------------------------------------------------
-     *
-     */
-    /* GMaps here */
-
-    /**
-     * --------------------------------------------------------------------------
-     * Register Scripts with conditionals
-     * --------------------------------------------------------------------------
-     *
-     */
-    /* Silence is golden  */
-
-    /**
-     * --------------------------------------------------------------------------
-     * Context variables
-     * --------------------------------------------------------------------------
-     *
-     */
-    setContextVariables();
+    array_map(function ($file) {
+        register_assets('style', [
+            'handle'    => 'pandawp/style/' . $file,
+            'src'       => get_theme_file_uri("/static/public/css/{$file}"),
+            'deps'      => [ ],
+            'ver'       => '1.0.0',
+            'in_footer' => true
+        ]);
+    }, __autoload_functions_by_dir('/static/public/css'));
 });
 
 add_action( 'admin_head', function() use ($config) {
@@ -121,9 +93,7 @@ add_action( 'admin_head', function() use ($config) {
                     'in_footer' => true
                 ]); 
 
-                wp_localize_script( 'pandawp/script/main', 'panda', [
-                    'nonce' => wp_create_nonce('wp_rest')
-                ]);
+                wp_localize_script( 'pandawp/base/vendors', 'panda', getContextVariables());
             }
             break;
     }

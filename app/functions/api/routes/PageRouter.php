@@ -6,13 +6,13 @@ class PageRouter {
     public function __construct()
     {
         add_action('rest_api_init', function () {
-            register_rest_route('custom/v1', '/pages', array(
+            register_rest_route('custom/v1', '/pages/(?P<slug>[a-zA-Z0-9-]+)', array(
                 'methods' => 'GET',
                 'callback' => array($this, 'show'),
                 'permission_callback' => function ($request) {
-                    return ($request['_wpnonce'] || ENV['APP_ENV'] == 'dev') ? true : false;
+                    return true;
                 },
-                'args'  => $this::__getArgs(['type', 'type-name', 'id', 'slug'])
+                'args'  => $this::__getArgs(['type', 'type-name'])
             ));
         });
     }
@@ -33,26 +33,12 @@ class PageRouter {
                 },
             ],
             'type-name' => [
-                'required'          => true,
-                'type'              => 'string',
-                'validate_callback' => function($param, $request, $key) {
-                    return is_string($param);
-                },
-            ],
-            'id' => [
-                'required'          => false,
-                'type'              => 'integer',
-                'validate_callback' => function($param, $request, $key) {
-                    return is_numeric($param) && $param > 0;
-                },
-            ],
-            'slug' => [
                 'required'          => false,
                 'type'              => 'string',
                 'validate_callback' => function($param, $request, $key) {
                     return is_string($param);
                 },
-            ],
+            ]
         ];
 
         return $selectedRules

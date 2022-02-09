@@ -30,7 +30,7 @@ array_map(function ($file) {
  *
  */
 array_map(function ($file) {
-    require_once get_theme_file_path("registers/post-types/") . "{$file}.php";
+    require_once get_theme_file_path("registers/post-types/") . "{$file}";
 }, __autoload_functions_by_dir('/registers/post-types'));
 
 
@@ -41,7 +41,7 @@ array_map(function ($file) {
  *
  */
 array_map(function ($file) {
-    require_once get_theme_file_path("registers/taxonomies/") . "{$file}.php";
+    require_once get_theme_file_path("registers/taxonomies/") . "{$file}";
 }, __autoload_functions_by_dir('/registers/taxonomies'));
 
 /**

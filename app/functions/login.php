@@ -4,7 +4,7 @@ if ( !function_exists('pw_custom_login_stylesheet') ):
     function pw_custom_login_stylesheet() {
         wp_enqueue_style(
             'custom-login',
-            get_stylesheet_directory_uri() . '/static/css/wp_login_styles.css'
+            get_stylesheet_directory_uri() . '/static/admin/css/wp_login_styles.css'
         );
     }
 endif;
@@ -15,7 +15,7 @@ if (!function_exists('pw_login_logo') ):
         $uri = get_stylesheet_directory_uri();
 
         $style = "<style type='text/css'>";
-        $style .= "#login h1 a, .login h1 a {  background-image: url($uri/static/images/login/logo.png); }";
+        $style .= "#login h1 a, .login h1 a {  background-image: url($uri/static/admin/images/login/logo.png); }";
         $style .= "</style>";
 
         echo $style;

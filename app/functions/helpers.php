@@ -30,26 +30,6 @@ function register_assets($type, $resource) {
             $resource['in_footer']
         );
         wp_enqueue_script( $resource['handle'] );
-    }else if($type === 'package'){
-        $resource_src   = explode('/', $resource['src']);
-        $resource_exist = false;
-
-        if (ENV['APP_ENV'] == 'dev') {
-            $resource_exist = file_exists(__DIR__ . '/../static/temp/js/' . $resource_src[ count($resource_src) - 1 ]);
-        } else {
-            $resource_exist = file_exists(__DIR__ . '/../static/js/' . $resource_src[ count($resource_src) - 1 ]);
-        }
-
-        if ($resource_exist) {
-            wp_register_script(
-                $resource['handle'],
-                $resource['src'],
-                $resource['deps'],
-                $resource['ver'],
-                $resource['in_footer']
-            );
-            wp_enqueue_script( $resource['handle'] );
-        }
     }
 }
 
@@ -69,7 +49,7 @@ function __autoload_functions_by_dir($path) {
 
     foreach ( $dir as $key => $file ) {
         if ( ! in_array($file, ['.', '..', '.gitkeep']) ) {
-            $files[] = substr($file, 0, -4);
+            $files[] = $file;
         }
     }
 

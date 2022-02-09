@@ -1,11 +1,7 @@
 <?php
 
-if (!isset($_SESSION['context'])) {
-    session_start(); $_SESSION['context'] = [];
-}
-
-function setContextVariables($context = []) {
-    $staticDir  = (ENV['APP_ENV'] == 'dev') ? '/temp/' : '';
+function getContextVariables($context = []) {
+    $staticDir  = (ENV['APP_ENV'] == 'dev') ? '/admin/temp/' : '/admin';
     $context    = array_merge($context, [
         'nonce'     => wp_create_nonce( 'wp_rest' ),
         'api'       => get_rest_url() . "custom/v1",
@@ -13,16 +9,6 @@ function setContextVariables($context = []) {
         'vertion'   => ( require get_theme_file_path('config/base.php') )['vertion']
     ]);
 
-    $_SESSION['context'] = array_merge($_SESSION['context'], $context);
-
-    wp_localize_script('pandawp/script/main', 'panda', $_SESSION['context']);
-}
-
-function addContextVariables($context = []) {
-    add_action( 'wp_enqueue_scripts', function () use ($context) {
-        $_SESSION['context'] = array_merge($_SESSION['context'], $context);
-
-        wp_localize_script('pandawp/script/main', 'panda', $_SESSION['context']);
-    });
+    return $context;
 }
 

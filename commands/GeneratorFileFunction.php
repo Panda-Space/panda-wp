@@ -55,6 +55,8 @@ class GeneratorFileFunction extends Command
         }
 
         $output->writeln($res);
+
+        return 200;
     }
 
     protected function createFile()
@@ -67,11 +69,6 @@ class GeneratorFileFunction extends Command
         if ( $this->type == 'post-type' ){
             file_put_contents(
                 "app/views/single-{$this->filename}.twig",
-                $this->compileViewFileStub()
-            );
-        } elseif ( $this->type == 'taxonomy' ){
-            file_put_contents(
-                "app/views/archive-{$this->filename}s.twig",
                 $this->compileViewFileStub()
             );
         }
