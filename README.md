@@ -1,65 +1,114 @@
-##  Setup:
+# 🐼 Get started
+## 📂 Project structure
+```project
+|--📂app
+|--📂resources
+|  |--📂vue
+|  |--📂admin
+```
+### Legend:
+1. `/app` dir is for backend enviroment
+2. `/resources/vue` dir is for public frontend
+3. `/resources/admin` dir is for admin frontend (wordpress dashboard)
 
+## 🔋 Installation
+1. Install composer dependencies
+```sh
+composer install
+```
+
+2. Install npm dependencies for vue
+```sh
+cd resources/vue
+npm install
+```
+
+3. Install npm dependencies for admin
+```sh
+cd resources/admin
+npm install
+```
+
+# ⚙️ Setup
+## Project
 1. Clone **`.env.example`** to **`.env`**
 2. Change **`APP_ENV`** by **`dev`**
 3. Update permalinks on Wordpress removing the last slash
 
-##  Plugins:
-
-- ACF
-##  Packages:
-
-- jquery
-
-- vue
-
-- foundation-sites
-
-- @fancyapps/fancybox
-
-- swiper
-
-##  Icons:
-
-1. Check ``fontello-cli`` as local dependence:
-
+## Frontend
+### 👻 Vue
+1. Clone **`.env.example`** to **`.env`** (development mode)
+2. Clone **`.env.example`** to **`.env.staging`** (local building)
+3. Update **`.env`** and **`.env.stagging`** with the same information
 ```sh
-npx fontello-cli --version
+# - [pandawp.site]  : current project and #
+# - [pandawp]       : current theme name #
+VUE_APP_SITE='http://pandawp.site'
+VUE_APP_HOST='pandawp.site'
+VUE_APP_API='http://pandawp.site/wp-json/custom/v1'
+VUE_APP_THEME='pandawp'
 ```
 
-2.  List all existing icon fonts
-
+### 🛠️ Admin
+1. Update config.json
+```json
+/* - [pandawp.site] : current project and */
+/* - [pandawp]      : current theme name */
+{
+  ...
+  "theme": "pandawp",
+  "proxy": "pandawp.site",
+  ...
+}
 ```
-$ npx fontello-cli open
+
+#  Icons
+
+1. Search new icons on [Iconify](https://icon-sets.iconify.design/):
+2. Import `iconify` on each page 
+
+```js
+import { Icon } from '@iconify/vue2';
 ```
 
-3.  Add new icons or remove some
-4.  Download **config.json** within theme (should replace the last)
-5.  Install the new icons (actually this install all icons again)
+3.  Set `Icon` as component on Vue instance
 
+```js
+components: {
+  Icon,
+},
 ```
-$ npm run font:install
+
+4. Add a new icon on template (html):
+```html
+<Icon icon="eva:close-fill" />
 ```
 
-6.  Edit the fonts' route within **style/commons/fontello.css**
+#  NPM Scripts
 
-##  NPM Scripts:
+## 👻 Vue
+* Development
+```sh
+npm run vue:serve
+```
 
-* For Development
+* Staging
+```sh
+npm run vue:stage
+```
 
-````bash
-$ npm run start
+* Production
+```sh
+npm run vue:build
+```
 
-````
-* For Production
+## 🛠️ Admin
+* Development
+```sh
+npm run admin:serve
+```
 
-````bash
-$ npm run build
-
-````
-* Install fonts
-
-````bash
-$ npm run font:install
-
-````
+* Production
+```sh
+npm run admin:build
+```
