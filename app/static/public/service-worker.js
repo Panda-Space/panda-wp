@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wp-content/themes/pandawp/app/static/public/precache-manifest.bcffc9207f1564aba9c293835550d34d.js"
+  "/wp-content/themes/pandawp/app/static/public/precache-manifest.cfafa30cd88a0acfc02637fd57d20684.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "apollo"});

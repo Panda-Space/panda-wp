@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["category"],{8171:function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("section",{staticClass:"c-section py-5"},[n("section",{staticClass:"container"},[n("h1",{staticClass:"text-center"},[t._v("Category name: "+t._s(t.context.term?t.context.term.name:""))])])])},c=[],s={data:function(){return{context:{},contextLoading:!0}},created:function(){this.getFullContext({type:"term",typeName:"category",slug:this.$route.params.category_slug})}},o=s,r=n("2877"),i=Object(r["a"])(o,a,c,!1,null,null,null);e["default"]=i.exports}}]);
-//# sourceMappingURL=category.98cd4e23.js.map
+//# sourceMappingURL=category.63471295.js.map

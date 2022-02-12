@@ -134,6 +134,10 @@ class PageController {
             return $item;
         }, $primaryMenu->items);
 
+        $primaryMenu->items = array_filter($primaryMenu->items, function($item) {
+            return $item->url;
+        });
+
         $footerMenu->items = array_map(function($item) {
             $url = explode('/', $item->url);
 
@@ -147,6 +151,10 @@ class PageController {
 
             return $item;
         }, $footerMenu->items);
+
+        $footerMenu->items = array_filter($footerMenu->items, function($item) {
+            return $item->url;
+        });
 
         return [
             'information' => (object)[

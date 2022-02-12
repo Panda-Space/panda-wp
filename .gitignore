@@ -17,6 +17,7 @@ resources/admin/pnpm-debug.log*
 .env.php
 resources/vue/.env
 resources/vue/.env.staging
+resources/admin/src/config.json
 
 # Editor directories and files
 resources/vue/.idea
@@ -29,4 +30,5 @@ resources/vue/*.sw?
 
 # etc
 app/static/admin/temp/*
+app/static/public/temp/*
 composer.phar

@@ -9,9 +9,12 @@ module.exports = {
       });
   },
   publicPath: (process.env.NODE_ENV === 'production')
-    ? `/wp-content/themes/${process.env.VUE_APP_THEME}/app/static/public`
+    ?
+      (process.env.VUE_APP_MODE === 'staging')
+        ? `/wp-content/themes/${process.env.VUE_APP_THEME}/app/static/public/temp`
+        : `/wp-content/themes/${process.env.VUE_APP_THEME}/app/static/public`
     : '/',
-  outputDir: '../../app/static/public',
+  outputDir: (process.env.VUE_APP_MODE === 'staging') ? '../../app/static/public/temp' : '../../app/static/public',
   devServer: {
     host: process.env.VUE_APP_HOST,
     port: 3000
