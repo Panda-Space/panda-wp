@@ -1,6 +1,5 @@
 {
-  "name": "apollo",
-  "version": "3.0.0",
+  "name": "pandawp-vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "stage": "vue-cli-service build --mode staging",

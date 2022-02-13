@@ -1,6 +1,5 @@
 {
-  "name": "pandawp",
-  "version": "3.0.0",
+  "name": "pandawp-admin",
   "scripts": {
     "start": "gulp --env=development",
     "build": "gulp build --env=production"
