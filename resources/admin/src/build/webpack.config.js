@@ -4,6 +4,8 @@ const webpack = require('webpack')
 const yargs = require('yargs')
 
 const env = yargs.argv.env
+const mode = yargs.argv.env
+
 const configDev = require('./webpack.dev')
 const configProd = require('./webpack.prod')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -13,7 +15,9 @@ const baseConfig = {
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
-    publicPath: (env == 'development') ? `/wp-content/themes/${ config.theme }/${ config.publicPath }/temp/js/` : `/wp-content/themes/${ config.theme }/${ config.publicPath }/js/`,
+    publicPath: (env == 'development' || mode == 'staging')
+      ? `/wp-content/themes/${ config.theme }/${ config.publicPath }/temp/js/`
+      : `/wp-content/themes/${ config.theme }/${ config.publicPath }/js/`,
   },
 
   optimization: {

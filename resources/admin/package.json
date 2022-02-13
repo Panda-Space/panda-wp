@@ -2,7 +2,8 @@
   "name": "pandawp-admin",
   "scripts": {
     "start": "gulp --env=development",
-    "build": "gulp build --env=production"
+    "build": "gulp build --env=production --mode=production",
+    "stage": "gulp build --env=production --mode=staging"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

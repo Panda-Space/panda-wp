@@ -21,8 +21,10 @@ import webpackConfig from './src/build/webpack.config'
 import config from './src/config'
 
 const env = yargs.argv.env
+const mode = yargs.argv.mode
+
 const publicPath = (folder = '') => {
-  return (env == 'development') ? `${config.publicPath}/temp/${folder}` : `${config.publicPath}/${folder}`;
+  return (env == 'development' || mode == 'staging') ? `${config.publicPath}/temp/${folder}` : `${config.publicPath}/${folder}`;
 }
 
 /*
@@ -56,8 +58,8 @@ export const styles = () => {
     .pipe(gulpif(env === 'development', sourcemaps.init()))
     .pipe(sassGlob())
     .pipe(sass({includePaths: ['node_modules'], importCss: true}).on('error', sass.logError))
-    .pipe(gulpif(env === 'production', postcss([autoprefixer])))
-    .pipe(gulpif(env === 'production', cleanCss({inline: ['none'], compatibility:'ie8', })) )
+    .pipe(gulpif(env === 'production' || mode == 'staging', postcss([autoprefixer])))
+    .pipe(gulpif(env === 'production' || mode == 'staging', cleanCss({inline: ['none'], compatibility:'ie8', })) )
     .pipe(gulpif(env === 'development', sourcemaps.write()))
     .pipe(cssImport(options))
     .pipe(dest(publicPath('css')))
