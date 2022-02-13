@@ -1,7 +1,7 @@
 <?php
 
 function __getResourceURL($type, $resource){
-    $staticDir  = (ENV['APP_ENV'] == 'dev') ? 'temp/' : '';
+    $staticDir  = (ENV['APP_ENV'] == 'development') ? 'temp/' : '';
 
     if ($type == 'css') {
         return "/static/admin/{$staticDir}css/{$resource}";
@@ -45,13 +45,13 @@ add_action( 'wp_enqueue_scripts', function () use ($config) {
         if ( !strpos($file, '.map') ) {
             register_assets('script', [
                 'handle'    => 'pandawp/script/' . $file,
-                'src'       => get_theme_file_uri("/static/public/" . ((ENV['APP_ENV'] == 'dev') ? "temp/js/{$file}" : "js/{$file}")),
+                'src'       => get_theme_file_uri("/static/public/" . ((ENV['APP_ENV'] == 'development') ? "temp/js/{$file}" : "js/{$file}")),
                 'deps'      => [ ],
                 'ver'       => '1.0.0',
                 'in_footer' => true
             ]);
         }
-    }, __autoload_functions_by_dir('/static/public/' . ((ENV['APP_ENV'] == 'dev') ? 'temp/js' : 'js')));
+    }, __autoload_functions_by_dir('/static/public/' . ((ENV['APP_ENV'] == 'development') ? 'temp/js' : 'js')));
 
     /**
      * --------------------------------------------------------------------------
@@ -62,12 +62,12 @@ add_action( 'wp_enqueue_scripts', function () use ($config) {
     array_map(function ($file) {
         register_assets('style', [
             'handle'    => 'pandawp/style/' . $file,
-            'src'       => get_theme_file_uri("/static/public/" . ((ENV['APP_ENV'] == 'dev') ? "temp/css/{$file}" : "css/{$file}")),
+            'src'       => get_theme_file_uri("/static/public/" . ((ENV['APP_ENV'] == 'development') ? "temp/css/{$file}" : "css/{$file}")),
             'deps'      => [ ],
             'ver'       => '1.0.0',
             'in_footer' => true
         ]);
-    }, __autoload_functions_by_dir('/static/public/' . ((ENV['APP_ENV'] == 'dev') ? 'temp/css' : 'css')));
+    }, __autoload_functions_by_dir('/static/public/' . ((ENV['APP_ENV'] == 'development') ? 'temp/css' : 'css')));
 });
 
 add_action( 'admin_head', function() use ($config) {

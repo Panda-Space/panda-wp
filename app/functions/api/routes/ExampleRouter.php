@@ -10,7 +10,7 @@ class ExampleRouter {
                 'methods' => 'GET',
                 'callback' => array($this, 'index'),
                 'permission_callback' => function ($request) {
-                    return ($request['_wpnonce'] || ENV['APP_ENV'] == 'dev') ? true : false;
+                    return true;
                 },
                 'args'  => $this::__getArgs(['id', 'email'])
             ));

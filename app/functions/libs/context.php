@@ -1,7 +1,7 @@
 <?php
 
 function getContextVariables($context = []) {
-    $staticDir  = (ENV['APP_ENV'] == 'dev') ? '/admin/temp/' : '/admin';
+    $staticDir  = (ENV['APP_ENV'] == 'development') ? '/admin/temp/' : '/admin';
     $context    = array_merge($context, [
         'nonce'     => wp_create_nonce( 'wp_rest' ),
         'api'       => get_rest_url() . "custom/v1",
