@@ -36,13 +36,25 @@ npm install
 3. Update permalinks on Wordpress removing the last slash
 
 ## Frontend
+### Legend
+```sh
+# - [pandawp.site]  : current project #
+# - [pandawp]       : current theme name #
+```
+
 ### 👻 Vue
 1. Clone **`.env.example`** to **`.env`** (development mode)
 2. Clone **`.env.example`** to **`.env.staging`** (local building)
 3. Update **`.env`** and **`.env.stagging`** with the same information
+
 ```sh
-# - [pandawp.site]  : current project and #
-# - [pandawp]       : current theme name #
+# Development
+NODE_ENV=development
+
+# Production + Staging
+NODE_ENV=production
+
+VUE_APP_MODE='development|production|staging'
 VUE_APP_SITE='http://pandawp.site'
 VUE_APP_HOST='pandawp.site'
 VUE_APP_API='http://pandawp.site/wp-json/custom/v1'
@@ -50,10 +62,10 @@ VUE_APP_THEME='pandawp'
 ```
 
 ### 🛠️ Admin
-1. Update config.json
+1. Clone **`config.example.json`** to **`config.json`**
+2. Update config.json
+
 ```json
-/* - [pandawp.site] : current project and */
-/* - [pandawp]      : current theme name */
 {
   ...
   "theme": "pandawp",
