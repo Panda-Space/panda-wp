@@ -18,9 +18,17 @@ class ExampleRouter {
     }
 
     public function index($request) {
-        $data = (new ExampleController())->index($request);
+        try {
+            $data = (new ExampleController())->index($request);
 
-        return PandaRouter::__response($data);
+            return PandaRouter::__response($data);
+        } catch (Exception $e) {
+            return PandaRouter::__response((object)[
+                'code'      => 404,
+                'message'   => $e->getMessage(),
+                'status'    => false           
+            ]);
+        }
     }
 
     private function __getArgs($selectedRules) {

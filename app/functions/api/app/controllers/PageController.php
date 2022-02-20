@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Timber\Timber;
+use Exception;
 
 class PageController {
     public function __construct() { }
@@ -61,17 +62,20 @@ class PageController {
                 break;
         }
 
-        if ($pageData)
+        if ($pageData) {
             return (object)[
                 'message'   => 'Panda WP - SPA 🚀🔥🐼',
                 'data'      => $pageData,
-                'status'    => true
+                'status'    => true,
+                'code'      => 200,
             ];
-        else
+        } else {
             return (object)[
-                'message'   => 'Panda WP - SPA 🚀🔥🐼',
+                'code'      => 200,
+                'message'   => 'Panda WP - SPA ⚠️🐼',
                 'status'    => false
             ];
+        }
     }
 
     private function __getPostData($objectType, $objectTypeName, $postSlug, $objectId) {

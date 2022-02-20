@@ -137,9 +137,7 @@
 
       &__right {
         background: transparent;
-
         display: flex;
-
         align-items: center;
         height: 100%;
         transform: translateY(0);
@@ -170,7 +168,7 @@
         }
 
         .c-menu .menu-item > a::after {
-          content: '';
+          content: "";
           width: 0;
 
           @include transition(0.2s);
@@ -189,7 +187,6 @@
           opacity: 1;
         }
 
-        //Submenu
         .c-sub-menu {
           border-radius: 0 0 10px 10px;
           padding: 0.7rem;
@@ -202,46 +199,46 @@
           opacity: 0;
 
           @include transition(0.2s);
-        }
 
-        .c-sub-menu .c-sub-menu__item a {
-          padding: 0.5rem 0.7rem !important;
-          color: $white;
-          font-family: $secondary-font-family;
-          font-size: $fs-16;
-          font-weight: $font-semibold;
+          &__item a {
+            padding: 0.5rem 0.7rem !important;
+            color: $white;
+            font-family: $secondary-font-family;
+            font-size: $fs-16;
+            font-weight: $font-semibold;
 
-          @include transition(0.2s);
-        }
+            @include transition(0.2s);
+          }
 
-        .c-sub-menu .c-sub-menu__item a::after {
-          content: '';
-          width: 3px;
-          height: 100%;
-          background: $primary-color;
-          position: absolute;
-          left: 0;
-          top: 0;
-          visibility: hidden;
-          opacity: 0;
+          &__item a::after {
+            content: "";
+            width: 3px;
+            height: 100%;
+            background: $primary-color;
+            position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
 
-          @include transition(0.2s);
-        }
+            @include transition(0.2s);
+          }
 
-        .c-sub-menu .c-sub-menu__item a:hover {
-          color: $white !important;
-          transform: translateX(5px);
-        }
+          &__item a:hover {
+            color: $white !important;
+            transform: translateX(5px);
+          }
 
-        .c-sub-menu .c-sub-menu__item a:focus {
-          color: $white !important;
-          transform: translateX(5px);
-        }
+          &__item a:focus {
+            color: $white !important;
+            transform: translateX(5px);
+          }
 
-        .c-sub-menu .c-sub-menu__item a:focus::after,
-        .c-sub-menu .c-sub-menu__item a:hover::after {
-          visibility: visible;
-          opacity: 1;
+          &__item a:focus::after,
+          &__item a:hover::after {
+            visibility: visible;
+            opacity: 1;
+          }
         }
       }
     }

@@ -3,10 +3,7 @@
 }
 
 figure {
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 label {
@@ -22,7 +19,6 @@ select {
   background-image: none !important;
 }
 
-//Button--------------------------//
 .button {
   outline: none !important;
 }
@@ -33,9 +29,7 @@ select {
   margin: 0 !important;
   cursor: pointer;
 }
-//Button--------------------------//
 
-//Input--------------------------//
 .input-reset {
   border: none;
   outline: none;
@@ -51,9 +45,7 @@ select {
     transform: scale(1);
   }
 }
-//Input--------------------------//
 
-//Select--------------------------//
 .select-reset {
   height: auto;
   border: none;
@@ -68,12 +60,19 @@ select {
     box-shadow: none;
   }
 }
-//Select--------------------------//
 
-//UL--------------------------//
 .ul-reset {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-//UL--------------------------//
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-body {
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}

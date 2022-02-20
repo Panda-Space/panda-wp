@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Example;
+use Exception;
 
 class ExampleController {
     public function __construct() { }
@@ -10,18 +11,15 @@ class ExampleController {
     public function index($request) {
         $examples = Example::all();
 
-        if(count($examples)){
+        if (count($examples)) {
             return (object)[
                 'message'   => 'Examples here!!!',
                 'data'      => $examples,
-                'status'    => 200
+                'status'    => true,
+                'code'      => 200
             ];
-        }else{
-            return (object)[
-                'code'      => 'examples_not_found',
-                'message'   => 'No examples found',
-                'status'    => 404
-            ];
+        } else {
+            throw new Exception('No examples found');
         }
     }
 }

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { BootstrapVue } from 'bootstrap-vue';
+import AOS from 'aos';
 
 import App from './App.vue';
 import router from './router';
@@ -7,6 +8,8 @@ import store from './store';
 
 import 'bootstrap';
 import './assets/styles/main.scss';
+
+AOS.init();
 
 Vue.config.productionTip = false;
 

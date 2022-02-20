@@ -1,9 +1,13 @@
-.c-section--home {
-  outline: none;
+.c-section {
+  &--home {
+    outline: none;
+  }
 }
 
 @include media-breakpoint-up(lg) {
-  .c-section--home {
-    outline: none;
+  .c-section {
+    &--home {
+      outline: none;
+    }
   }
 }

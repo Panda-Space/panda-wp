@@ -18,7 +18,7 @@
 
 @mixin hr($x: left, $y: top, $color: $primary-color, $size: 4px, $desp: 0) {
   &::after {
-    content: '';
+    content: "";
     background: $color;
     width: 38px;
     height: $size;

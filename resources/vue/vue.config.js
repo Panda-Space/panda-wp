@@ -1,5 +1,14 @@
 /* eslint-disable */
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
 module.exports = {
+  configureWebpack: {
+    plugins: [
+      new StyleLintPlugin({
+        files: ['**/*.{css,sss,scss,sass}'],
+      })
+    ],
+  },
   chainWebpack: (config) => {
     config
       .plugin('html')

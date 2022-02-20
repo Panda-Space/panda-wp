@@ -18,9 +18,17 @@ class PageRouter {
     }
 
     public function show($request) {
-        $data = (new PageController())->show($request);
+        try {
+            $data = (new PageController())->show($request);
 
-        return PandaRouter::__response($data);
+            return PandaRouter::__response($data);
+        } catch (Exception $e) {
+            return PandaRouter::__response((object)[
+                'code'      => 'content_not_found',
+                'message'   => $e->getMessage(),
+                'status'    => false           
+            ]);
+        }
     }
 
     private function __getArgs($selectedRules) {
