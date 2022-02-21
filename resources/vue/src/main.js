@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { BootstrapVue } from 'bootstrap-vue';
+import Vuelidate from 'vuelidate';
 import AOS from 'aos';
 
 import App from './App.vue';
@@ -51,6 +52,7 @@ Vue.mixin({
 });
 
 Vue.use(BootstrapVue);
+Vue.use(Vuelidate);
 
 new Vue({
   router,

@@ -42,6 +42,13 @@ function my_theme_register_required_plugins() {
 			'force_activation'  	=> false,
 			'force_deactivation' 	=> false,
 		),
+
+		array(
+			'name'        			=> 'Duplicate Page',
+			'slug'        			=> 'duplicate-page',
+			'force_activation'  	=> false,
+			'force_deactivation' 	=> false,
+		),
 	);
 
 	$config = array(
