@@ -32,8 +32,7 @@ npm install
 # ⚙️ Setup
 ## Project
 1. Clone **`.env.example`** to **`.env`**
-2. Change **`APP_ENV`** by **`dev`**
-3. Update permalinks on Wordpress removing the last slash
+2. Update permalinks on Wordpress removing the last slash (optional)
 
 ## Frontend
 ### Legend
@@ -45,7 +44,7 @@ npm install
 ### 👻 Vue
 1. Clone **`.env.example`** to **`.env`** (development mode)
 2. Clone **`.env.example`** to **`.env.staging`** (local building)
-3. Update **`.env`** and **`.env.stagging`** with the same information
+3. Update **`.env`** and **`.env.staging`** with the same information
 
 ```sh
 # Development
@@ -118,6 +117,11 @@ npm run vue:build
 * Development
 ```sh
 npm run admin:serve
+```
+
+* Staging
+```sh
+npm run admin:stage
 ```
 
 * Production
