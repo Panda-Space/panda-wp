@@ -21,6 +21,13 @@ export default {
       contextLoading: true,
     };
   },
+  watch: {
+    contextLoading(value) {
+      if (!value) {
+        document.title = `${this.context.post.title} - ${process.env.VUE_APP_TITLE}`;
+      }
+    },
+  },
   created() {
     this.getFullContext({ type: 'post-type', typeName: 'single', slug: this.$route.params.single_slug });
   },

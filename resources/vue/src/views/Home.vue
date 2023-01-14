@@ -3,12 +3,13 @@
     <div class="container">
       <section class="py-5 h-100 text-center">
         <h1 data-aos="zoom-in" class="w-bold">
-          Welcome to Panda WP,
-          2022
+          <Icon icon="line-md:github" />
+          Welcome to Panda WP
+          <Icon icon="line-md:beer-twotone-loop" />
         </h1>
         <router-link to="example">Example</router-link>
         <figure data-aos="zoom-in">
-          <img alt="Vue logo" src="@/assets/img/logo.png">
+          <img alt="Vue logo" src="@/assets/images/logo.png">
         </figure>
       </section>
 

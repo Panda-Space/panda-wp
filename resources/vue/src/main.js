@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { BootstrapVue } from 'bootstrap-vue';
+import { Icon } from '@iconify/vue2';
 import Vuelidate from 'vuelidate';
 import AOS from 'aos';
 
@@ -39,12 +40,15 @@ Vue.mixin({
 
             this.contextLoading = false;
           } else {
-            this.$router.push('/404');
+            this.$bvToast.toast('Página no encontrada', {
+              title: 'Error 404',
+              variant: 'danger',
+              toaster: 'b-toaster-bottom-left',
+              autoHideDelay: 5000,
+            });
           }
         })
         .catch((err) => {
-          this.$router.push('/404');
-
           throw err;
         });
     },
@@ -53,6 +57,7 @@ Vue.mixin({
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
+Vue.component('Icon', Icon);
 
 new Vue({
   router,

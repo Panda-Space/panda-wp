@@ -10,9 +10,8 @@ function my_theme_register_required_plugins() {
 			'name'               	=> 'Advanced Custom Fields Pro',
 			'slug'               	=> 'advanced-custom-fields-pro',
 			'source'             	=>	dirname( __FILE__ ) . '/packages/acf-pro.zip',
-			// 'required'           	=> true,
-			'version'				=> '5.8.1',
-			'force_activation'		=> false,
+			'version'				=> '5.12.3',
+			'force_activation'		=> true,
 			'force_deactivation'	=> false,
 		),
 

@@ -12,7 +12,7 @@ class PageRouter {
                 'permission_callback' => function ($request) {
                     return true;
                 },
-                'args'  => $this::__getArgs(['type', 'type-name'])
+                'args'  => $this->__getArgs(['type', 'type-name'])
             ));
         });
     }
@@ -21,13 +21,18 @@ class PageRouter {
         try {
             $data = (new PageController())->show($request);
 
-            return PandaRouter::__response($data);
+            return wp_send_json([
+                'code'      => 200,
+                'message'   => $data ? 'Panda WP content here!!' : 'No Panda WP content 😥',
+                'data'      => $data,
+                'status'    => $data ? true : false
+            ], 200);
         } catch (Exception $e) {
-            return PandaRouter::__response((object)[
-                'code'      => 'content_not_found',
+            return wp_send_json([
+                'code'      => $e->getCode() ?? 502,
                 'message'   => $e->getMessage(),
-                'status'    => false           
-            ]);
+                'status'    => false
+            ], $e->getCode() ?? 502);
         }
     }
 

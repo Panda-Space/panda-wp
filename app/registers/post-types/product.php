@@ -1,11 +1,11 @@
 <?php
 
-function custom_post_type_product85() {
+function custom_post_type_product() {
     $settings = [
-        'name_post_type_plural'   => '',
-        'name_post_type_Singular' => '',
-        'name_register_post_type' => '',
-        'rewrite_slug'            => '',
+        'name_post_type_plural'   => 'Productos',
+        'name_post_type_Singular' => 'Producto',
+        'name_register_post_type' => 'product',
+        'rewrite_slug'            => 'producto',
         'supports_post_type'      => [ 'title', 'editor', 'thumbnail' ],
         'taxonomy_post_type'      => [],
         'menu_icon_post_type'     => 'dashicons-megaphone',
@@ -50,4 +50,4 @@ function custom_post_type_product85() {
 
     register_post_type( $settings['name_register_post_type'], $args );
 }
-add_action( 'init', 'custom_post_type_product85', 0 );
+add_action( 'init', 'custom_post_type_product', 0 );

@@ -5,7 +5,7 @@
         <div class="c-nav__left d-flex justify-content-center align-items-center">
           <figure class="c-brand c-brand--normal d-flex justify-content-center align-items-center">
             <router-link class="c-brand__link" to="/">
-              <img class="c-brand__image" src="@/assets/img/logo.png" alt="Panda WP - Logo" />
+              <img class="c-brand__image" src="@/assets/images/logo.png" alt="Panda WP - Logo" />
             </router-link>
           </figure>
         </div>

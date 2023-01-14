@@ -12,7 +12,7 @@ class ExampleRouter {
                 'permission_callback' => function ($request) {
                     return true;
                 },
-                'args'  => $this::__getArgs(['id', 'email'])
+                'args'  => $this->__getArgs(['id', 'email'])
             ));
         });
     }
@@ -21,13 +21,18 @@ class ExampleRouter {
         try {
             $data = (new ExampleController())->index($request);
 
-            return PandaRouter::__response($data);
+            return wp_send_json([
+                'code'      => 200,
+                'message'   => $data ? 'Example here!!' : 'No example here 😥',
+                'data'      => $data,
+                'status'    => $data ? true : false
+            ], 200);
         } catch (Exception $e) {
-            return PandaRouter::__response((object)[
-                'code'      => 404,
+            return wp_send_json([
+                'code'      => $e->getCode() ?? 502,
                 'message'   => $e->getMessage(),
-                'status'    => false           
-            ]);
+                'status'    => false
+            ], $e->getCode() ?? 502);
         }
     }
 

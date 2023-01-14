@@ -31,7 +31,7 @@ class PageController {
                         'post' => $post
                     ];
 
-                    $pageData = array_merge($pageData, $this::__getPostData($request['type'], $request['type-name'], $request['slug'], $post->ID));
+                    $pageData = array_merge($pageData, $this->__getPostData($request['type'], $request['type-name'], $request['slug'], $post->ID));
                 } else {
                     $pageData = false;
                 }
@@ -52,29 +52,20 @@ class PageController {
                         'term' => $term
                     ];
 
-                    $pageData = array_merge($pageData, $this::__getTermData($request['type-name'], $request['slug'], $term->ID, $request['parent']));
+                    $pageData = array_merge($pageData, $this->__getTermData($request['type-name'], $request['slug'], $term->ID, $request['parent']));
                 } else {
                     $pageData = false;
                 }
                 break;
             case 'general':
-                $pageData = $this::__getGeneralData();
+                $pageData = $this->__getGeneralData();
                 break;
         }
 
         if ($pageData) {
-            return (object)[
-                'message'   => 'Panda WP - SPA 🚀🔥🐼',
-                'data'      => $pageData,
-                'status'    => true,
-                'code'      => 200,
-            ];
+            $pageData;
         } else {
-            return (object)[
-                'code'      => 200,
-                'message'   => 'Panda WP - SPA ⚠️🐼',
-                'status'    => false
-            ];
+            return false;
         }
     }
 

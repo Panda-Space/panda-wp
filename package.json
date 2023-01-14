@@ -25,6 +25,6 @@
     "admin:serve": "npm --prefix ./resources/admin/ run start",
     "admin:build": "npm --prefix ./resources/admin/ run build",
     "admin:stage": "npm --prefix ./resources/admin/ run stage",
-    "build": "npm --prefix ./resources/admin/ run build && npm --prefix ./resources/admin/ run build"
+    "build": "npm --prefix ./resources/admin/ run build && npm --prefix ./resources/vue/ run build"
   }
 }

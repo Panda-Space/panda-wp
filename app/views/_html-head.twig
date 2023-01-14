@@ -1,4 +1,4 @@
-<title>{{ site.name }}  {% if not fn('is_front_page') %} - {{post.title}} {% endif %}</title>
+<title>{% if not fn('is_front_page') %} {{params.title}}{{post.title}} - {% endif %} {{ site.name }}</title>
 <meta charset="{{ site.charset }}">
 <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">

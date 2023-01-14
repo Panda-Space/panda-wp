@@ -13,6 +13,9 @@ const routes = [
     path: '/example',
     name: 'Example',
     component: () => import(/* webpackChunkName: "example" */ '../views/Example.vue'),
+    meta: {
+      title: 'Example',
+    },
   },
   {
     path: '/category/:category_slug',
@@ -32,9 +35,18 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
   mode: 'history',
   base: '/',
   routes,
+});
+
+router.afterEach((to) => {
+  Vue.nextTick(() => {
+    document.title = (to.meta.title) ? `${to.meta.title} - ${process.env.VUE_APP_TITLE}` : `${process.env.VUE_APP_TITLE}`;
+  });
 });
 
 export default router;

@@ -1,4 +1,6 @@
-<template>
+{% extends '_html.twig' %}
+
+{% block body %}
   <section class="c-section c-section--404">
     <div class="container py-5">
       <h1 class="c-section-content-title text-center pri-color w-sbold mb-3">
@@ -7,21 +9,15 @@
       <div class="c-section-content c-section-content--normal position-relative mb-5">
         <p class="m-0 text-center">Página no encontrada</p>
       </div>
-      <div class="d-flex justify-content-center pt-3 mb-2">
-        <figure class="c-pic">
-          <img src="@/assets/images/404.png" alt="">
+      <div class="d-flex flex-column align-items-center pt-3 mb-2">
+        <figure class="c-pic mb-4">
+          <img src="{{theme.link}}/static/public/{{image404}}" alt="">
         </figure>
+
+        <a href="{{ site.url }}" class="c-button c-button--primary d-inline-block">
+          Ir al inicio
+        </a>
       </div>
     </div>
   </section>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      context: {},
-    };
-  },
-};
-</script>
+{% endblock %}

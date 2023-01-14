@@ -6,7 +6,7 @@
             <td width="600" align="center">
             <div style="background: #6600EC; color: white; width: 100%; max-width: 640px;">
                 <header style="background: white; padding: 1rem;">
-                    <img src="<?= get_template_directory_uri() ?>/static/images/jm-logo.png" style="width: 100px;">
+                    <img src="<?= get_template_directory_uri() ?>/static/public/logo.png" style="width: 100px;">
                 </header>
 
                 <div style="padding: 1rem;">

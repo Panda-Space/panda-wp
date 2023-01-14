@@ -4,6 +4,7 @@ use Timber\Timber;
 
 Routes::map('example', function($routeParams) {
     $params = [
+        'title' => 'Example',
         'route' => $routeParams,
         'view'  => 'example',
     ];

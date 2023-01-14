@@ -12,12 +12,7 @@ class ExampleController {
         $examples = Example::all();
 
         if (count($examples)) {
-            return (object)[
-                'message'   => 'Examples here!!!',
-                'data'      => $examples,
-                'status'    => true,
-                'code'      => 200
-            ];
+            return $examples;
         } else {
             throw new Exception('No examples found');
         }
