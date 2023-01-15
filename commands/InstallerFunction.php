@@ -82,6 +82,8 @@ class InstallerFunction extends Command {
             echo "                                                    \n";
             echo "                                                    \n";
 
+            echo shell_exec('rm -Rf .git');
+
             $response = 'Made with ❤️  by Cleiver + Lili';
         } else {
             $response = 'Error: Necesita ingresar el hostname del proyecto';
