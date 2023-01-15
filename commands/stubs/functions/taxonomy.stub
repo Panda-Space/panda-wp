@@ -35,4 +35,5 @@ function taxonomy_{{name_function}}() {
     ];
     register_taxonomy( $settings['name_register_taxonomy'], $settings['post_type'], $args );
 }
+
 add_action( 'init', 'taxonomy_{{name_function}}', 0 );

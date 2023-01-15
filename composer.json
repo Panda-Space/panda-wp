@@ -23,5 +23,10 @@
         "psr-4": {
             "PandaWP\\Console\\": "commands/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

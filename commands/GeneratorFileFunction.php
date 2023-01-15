@@ -6,8 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\{InputArgument, InputInterface, InputOption};
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GeneratorFileFunction extends Command
-{
+class GeneratorFileFunction extends Command {
     protected $commandName = 'make:function';
     protected $commandDescription = 'Create custom post type files or custom taxonomy files';
 
@@ -21,8 +20,7 @@ class GeneratorFileFunction extends Command
     protected $type;
     protected $dir;
 
-    protected function configure()
-    {
+    protected function configure() {
         $this
             ->setName($this->commandName)
             ->setDescription($this->commandDescription)
@@ -39,8 +37,7 @@ class GeneratorFileFunction extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    protected function execute(InputInterface $input, OutputInterface $output) {
         $this->filename = $input->getArgument('filename');
         $this->type = $input->getOption('type');
 
@@ -59,8 +56,7 @@ class GeneratorFileFunction extends Command
         return 200;
     }
 
-    protected function createFile()
-    {
+    protected function createFile() {
         file_put_contents(
             "app/registers/{$this->dir}/{$this->filename}.php",
             $this->compileFunctionFileStub()
@@ -74,8 +70,7 @@ class GeneratorFileFunction extends Command
         }
     }
 
-    protected function compileFunctionFileStub()
-    {
+    protected function compileFunctionFileStub() {
         return str_replace(
             '{{name_function}}',
             $this->filename,
@@ -83,13 +78,11 @@ class GeneratorFileFunction extends Command
         );
     }
 
-    protected function compileViewFileStub()
-    {
+    protected function compileViewFileStub() {
         return file_get_contents("commands/stubs/views/post-type.stub");
     }
 
-    protected function functionFileExist()
-    {
+    protected function functionFileExist() {
         if ( ! file_exists("app/registers/{$this->dir}/{$this->filename}.php") ) {
             $this->createFile();
             return 'Created file.';
