@@ -63,7 +63,7 @@ class PageController {
         }
 
         if ($pageData) {
-            $pageData;
+            return $pageData;
         } else {
             return false;
         }
