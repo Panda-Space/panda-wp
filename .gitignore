@@ -1,4 +1,5 @@
 vendor/
+resources/vue-legacy
 resources/vue/node_modules
 resources/admin/node_modules
 

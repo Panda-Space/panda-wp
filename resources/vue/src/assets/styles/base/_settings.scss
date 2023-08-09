@@ -1,51 +1,51 @@
 /* Maps - Variables */
 $primary-colors: (
-  "color": $primary-color,
-  "alt": $primary-alt,
+  'color': $primary-color,
+  'alt': $primary-alt
 );
 
 $secondary-colors: (
-  "color": $secondary-color,
-  "alt": $secondary-alt,
+  'color': $secondary-color,
+  'alt': $secondary-alt
 );
 
 $gray-colors: (
-  "light": $gray-light,
-  "color": $gray,
-  "medium": $gray-medium,
-  "dark": $gray-dark
+  'light': $gray-light,
+  'color': $gray,
+  'medium': $gray-medium,
+  'dark': $gray-dark
 );
 
 $other-colors: (
-  "white": $white,
-  "black": $black,
-  "success": $success-color,
-  "warnings": $warning-color,
-  "alerts": $alert-color
+  'white': $white,
+  'black': $black,
+  'success': $success-color,
+  'warnings': $warning-color,
+  'alerts': $alert-color
 );
 
 $font-sizes: (
-  "14" : $fs-14,
-  "16" : $fs-16,
-  "18" : $fs-18,
-  "21" : $fs-21,
-  "25" : $fs-25,
-  "30" : $fs-30,
-  "35" : $fs-35,
-  "40" : $fs-40
+  '14': $fs-14,
+  '16': $fs-16,
+  '18': $fs-18,
+  '21': $fs-21,
+  '25': $fs-25,
+  '30': $fs-30,
+  '35': $fs-35,
+  '40': $fs-40
 );
 
 $font-weights: (
-  "regular": $font-regular,
-  "medium": $font-medium,
-  "sbold": $font-semibold,
-  "bold": $font-bold,
-  "black": $font-black
+  'regular': $font-regular,
+  'medium': $font-medium,
+  'sbold': $font-semibold,
+  'bold': $font-bold,
+  'black': $font-black
 );
 
 $font-families: (
-  "1": $body-font-family,
-  "2": $secondary-font-family
+  '1': $body-font-family,
+  '2': $secondary-font-family
 );
 
 /*

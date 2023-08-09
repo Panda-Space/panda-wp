@@ -10,7 +10,6 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  font-family: $body-font-family !important;
   color: $gray-dark !important;
 }
 
@@ -23,9 +22,12 @@ h2,
 h3 {
   color: $black;
   font-family: $secondary-font-family !important;
+  margin: 0;
 }
 
 * {
+  font-family: $body-font-family !important;
+
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -46,5 +48,47 @@ h3 {
     &:active {
       background: $primary-color;
     }
+  }
+}
+
+.c-loader-app {
+  @include flex-center;
+
+  background-color: $white;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 1;
+
+  &__animation {
+    font-size: 80px;
+    color: $primary-color;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.c-app {
+  height: 100vh;
+  overflow: hidden;
+
+  &__section {
+    transform: scale(0.9);
+
+    @include transition;
+
+    &.loaded {
+      transform: scale(1);
+    }
+  }
+
+  &:has(.loaded) {
+    overflow: auto;
   }
 }

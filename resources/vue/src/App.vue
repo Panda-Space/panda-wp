@@ -1,44 +1,33 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { RouterView } from 'vue-router'
+import { useAppStore } from '@/stores/app'
+
+const store = useAppStore()
+const isActiveMenu = ref(false)
+
+onMounted(() => {
+  store.getGeneralData()
+})
+</script>
+
 <template>
-  <section>
-    <Header></Header>
-    <HeaderMobile :switcher="isActiveMenu"></HeaderMobile>
-    <Toggle :switcher.sync="isActiveMenu"></Toggle>
+  <section class="c-app">
+    <HeaderMain />
+    <HeaderMobile v-model="isActiveMenu"></HeaderMobile>
+    <HeaderToggle v-model="isActiveMenu"></HeaderToggle>
 
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <section class="c-app__section" :class="{ loaded: !store.loaderStatus }">
+      <RouterView v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <KeepAlive>
+            <component :is="Component" />
+          </KeepAlive>
+        </transition>
+      </RouterView>
+    </section>
 
-    <Footer></Footer>
+    <FooterMain></FooterMain>
+    <LoaderApp :status="store.loaderStatus"></LoaderApp>
   </section>
 </template>
-
-<script>
-import { mapActions } from 'vuex';
-
-import Header from './components/header/Main.vue';
-import HeaderMobile from './components/header/Mobile.vue';
-import Toggle from './components/header/Toggle.vue';
-import Footer from './components/Footer.vue';
-
-export default {
-  data() {
-    return {
-      isActiveMenu: false,
-    };
-  },
-  components: {
-    Header,
-    HeaderMobile,
-    Toggle,
-    Footer,
-  },
-  created() {
-    this.getGeneralData();
-  },
-  methods: {
-    ...mapActions(['getGeneralData']),
-  },
-};
-</script>
