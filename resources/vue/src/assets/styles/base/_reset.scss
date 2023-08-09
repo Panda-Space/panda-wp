@@ -1,3 +1,4 @@
+// TODO: Clean later, remove bootstrap
 .reveal {
   outline: none !important;
 }
@@ -80,6 +81,11 @@ select {
 /* Bootstrap | Toast */
 .toast:not(.show) {
   display: block;
+}
+
+/* Primevue */
+body {
+  margin: 0;
 }
 
 /* WordPress */

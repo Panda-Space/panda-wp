@@ -19,7 +19,7 @@
     "wordpress models"
   ],
   "scripts": {
-    "vue:serve": "npm --prefix ./resources/vue/ run serve",
+    "vue:serve": "npm --prefix ./resources/vue/ run dev",
     "vue:stage": "npm --prefix ./resources/vue/ run stage",
     "vue:build": "npm --prefix ./resources/vue/ run build",
     "admin:serve": "npm --prefix ./resources/admin/ run start",

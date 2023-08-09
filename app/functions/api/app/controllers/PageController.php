@@ -9,8 +9,6 @@ class PageController {
     public function __construct() { }
 
     public function show($request) {
-        $pageData = [];
-
         switch ($request['type']) {
             case 'page':
             case 'post-type':
@@ -63,7 +61,7 @@ class PageController {
         }
 
         if ($pageData) {
-            $pageData;
+            return $pageData;
         } else {
             return false;
         }
@@ -84,7 +82,7 @@ class PageController {
             case 'page':
                 switch ($postSlug) {
                     case 'example':
-                        $data = ['example' => 'Hi, From Panda WP'];
+                        $data = ['articles' => Timber::get_posts(['post_type' => 'post'])];
                         break;
                 }
                 break;

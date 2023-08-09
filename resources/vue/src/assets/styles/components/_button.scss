@@ -3,6 +3,7 @@
   padding: 0.7rem 1rem;
   display: inline-block;
   outline: none;
+  cursor: pointer;
 
   @include b-radious(5px);
   @include transition(0.2s);
