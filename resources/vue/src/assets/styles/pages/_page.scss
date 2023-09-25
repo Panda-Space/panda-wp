@@ -1,10 +1,13 @@
+@use '../base/variables';
+@use '../base/core';
+
 .c-section {
   outline: none;
 
   &__title {
-    font-size: $fs-30;
-    color: $black;
-    font-weight: $font-bold;
+    font-size: variables.$fs-30;
+    color: variables.$black;
+    font-weight: variables.$font-bold;
   }
 
   .c-card-image {
@@ -12,7 +15,7 @@
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include core.media-breakpoint-up(lg) {
   .c-section {
     outline: none;
   }

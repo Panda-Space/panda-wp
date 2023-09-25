@@ -1,0 +1,56 @@
+@use 'variables';
+@use 'mixins';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: variables.$white !important;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: variables.$gray-dark;
+    border-radius: 10px;
+
+    &:hover {
+      background: variables.$black;
+    }
+
+    &:active {
+      background: variables.$primary-color;
+    }
+  }
+}
+
+.c-app {
+  font-family: variables.$body-font-family !important;
+  color: variables.$gray-dark !important;
+
+  a {
+    color: variables.$primary-color;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: variables.$black;
+    font-family: variables.$secondary-font-family !important;
+    margin: 0;
+  }
+
+  ::selection {
+    color: #fff;
+    background: variables.$primary-color;
+  }
+}

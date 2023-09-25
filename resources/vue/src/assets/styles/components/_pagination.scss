@@ -1,3 +1,5 @@
+@use '../base/variables';
+
 .c-pagination {
   &__link {
     padding-left: 10px;
@@ -5,7 +7,7 @@
 
     &--active {
       a {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
     }
   }
@@ -15,8 +17,8 @@
     height: 36px;
     border-radius: 50%;
     padding: 10px;
-    color: $white;
-    background-color: $primary-color;
-    border: 2px solid $primary-color;
+    color: variables.$white;
+    background-color: variables.$primary-color;
+    border: 2px solid variables.$primary-color;
   }
 }

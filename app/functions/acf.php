@@ -1,18 +1,18 @@
 <?php
 
-$config = require get_theme_file_path('config/base.php');
-
 /**
  * --------------------------------------------------------------------------
  * ACF | Google maps - Set API KEY
  * --------------------------------------------------------------------------
  *
  * */
-add_filter('acf/fields/google_map/api', function($api) use ($config) {
-    $api['key'] = $config['GOOGLE_API_KEY'];
+if (isset(ENV['GOOGLE_API_KEY'])) {
+    add_filter('acf/fields/google_map/api', function($api) {
+        $api['key'] = ENV['GOOGLE_API_KEY'];
 
-    return $api;
-});
+        return $api;
+    });
+}
 
 /**
  * --------------------------------------------------------------------------

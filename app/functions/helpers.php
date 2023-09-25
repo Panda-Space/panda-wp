@@ -18,7 +18,7 @@ function register_assets($type, $resource) {
             $resource['src'],
             $resource['deps'],
             $resource['ver'],
-            $resource['media']
+            isset($resource['media']) ? $resource['media'] : ''
         );
         wp_enqueue_style( $resource['handle'] );
     } elseif ($type === 'script') {

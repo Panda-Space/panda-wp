@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+$breakpoints: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+@mixin container($padding-x: 1rem) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $container-max-width in $breakpoints {
+    @media (min-width: $container-max-width) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin container-fluid($padding-x: 1rem) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin media-breakpoint-up($breakpoint) {
+  $min-width: map.get($breakpoints, $breakpoint);
+
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.container-fluid {
+  @include container-fluid;
+}
