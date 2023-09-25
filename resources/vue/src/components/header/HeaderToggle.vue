@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  value: Boolean,
+  value: Boolean
 })
 const emit = defineEmits(['input'])
 

@@ -1,3 +1,5 @@
+@use '../base/variables';
+
 .c-form-group {
   &__input,
   &__label {
@@ -16,14 +18,14 @@
   &__error {
     display: none;
     padding-left: 1rem;
-    color: $alert-color;
-    font-size: $fs-14;
+    color: variables.$alert-color;
+    font-size: variables.$fs-14;
   }
 
   &--error {
     .c-form-group {
       &__input {
-        border: solid 1px $alert-color;
+        border: solid 1px variables.$alert-color;
       }
 
       &__error {

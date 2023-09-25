@@ -1,13 +1,15 @@
+@use '../base/variables';
+
 .c-footer {
-  color: $white;
-  background: $primary-color;
+  color: variables.$white;
+  background: variables.$primary-color;
   padding: 0.5rem 0;
 
   a,
   a:hover,
   a:focus {
-    color: $white;
-    font-weight: $font-bold;
+    color: variables.$white;
+    font-weight: variables.$font-bold;
   }
 
   a:hover {

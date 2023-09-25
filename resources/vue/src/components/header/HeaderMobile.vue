@@ -3,7 +3,7 @@ import { useAppStore } from '@/stores/app'
 import { useIsAtiveMenuItem } from '@/composable/header'
 
 defineProps({
-  value: Boolean,
+  value: Boolean
 })
 
 const app = useAppStore()

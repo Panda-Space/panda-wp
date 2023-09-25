@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode",
+    "mblode.twig-language-2",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "wordpresstoolbox.wordpress-toolbox",
+  ]
+}

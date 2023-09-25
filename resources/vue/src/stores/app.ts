@@ -16,12 +16,12 @@ interface General {
 }
 
 interface AppStore {
-  general: General,
+  general: General
   loader: LoaderMain
 }
 
 export const useAppStore = defineStore('app', {
-  state: () :AppStore => ({
+  state: (): AppStore => ({
     general: {
       data: {
         information: {},

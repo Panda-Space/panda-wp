@@ -7,10 +7,10 @@ import router from './router'
 
 import './assets/styles/main.scss'
 
-import PrimeVue from 'primevue/config';
-import ToastService from 'primevue/toastservice';
-import Button from "primevue/button"
-import Toast from 'primevue/toast';
+import PrimeVue from 'primevue/config'
+import ToastService from 'primevue/toastservice'
+import Button from 'primevue/button'
+import Toast from 'primevue/toast'
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -46,7 +46,7 @@ app.component(
 
 app.use(router)
 app.use(pinia)
-app.use(PrimeVue, { inputStyle: "filled" })
+app.use(PrimeVue, { inputStyle: 'filled' })
 app.use(ToastService)
 
 app.mount('#app')

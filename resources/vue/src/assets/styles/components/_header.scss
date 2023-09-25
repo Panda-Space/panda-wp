@@ -1,9 +1,12 @@
+@use '../base/variables';
+@use '../base/mixins';
+
 .c-header {
-  background: $white;
+  background: variables.$white;
   z-index: 1000 !important;
 
-  @include transition(0.5s);
-  @include box-shadow(right, rgba($gray, 0.4), 0, 10px, 50px);
+  @include mixins.transition(0.5s);
+  @include mixins.box-shadow(right, rgba(variables.$gray, 0.4), 0, 10px, 50px);
 
   left: 0;
   top: 0;
@@ -25,25 +28,25 @@
       }
 
       .c-menu .menu-item > a {
-        color: $black;
+        color: variables.$black;
         padding: 1rem;
-        font-family: $secondary-font-family;
-        font-weight: $font-medium;
-        font-size: $fs-18;
+        font-family: variables.$secondary-font-family;
+        font-weight: variables.$font-medium;
+        font-size: variables.$fs-18;
 
-        @include transition(0.2s);
+        @include mixins.transition(0.2s);
       }
 
       .c-menu .menu-item.activate > a {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
 
       .c-menu .menu-item > a:hover {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
 
       .c-menu .menu-item > a:focus {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
     }
   }
@@ -57,7 +60,7 @@
   opacity: 0;
   visibility: hidden;
 
-  @include transition(0.5s);
+  @include mixins.transition(0.5s);
 
   .c-nav {
     height: 100%;
@@ -80,7 +83,7 @@
   }
 
   &--visible {
-    background: $white;
+    background: variables.$white;
     transform: translateY(0);
     visibility: visible;
     opacity: 1;
@@ -102,7 +105,7 @@
         }
 
         .menu-item > a {
-          color: $white;
+          color: variables.$white;
         }
       }
     }

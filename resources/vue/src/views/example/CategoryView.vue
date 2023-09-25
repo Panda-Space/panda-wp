@@ -1,5 +1,3 @@
 <template>
-  <section>
-    Pending...
-  </section>
+  <section>Pending...</section>
 </template>

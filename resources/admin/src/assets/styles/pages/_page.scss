@@ -1,0 +1,12 @@
+@use '../base/variables';
+@use '../base/core';
+
+.c-section {
+  outline: none;
+}
+
+@include core.media-breakpoint-up(lg) {
+  .c-section {
+    outline: none;
+  }
+}

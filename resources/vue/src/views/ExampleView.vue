@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, ref, type Ref } from 'vue';
-import { useGetContent } from '@/composable/content';
+import { defineAsyncComponent, onMounted, ref, type Ref } from 'vue'
+import { useGetContent } from '@/composable/content'
 
 const ImageCard = defineAsyncComponent(() => import('@/components/ui/ImageCard.vue'))
 
@@ -9,8 +9,8 @@ interface Content {
 }
 
 const content: Ref<Content> = ref({
-  post: {},
-});
+  post: {}
+})
 const images = ref([
   'https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   'https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -33,8 +33,8 @@ const images = ref([
   'https://images.pexels.com/photos/1995730/pexels-photo-1995730.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   'https://images.pexels.com/photos/4319752/pexels-photo-4319752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   'https://images.pexels.com/photos/2365457/pexels-photo-2365457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  'https://images.pexels.com/photos/1894350/pexels-photo-1894350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-]);
+  'https://images.pexels.com/photos/1894350/pexels-photo-1894350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+])
 
 onMounted(async () => {
   content.value = await useGetContent({ type: 'page', slug: 'example' })

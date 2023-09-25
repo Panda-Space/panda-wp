@@ -1,13 +1,13 @@
-import { useAppStore } from "@/stores/app";
+import { useAppStore } from '@/stores/app'
 import { useRoute } from 'vue-router'
 // import { VBToastPlugin } from 'bootstrap-vue-3';
 
 interface PayloadRequest {
-  type: string,
-  slug: string,
-  typeName?: string,
-  parent?: string,
-};
+  type: string
+  slug: string
+  typeName?: string
+  parent?: string
+}
 
 // const showToast = () => {
 //   const toastOptions = {
@@ -31,10 +31,12 @@ const showError = () => {
 export async function useGetContent(payload: PayloadRequest): Promise<any> {
   const store = useAppStore()
   const route = useRoute()
-  let request: string = `${import.meta.env.VITE_APP_API}/pages/${payload.slug}/?type=${payload.type}`;
+  let request: string = `${import.meta.env.VITE_APP_API}/pages/${payload.slug}/?type=${
+    payload.type
+  }`
 
-  if (payload.typeName) request += `&type-name=${payload.typeName}`;
-  if (payload.parent) request += `&parent=${payload.parent}`;
+  if (payload.typeName) request += `&type-name=${payload.typeName}`
+  if (payload.parent) request += `&parent=${payload.parent}`
 
   const response = await fetch(request)
 
@@ -49,9 +51,9 @@ export async function useGetContent(payload: PayloadRequest): Promise<any> {
 
       return data
     } else {
-      showError();
+      showError()
     }
   } else {
-    showError();
+    showError()
   }
 }

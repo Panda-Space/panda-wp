@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // @ts-ignore
-import VLazyImage from 'v-lazy-image';
+import VLazyImage from 'v-lazy-image'
 
 defineProps({
-  source: String,
+  source: String
 })
 </script>
 

@@ -107,21 +107,28 @@ class InstallerFunction extends Command {
         shell_exec("cp resources/vue/.env resources/vue/.env.staging");        
 
         $envStageFile   = file_get_contents($fileEnvStagePath);
-        $envStageFile   = str_replace(['NODE_ENV=development'], 'NODE_ENV=production', $envStageFile);
-        $envStageFile   = str_replace(['VUE_APP_MODE=\'development\''], 'VUE_APP_MODE=\'staging\'', $envStageFile);
+        $envStageFile   = str_replace(['VITE_APP_MODE=\'development\''], 'VITE_APP_MODE=\'staging\'', $envStageFile);
 
         file_put_contents($fileEnvStagePath, $envStageFile);
     }
 
     protected function settingAdminEnviroment($hostname, $theme) {
-        $fileEnvPath = 'resources/admin/src/config.json';
+        $fileEnvPath        = 'resources/admin/.env';
+        $fileEnvStagePath   = 'resources/admin/.env.staging';
 
-        shell_exec("cp resources/admin/src/config.example.json resources/admin/src/config.json");
+        shell_exec("cp resources/admin/.env.example resources/admin/.env");
 
         $envFile    = file_get_contents($fileEnvPath);
         $envFile    = str_replace(['pandawp.site'], $hostname, $envFile);
         $envFile    = str_replace(['pandawp'], $theme, $envFile);
 
         file_put_contents($fileEnvPath, $envFile);
+
+        shell_exec("cp resources/admin/.env resources/admin/.env.staging");        
+
+        $envStageFile   = file_get_contents($fileEnvStagePath);
+        $envStageFile   = str_replace(['VITE_APP_MODE=\'development\''], 'VITE_APP_MODE=\'staging\'', $envStageFile);
+
+        file_put_contents($fileEnvStagePath, $envStageFile);
     }
 }
