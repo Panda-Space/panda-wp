@@ -9,15 +9,15 @@ import './assets/styles/main.scss'
 
 import PrimeVue from 'primevue/config'
 import ToastService from 'primevue/toastservice'
-import Button from 'primevue/button'
-import Toast from 'primevue/toast'
+import Button from 'primevue/button' /* Remove later if isn't useful */
+import Toast from 'primevue/toast' /* Remove later if isn't useful */
 
 const pinia = createPinia()
 const app = createApp(App)
 
 app.component('IconUI', Icon)
-app.component('ButtonUI', Button)
-app.component('ToastUI', Toast)
+app.component('ButtonUI', Button) /* Remove later if isn't useful */
+app.component('ToastUI', Toast) /* Remove later if isn't useful */
 
 app.component(
   'HeaderMain',
