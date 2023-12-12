@@ -2,7 +2,7 @@
 
 use Timber\Timber;
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['image404'] = (ENV['APP_ENV'] == 'development') ? 'temp/404.png' : '/404.png';
 

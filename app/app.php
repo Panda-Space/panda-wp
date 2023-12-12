@@ -6,7 +6,7 @@ if (!isset($paged) || !$paged){
     $paged = 1;
 }
 
-$context = Timber::get_context();
+$context            = Timber::context();
 $context['params']  = $params;
 
 switch ($params['view']) {

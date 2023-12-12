@@ -31,7 +31,7 @@ const showError = () => {
 export async function useGetContent(payload: PayloadRequest): Promise<any> {
   const store = useAppStore()
   const route = useRoute()
-  let request: string = `${import.meta.env.VITE_APP_API}/pages/${payload.slug}/?type=${
+  let request: string = `${store.api}/pages/${payload.slug}/?type=${
     payload.type
   }`
 

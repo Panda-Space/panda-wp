@@ -59,7 +59,7 @@ add_action('admin_head', function () {
     switch ($current->base) {
         case 'toplevel_page_examples': {
                 register_assets('style', [
-                    'handle'    => 'pandawp/style/admin',
+                    'handle'    => 'pandawp/style/example',
                     'src'       => __getResourceURL('js', 'src/core/example.css'),
                     'deps'      => [],
                     'ver'       => '1.0.0',
@@ -67,7 +67,7 @@ add_action('admin_head', function () {
                 ]);
 
                 register_assets('script', [
-                    'handle'    => 'pandawp/wp/example',
+                    'handle'    => 'pandawp/script/example',
                     'src'       => __getResourceURL('js', 'src/core/example.ts'),
                     'deps'      => [],
                     'ver'       => '1.0.0',

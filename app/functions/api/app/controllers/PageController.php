@@ -110,44 +110,26 @@ class PageController {
     }
 
     private function __getGeneralData() {
-        $primaryMenu    = new \Timber\Menu('primary-menu');
-        $footerMenu     = new \Timber\Menu('footer-menu');
+        $primaryMenu    = Timber::get_menu('primary-menu');
+        $footerMenu     = Timber::get_menu('footer-menu');
 
-        $primaryMenu->items = array_map(function($item) {
-            $url = explode('/', $item->url);
+        if (isset($primaryMenu->items)) {
+            $primaryMenu->items = array_map(function($item) {
+                $item->url  = $item->path();
+                $item->name = $item->title();
 
-            if (in_array('http:', $url) || in_array('https:', $url)) {
-                $url = array_filter($url, function($element, $key){ return $element != '' && $key != 0 && $key != 2; }, ARRAY_FILTER_USE_BOTH);
+                return $item;
+            }, $primaryMenu->items);
+        }
 
-                $item->slug = implode('/', $url);
-                $item->url  = '/' . $item->slug;
-                $item->url  = '/' . $item->slug;
-            }
+        if (isset($footerMenu->items)) {
+            $footerMenu->items = array_map(function($item) {
+                $item->url  = $item->path();
+                $item->name = $item->title();
 
-            return $item;
-        }, $primaryMenu->items);
-
-        $primaryMenu->items = array_filter($primaryMenu->items, function($item) {
-            return $item->url;
-        });
-
-        $footerMenu->items = array_map(function($item) {
-            $url = explode('/', $item->url);
-
-            if (in_array('http:', $url) || in_array('https:', $url)) {
-                $url = array_filter($url, function($element, $key){ return $element != '' && $key != 0 && $key != 2; }, ARRAY_FILTER_USE_BOTH);
-
-                $item->slug = implode('/', $url);
-                $item->url  = '/' . $item->slug;
-                $item->url  = '/' . $item->slug;
-            }
-
-            return $item;
-        }, $footerMenu->items);
-
-        $footerMenu->items = array_filter($footerMenu->items, function($item) {
-            return $item->url;
-        });
+                return $item;
+            }, $footerMenu->items);
+        }
 
         return [
             'information' => (object)[
@@ -155,8 +137,8 @@ class PageController {
                 // "phone" => get_field('phone', 'options'),
                 // "email" => get_field('email', 'options')
             ],
-            'primary_menu'  => $primaryMenu->items,
-            'footer_menu'   => $footerMenu->items
+            'primary_menu'  => $primaryMenu->items ?? [],
+            'footer_menu'   => $footerMenu->items ?? []
         ];
     }
 }

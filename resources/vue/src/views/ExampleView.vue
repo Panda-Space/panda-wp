@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent, onMounted, ref, type Ref } from 'vue'
 import { useGetContent } from '@/composable/content'
+import sal from 'sal.js'
 
 const ImageCard = defineAsyncComponent(() => import('@/components/ui/ImageCard.vue'))
 
@@ -38,6 +39,8 @@ const images = ref([
 
 onMounted(async () => {
   content.value = await useGetContent({ type: 'page', slug: 'example' })
+
+  sal()
 })
 </script>
 
@@ -49,7 +52,13 @@ onMounted(async () => {
       </h1>
 
       <div class="grid">
-        <div v-for="image of images" :key="image" class="col col-12 md:col-4 lg:col-3 mb-4">
+        <div
+          v-for="(image, iimage) of images"
+          :key="image"
+          data-sal="slide-up"
+          :data-sal-delay="50 * iimage"
+          class="col col-12 md:col-4 lg:col-3 mb-4"
+        >
           <ImageCard :source="image" />
         </div>
       </div>

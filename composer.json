@@ -9,15 +9,15 @@
         }
     ],
     "require": {
-        "timber/timber": "1.*",
-        "illuminate/database": "^7.28",
         "upstatement/routes": "*",
         "phpmailer/phpmailer": "6.1",
-        "vlucas/phpdotenv": "^5.3"
+        "vlucas/phpdotenv": "^5.3",
+        "illuminate/database": "^10.35",
+        "timber/timber": "^2.0"
     },
     "require-dev": {
         "symfony/console": "^5.0",
-        "kint-php/kint": "^3.3"
+        "kint-php/kint": "^5.1"
     },
     "autoload": {
         "psr-4": {

@@ -43,6 +43,12 @@ export const useAppStore = defineStore('app', {
     },
     generalPrimaryMenu(): any[] {
       return this.general.data.primaryMenu
+    },
+    api(): string {
+      const hostname = window.location.hostname;
+      const protocol = window.location.protocol;
+
+      return import.meta.env.VITE_APP_API ?? `${protocol}//${hostname}/wp-json/custom/v1`
     }
   },
   actions: {
@@ -54,7 +60,7 @@ export const useAppStore = defineStore('app', {
       }
     },
     async getGeneralData(): Promise<void> {
-      const response = await fetch(`${import.meta.env.VITE_APP_API}/pages/general/?type=general`)
+      const response = await fetch(`${this.api}/pages/general/?type=general`)
 
       if (response.status === 201 || response.status < 300) {
         const { data } = await response.json()

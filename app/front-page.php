@@ -2,6 +2,6 @@
 
 use Timber\Timber;
 
-$context = Timber::get_context();
+$context = Timber::context();
 
 Timber::render('app.twig', $context);

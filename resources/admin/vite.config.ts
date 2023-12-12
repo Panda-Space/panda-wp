@@ -12,7 +12,7 @@ export default ({ mode }) => {
 
   return defineConfig({
     base: ['production', 'staging'].includes(appMode)
-      ? `/wp-content/themes/${process.env.VITE_APP_THEME}/app/static/admin/`
+      ? `/wp-content/themes/${process.env.VITE_APP_THEME}/app/static/admin/${appMode === 'staging' ? 'temp/' : ''}`
       : '/',
     plugins: [
       vue({

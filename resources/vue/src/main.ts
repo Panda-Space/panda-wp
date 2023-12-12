@@ -1,6 +1,8 @@
 import { createApp, defineAsyncComponent } from 'vue'
 import { createPinia } from 'pinia'
 import { Icon } from '@iconify/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
 
 import App from './App.vue'
 import router from './router'
@@ -18,6 +20,8 @@ const app = createApp(App)
 app.component('IconUI', Icon)
 app.component('ButtonUI', Button) /* Remove later if isn't useful */
 app.component('ToastUI', Toast) /* Remove later if isn't useful */
+app.component('SwiperUI', Swiper)
+app.component('SwiperSlide', SwiperSlide)
 
 app.component(
   'HeaderMain',
