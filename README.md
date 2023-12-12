@@ -32,19 +32,15 @@ php panda install
 
 ```json
   "[javascript]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[scss]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
@@ -52,10 +48,14 @@ php panda install
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 ```
+
+5. Update format shortcuts by these new ones
+![image](https://github.com/pincelkey/panda-wp/assets/20878555/123de6d8-e082-4e80-9103-5685c39fec97)
+
+These new shortcuts are much faster because is close to comoon `ctrl + s`
 
 # 😋 Icons
 
@@ -85,6 +85,13 @@ npm run vue:build
 
 ## 🛠️ Admin
 * Development
+
+First you need to set the live script which is gonna run by default (`resources\admin\.env.example`)
+
+```sh
+VITE_APP_LIVE_SCRIPT='example'
+```
+
 ```sh
 npm run admin:serve
 ```
