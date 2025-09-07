@@ -1,5 +1,6 @@
 <?php
 
+/* Pending.... */
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/functions/libs/context.php');
 require_once(__DIR__ . '/functions/routes.php');
@@ -7,6 +8,7 @@ require_once(__DIR__ . '/functions/routes.php');
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
+define('ADMIN_PATH', __DIR__ . '/functions/admin');
 define('ENV', $_ENV);
 
 /**

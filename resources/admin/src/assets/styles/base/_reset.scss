@@ -1,131 +1,32 @@
 @use 'variables';
 
-figure {
-  margin: 0;
-}
-
-label {
-  margin-bottom: 0;
-}
-
-button,
-a {
-  outline: none !important;
-}
-
-select {
-  background-image: none !important;
-}
-
-.button {
-  outline: none !important;
-}
-
-.button-reset {
-  border: none;
-  outline: none;
-  margin: 0 !important;
-  cursor: pointer;
-}
-
-.input-reset {
-  border: none;
-  outline: none;
-  font-size: variables.$fs-16;
-  margin: 0 !important;
-  width: 100%;
-  box-shadow: none;
-
-  &:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    transform: scale(1);
+.c-app {
+  figure {
+    margin: 0;
   }
-}
-
-.select-reset {
-  height: auto;
-  border: none;
-  outline: none;
-  font-size: variables.$fs-16;
-  background-image: linear-gradient(transparent, transparent) !important;
-  cursor: pointer;
-
-  &:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
+  
+  label {
+    margin-bottom: 0;
   }
-}
-
-.ul-reset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.modal-content {
-  border-radius: 10px;
-}
-
-.modal-body {
-  padding: 0;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-/* Bootstrap | Toast */
-.toast:not(.show) {
-  display: block;
-}
-
-/* Primevue */
-body {
-  margin: 0;
-}
-
-/* WordPress */
-.wp-block-embed {
-  &.aligncenter {
-    display: flex;
-    justify-content: center;
+  
+  button,
+  a,
+  .button {
+    outline: none !important;
   }
-
-  &.alignright {
-    display: flex;
-    justify-content: flex-end;
+  
+  select {
+    background-image: none !important;
   }
-
-  &.alignwide {
-    .wp-block-embed {
-      &__wrapper {
-        height: 0;
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        padding-top: 30px;
-        position: relative;
-
-        iframe {
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-        }
-      }
-    }
+  
+  .ul-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-}
-
-.wp-block-gallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.wp-block-image {
-  img {
-    width: 100%;
-    height: auto;
+  
+  /* Primevue Reset Rules */
+  body {
+    margin: 0;
   }
 }

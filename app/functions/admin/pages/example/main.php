@@ -1,30 +1,17 @@
 <?php
 
-class ExampleOptionPage {
-    public function __construct() {
-        add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-    }
+use Admin\Pages\Core\BasePage;
 
-    public function add_plugin_page() {
-        if (current_user_can( 'manage_options' )) {
-            add_menu_page(
-                'Examples',
-                'Examples',
-                'manage_options',
-                'examples',
-                array( $this, 'create_admin_page' ),
-                'dashicons-groups',
-                3
-            );
-        }
-    }
-
-    public function create_admin_page() {
-        include_once __DIR__.'/view.php';
-    }
-    
+class ExamplePage extends BasePage {
+    protected $settings = [
+        'page_title' => 'Example',
+        'menu_title' => 'Example',
+        'capability' => 'manage_options',
+        'slug' => 'example',
+        'icon' => 'dashicons-groups',
+        'position' => 3
+    ];
 }
 
-if ( is_admin()) {
-    $examples = new ExampleOptionPage();
-}
+new ExamplePage();
+

@@ -1,41 +1,29 @@
 @use 'variables';
 @use 'mixins';
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background-color: variables.$white !important;
-}
-
-* {
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 0;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: variables.$gray-dark;
-    border-radius: 10px;
-
-    &:hover {
-      background: variables.$black;
-    }
-
-    &:active {
-      background: variables.$primary-color;
-    }
-  }
+  background-color: variables.$white-color;
 }
 
 .c-app {
-  font-family: variables.$body-font-family !important;
-  color: variables.$gray-dark !important;
+  ::selection {
+    color: variables.$white-color;
+    background: variables.$primary-color;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    color: variables.$black-color !important;
+
+    p {
+      line-height: 26px;
+    }
+  }
 
   a {
     color: variables.$primary-color;
@@ -44,13 +32,34 @@ body {
   h1,
   h2,
   h3 {
-    color: variables.$black;
+    color: variables.$black-color;
     font-family: variables.$secondary-font-family !important;
     margin: 0;
   }
 
-  ::selection {
-    color: #fff;
-    background: variables.$primary-color;
+  * {
+    font-family: variables.$body-font-family !important;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: variables.$gray-color-400;
+      border-radius: 10px;
+
+      &:hover {
+        background: variables.$black-color;
+      }
+
+      &:active {
+        background: variables.$primary-color;
+      }
+    }
   }
 }

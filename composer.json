@@ -21,7 +21,8 @@
     },
     "autoload": {
         "psr-4": {
-            "PandaWP\\Console\\": "commands/"
+            "PandaWP\\Console\\": "commands/",
+            "Admin\\Pages\\": "app/functions/admin/pages/"
         }
     },
     "config": {

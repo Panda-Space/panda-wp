@@ -1,14 +1,13 @@
 @use 'variables';
 
 /* Maps - Variables */
-
 $primary-colors: (
   'main': variables.$primary-color,
   '500': variables.$primary-color-500
 );
 $secondary-colors: (
-  'main': variables.$secondary-color,
-  // '500': variables.$secondary-alt
+  '200': variables.$secondary-color-200,
+  'main': variables.$secondary-color
 );
 $gray-colors: (
   'main': variables.$gray-color,
@@ -54,41 +53,41 @@ $font-families: (
 */
 
 @each $key, $pcolor in $primary-colors {
-  .primary-color-#{$key} {
+  .color-primary-#{$key} {
     color: $pcolor;
   }
 
-  .primary-background-#{$key} {
+  .background-primary-#{$key} {
     background-color: $pcolor;
   }
 }
 
 @each $key, $scolor in $secondary-colors {
-  .secondary-color-#{$key} {
+  .color-secondary-#{$key} {
     color: $scolor;
   }
 
-  .secondary-background-#{$key} {
+  .background-secondary-#{$key} {
     background-color: $scolor;
   }
 }
 
 @each $key, $gcolor in $gray-colors {
-  .gray-color-#{$key} {
+  .color-gray-#{$key} {
     color: $gcolor;
   }
 
-  .gray-background-#{$key} {
+  .background-gray-#{$key} {
     background-color: $gcolor;
   }
 }
 
 @each $key, $ucolor in $util-colors {
-  .#{$key}-color {
+  .color-#{$key} {
     color: $ucolor;
   }
 
-  .#{$key}-background {
+  .background-#{$key} {
     background-color: $ucolor;
   }
 }
