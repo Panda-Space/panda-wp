@@ -8,24 +8,32 @@
   }
 
   &__label {
-    padding-left: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   &__input {
-    padding: 0.5rem;
+    padding: 15px 20px;
+    font-size: variables.$fs-16;
+    line-height: 1;
+    border: 2px solid variables.$gray-color-500;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    font-weight: variables.$font-medium;
+    color: variables.$gray-color;
   }
 
   &__error {
     display: none;
-    padding-left: 1rem;
-    color: variables.$alert-color;
+    color: variables.$util-alert-color;
     font-size: variables.$fs-14;
+    padding-top: 10px;
   }
 
   &--error {
     .c-form-group {
       &__input {
-        border: solid 1px variables.$alert-color;
+        border: 2px solid variables.$util-alert-color;
       }
 
       &__error {

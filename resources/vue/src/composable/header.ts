@@ -1,9 +1,7 @@
 import { useRoute } from 'vue-router'
 
-export function useIsAtiveMenuItem(routeSlug: string) {
-  defineProps(['modelValue'])
-
+export function useIsAtiveMenuItem(routeName: string) {
   const route = useRoute()
 
-  return route.name ? routeSlug.toLowerCase() === String(route.name).toLowerCase() : false
+  return route.name ? routeName.toLowerCase() === String(route.name).toLowerCase() : false
 }

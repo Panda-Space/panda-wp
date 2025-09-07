@@ -2,13 +2,13 @@
 // @ts-ignore
 import VLazyImage from 'v-lazy-image'
 
-defineProps({
+defineProps<{
   source: String
-})
+}>()
 </script>
 
 <template>
   <div class="c-card-image overflow-hidden">
-    <v-lazy-image class="w-full h-full of--cover" :src="source" />
+    <v-lazy-image class="w-full h-full of-cover" :src="source" />
   </div>
 </template>

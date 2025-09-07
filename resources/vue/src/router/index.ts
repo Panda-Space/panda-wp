@@ -36,14 +36,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory('/'),
   routes,
-  scrollBehavior() {
-    return { top: 0 }
+  scrollBehavior(_to, _from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
   }
 })
 
 router.beforeEach((to) => {
   const store = useAppStore()
-  const isCachedRoute = store.loaderCached.find((cachedRoute) => cachedRoute === to.path)
+  const isCachedRoute = store.loaderCached.find((cachedRoute: any) => cachedRoute === to.path)
 
   if (!isCachedRoute) {
     store.updateLoader({

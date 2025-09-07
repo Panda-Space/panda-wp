@@ -1,0 +1,23 @@
+@use '../base/variables';
+
+/* PrimeVue Reset Rules */
+.c-sidebar.p-drawer {
+  background-color: variables.$black-color;
+  border: none;
+  color: variables.$gray-color;
+
+  .p-drawer-header {
+    padding: 0.5rem;
+  }
+
+  .p-drawer-close-button {
+    color: variables.$gray-color-300;
+
+    &:hover {
+      color: variables.$gray-color-300 !important;
+      background: variables.$gray-color-500 !important;
+    }
+  }
+}
+
+/* PrimeVue */

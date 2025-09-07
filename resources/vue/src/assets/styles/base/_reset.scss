@@ -9,54 +9,13 @@ label {
 }
 
 button,
-a {
+a,
+.button {
   outline: none !important;
 }
 
 select {
   background-image: none !important;
-}
-
-.button {
-  outline: none !important;
-}
-
-.button-reset {
-  border: none;
-  outline: none;
-  margin: 0 !important;
-  cursor: pointer;
-}
-
-.input-reset {
-  border: none;
-  outline: none;
-  font-size: variables.$fs-16;
-  margin: 0 !important;
-  width: 100%;
-  box-shadow: none;
-
-  &:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    transform: scale(1);
-  }
-}
-
-.select-reset {
-  height: auto;
-  border: none;
-  outline: none;
-  font-size: variables.$fs-16;
-  background-image: linear-gradient(transparent, transparent) !important;
-  cursor: pointer;
-
-  &:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-  }
 }
 
 .ul-reset {
@@ -65,27 +24,12 @@ select {
   padding: 0;
 }
 
-.modal-content {
-  border-radius: 10px;
-}
-
-.modal-body {
-  padding: 0;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-/* Bootstrap | Toast */
-.toast:not(.show) {
-  display: block;
-}
-
-/* Primevue */
+/* Primevue Reset Rules */
 body {
   margin: 0;
 }
 
-/* WordPress */
+/* WordPress Reset Rules */
 .wp-block-embed {
   &.aligncenter {
     display: flex;

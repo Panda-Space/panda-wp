@@ -40,6 +40,6 @@ const onSubmit = handleSubmit((values) => {
       <span class="c-form-group__error">{{ errors.file }}</span>
     </div>
 
-    <button class="c-button c-button--primary mt-4">Enviar</button>
+    <button class="c-button c-button--primary mt-4 w-full">Enviar</button>
   </form>
 </template>

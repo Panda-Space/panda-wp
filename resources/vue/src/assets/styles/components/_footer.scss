@@ -1,18 +1,24 @@
 @use '../base/variables';
+@use '../base/core';
 
 .c-footer {
-  color: variables.$white;
-  background: variables.$primary-color;
-  padding: 0.5rem 0;
+  color: variables.$white-color;
+  background: variables.$black-color-100;
+  padding: 1.5rem 0;
 
-  a,
-  a:hover,
-  a:focus {
-    color: variables.$white;
-    font-weight: variables.$font-bold;
+  &__container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  a:hover {
-    text-decoration: underline;
+  &__logo {
+    display: inline-block;
+    width: 120px;
+    padding-left: 1rem;
+
+    img {
+      width: 100%;
+    }
   }
 }
+

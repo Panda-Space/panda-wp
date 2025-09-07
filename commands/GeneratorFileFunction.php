@@ -37,7 +37,7 @@ class GeneratorFileFunction extends Command {
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $this->filename = $input->getArgument('filename');
         $this->type = $input->getOption('type');
 

@@ -1,0 +1,30 @@
+@use '../base/variables';
+
+.c-link {
+  font-weight: variables.$font-medium;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+
+  &:is(:hover, :focus, :active) {
+    text-decoration: none;
+  }
+
+  &--primary {
+    color: variables.$primary-color;
+
+    &:is(:hover, :focus, :active) {
+      color: variables.$primary-color-500;
+    }
+  }
+
+  &--white {
+    color: variables.$gray-color;
+
+    &:is(:hover, :focus, :active) {
+      color: variables.$gray-color-500;
+    }
+  }
+}

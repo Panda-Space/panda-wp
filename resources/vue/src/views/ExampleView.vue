@@ -1,13 +1,10 @@
 <script setup lang="ts">
+import BaseView from '@/views/core/BaseView.vue'
+import type { Content } from '@/types/content';
 import { defineAsyncComponent, onMounted, ref, type Ref } from 'vue'
 import { useGetContent } from '@/composable/content'
-import sal from 'sal.js'
 
 const ImageCard = defineAsyncComponent(() => import('@/components/ui/ImageCard.vue'))
-
-interface Content {
-  post: any
-}
 
 const content: Ref<Content> = ref({
   post: {}
@@ -38,30 +35,30 @@ const images = ref([
 ])
 
 onMounted(async () => {
-  content.value = await useGetContent({ type: 'page', slug: 'example' })
-
-  sal()
+  content.value = await useGetContent({ type: 'page', slug: 'sample-page' })
 })
 </script>
 
 <template>
-  <section class="c-section">
-    <div v-if="content.post" class="container py-5">
-      <h1 class="c-section__title mb-5 text-center">
-        {{ content.post.title }}
-      </h1>
+  <BaseView :content="content">
+    <section class="c-section">
+      <div v-if="content.post" class="container py-5">
+        <router-link class="c-link c-link--primary" to="/">Go to home</router-link>
 
-      <div class="grid">
-        <div
-          v-for="(image, iimage) of images"
-          :key="image"
-          data-sal="slide-up"
-          :data-sal-delay="50 * iimage"
-          class="col col-12 md:col-4 lg:col-3 mb-4"
-        >
-          <ImageCard :source="image" />
+        <h1 class="c-section__title mb-5 text-center">
+          {{ content.post.title }}
+        </h1>
+
+        <div class="grid">
+          <div
+            v-for="(image) of images"
+            :key="image"
+            class="col col-12 md:col-4 lg:col-3 mb-4"
+          >
+            <ImageCard :source="image" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </BaseView>
 </template>

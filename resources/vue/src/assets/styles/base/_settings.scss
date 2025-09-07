@@ -1,26 +1,29 @@
 @use 'variables';
 
 /* Maps - Variables */
+
 $primary-colors: (
-  'color': variables.$primary-color,
-  'alt': variables.$primary-alt
+  'main': variables.$primary-color,
+  '500': variables.$primary-color-500
 );
 $secondary-colors: (
-  'color': variables.$secondary-color,
-  'alt': variables.$secondary-alt
+  'main': variables.$secondary-color,
+  // '500': variables.$secondary-alt
 );
 $gray-colors: (
-  'light': variables.$gray-light,
-  'color': variables.$gray,
-  'medium': variables.$gray-medium,
-  'dark': variables.$gray-dark
+  'main': variables.$gray-color,
+  '300': variables.$gray-color-300,
+  '400': variables.$gray-color-400,
+  '500': variables.$gray-color-500
 );
-$other-colors: (
-  'white': variables.$white,
-  'black': variables.$black,
-  'success': variables.$success-color,
-  'warnings': variables.$warning-color,
-  'alerts': variables.$alert-color
+$util-colors: (
+  'white': variables.$white-color,
+  'black': variables.$black-color,
+  'black-100': variables.$black-color-100,
+  'success': variables.$util-success-color,
+  'warning': variables.$util-warning-color,
+  'alert': variables.$util-alert-color,
+  'info': variables.$util-info-color
 );
 $font-sizes: (
   '14': variables.$fs-14,
@@ -51,42 +54,42 @@ $font-families: (
 */
 
 @each $key, $pcolor in $primary-colors {
-  .pri-#{$key} {
+  .primary-color-#{$key} {
     color: $pcolor;
   }
 
-  .bg-pri-#{$key} {
+  .primary-background-#{$key} {
     background-color: $pcolor;
   }
 }
 
 @each $key, $scolor in $secondary-colors {
-  .sec-#{$key} {
+  .secondary-color-#{$key} {
     color: $scolor;
   }
 
-  .bg-sec-#{$key} {
+  .secondary-background-#{$key} {
     background-color: $scolor;
   }
 }
 
 @each $key, $gcolor in $gray-colors {
-  .gray-#{$key} {
+  .gray-color-#{$key} {
     color: $gcolor;
   }
 
-  .bg-gray-#{$key} {
+  .gray-background-#{$key} {
     background-color: $gcolor;
   }
 }
 
-@each $key, $ocolor in $other-colors {
-  .#{$key} {
-    color: $ocolor;
+@each $key, $ucolor in $util-colors {
+  .#{$key}-color {
+    color: $ucolor;
   }
 
-  .bg-#{$key} {
-    background-color: $ocolor;
+  .#{$key}-background {
+    background-color: $ucolor;
   }
 }
 
@@ -109,7 +112,7 @@ $font-families: (
 }
 
 @each $key, $ffam in $font-families {
-  .f#{$key} {
+  .font-family-#{$key} {
     font-family: $ffam;
   }
 }

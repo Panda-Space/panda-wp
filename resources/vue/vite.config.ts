@@ -4,8 +4,9 @@ import vue from '@vitejs/plugin-vue'
 import stylelint from 'vite-plugin-stylelint'
 import checker from 'vite-plugin-checker'
 
-// https://vitejs.dev/config/
-export default ({ mode }) => {
+
+// https://vite.dev/config/
+export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
   const appMode: string = process.env.VITE_APP_MODE ? process.env.VITE_APP_MODE : ''
@@ -14,16 +15,13 @@ export default ({ mode }) => {
     base: ['production', 'staging'].includes(appMode)
       ? `/wp-content/themes/${process.env.VITE_APP_THEME}/app/static/public/${appMode === 'staging' ? 'temp/' : ''}`
       : '/',
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      }
+    },
     plugins: [
-      vue({
-        template: {
-          compilerOptions: {
-            compatConfig: {
-              MODE: 3
-            }
-          }
-        }
-      }),
+      vue(),
       stylelint({
         lintInWorker: true,
         cache: false
@@ -37,12 +35,6 @@ export default ({ mode }) => {
         }
       })
     ],
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-        vue: '@vue/compat'
-      }
-    },
     build: {
       emptyOutDir: true,
       manifest: true,
@@ -56,4 +48,4 @@ export default ({ mode }) => {
       port: 3000
     }
   })
-}
+})

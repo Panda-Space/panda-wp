@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import { useAppStore } from '@/stores/app'
 
 const store = useAppStore()
-const isActiveMenu = ref(false)
 
 onMounted(() => {
   store.getGeneralData()
@@ -14,9 +13,6 @@ onMounted(() => {
 <template>
   <section class="c-app">
     <HeaderMain />
-    <HeaderMobile v-model="isActiveMenu"></HeaderMobile>
-    <HeaderToggle v-model="isActiveMenu"></HeaderToggle>
-
     <section class="c-app__section" :class="{ loaded: !store.loaderStatus }">
       <RouterView v-slot="{ Component }">
         <transition name="fade" mode="out-in">

@@ -1,37 +1,62 @@
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app'
+import { useIsAtiveMenuItem } from '@/composable/header'
+import { ref } from 'vue'
 
-const app = useAppStore()
+const visible = ref<boolean>(false)
+const isAtiveMenuItem = useIsAtiveMenuItem
 </script>
 
 <template>
-  <header class="c-header w-full">
-    <div class="container position-relative">
-      <nav class="c-nav w-full">
-        <div class="c-nav__left d-flex justify-content-center align-items-center">
-          <figure class="c-brand c-brand--normal d-flex justify-content-center align-items-center">
-            <RouterLink class="c-brand__link" to="/">
+  <header class="c-header">
+    <div class="relative container">
+      <nav class="c-nav">
+        <div class="c-nav__left flex justify-content-center align-items-center">
+          <figure class="c-brand c-brand--normal flex justify-content-center align-items-center">
+            <router-link to="/" class="c-brand__link">
               <img class="c-brand__image" src="@/assets/images/logo.png" alt="Panda WP - Logo" />
-            </RouterLink>
+            </router-link>
           </figure>
         </div>
-        <div class="c-nav__right">
-          <ul class="c-menu menu ul-reset">
-            <li
-              v-for="item of app.generalPrimaryMenu"
-              :key="item.id"
-              class="menu-item"
-            >
-              <router-link :to="item.url" class="position-relative" replace>
-                {{ item.name }}
+        <div class="c-nav__right flex gap-3 align-items-center">
+          <ul class="flex gap-3 align-items-center ul-reset">
+            <li>
+              <router-link
+                class="c-link"
+                :class="isAtiveMenuItem('home') ? 'c-link--primary': 'c-link--white'"
+                to="/"
+              >
+                Home
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                class="c-link c-link--white"
+                :class="isAtiveMenuItem('single') ? 'c-link--primary': 'c-link--white'"
+                to="/single/slug_example"
+              >
+                Single Page
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                class="c-link c-link--white"
+                :class="isAtiveMenuItem('category') ? 'c-link--primary': 'c-link--white'"
+                to="/category/slug_category_example"
+              >
+                Category Page
               </router-link>
             </li>
           </ul>
-          <a href="#" class="c-button c-button--primary w-medium f2 fs-18 white d-block">
-            <div class="d-flex w-full height-100 justify-content-center align-items-center">Wsp</div>
-          </a>
+
+          <button class="c-link c-link--white fs-30" @click="visible = !visible">
+            <IconUI icon="material-symbols:menu-rounded" />
+          </button>
         </div>
       </nav>
     </div>
+
+    <DrawerUI v-model:visible="visible" position="right" class="c-sidebar">
+      Menu for mobile
+    </DrawerUI>
   </header>
 </template>

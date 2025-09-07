@@ -3,249 +3,30 @@
 @use '../base/core';
 
 .c-header {
-  background: variables.$white;
+  background: variables.$black-color-100;
   z-index: 1000 !important;
-
-  @include mixins.transition(0.5s);
-  @include mixins.box-shadow(right, rgba(variables.$gray, 0.4), 0, 10px, 50px);
-
+  position: sticky;
   left: 0;
   top: 0;
+
+  @include mixins.transition(0.5s);
+
+  .c-brand {
+    &__link {
+      display: block;
+      height: 40px;
+    }
+
+    &__image {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
   .c-nav {
     height: 83px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .c-menu-icon {
-      cursor: pointer;
-      outline: none;
-    }
-
-    &__right {
-      .c-menu {
-        display: none;
-      }
-
-      .c-menu .menu-item > a {
-        color: variables.$black;
-        padding: 1rem;
-        font-family: variables.$secondary-font-family;
-        font-weight: variables.$font-medium;
-        font-size: variables.$fs-18;
-
-        @include mixins.transition(0.2s);
-      }
-
-      .c-menu .menu-item.activate > a {
-        color: variables.$primary-color;
-      }
-
-      .c-menu .menu-item > a:hover {
-        color: variables.$primary-color;
-      }
-
-      .c-menu .menu-item > a:focus {
-        color: variables.$primary-color;
-      }
-    }
-  }
-}
-
-.c-header-mobile {
-  position: fixed !important;
-  transform: translateY(-100%);
-  z-index: 9000;
-  height: 100vh;
-  opacity: 0;
-  visibility: hidden;
-
-  @include mixins.transition(0.5s);
-
-  .c-nav {
-    height: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    &__right {
-      .c-menu {
-        display: flex;
-      }
-
-      .c-menu .menu-item {
-        text-align: center;
-      }
-    }
-
-    &__left {
-      height: 83px;
-    }
-  }
-
-  &--visible {
-    background: variables.$white;
-    transform: translateY(0);
-    visibility: visible;
-    opacity: 1;
-
-    .grid-container {
-      height: 100%;
-    }
-
-    .c-nav {
-      &__right {
-        animation: menu 0.1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 forwards;
-
-        .c-menu {
-          animation: menu 0.1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 forwards;
-        }
-
-        .menu-item {
-          margin: 0.5rem 0;
-        }
-
-        .menu-item > a {
-          color: variables.$white;
-        }
-      }
-    }
-
-    @keyframes menu {
-      to {
-        opacity: 1;
-        visibility: visible;
-        height: auto;
-      }
-    }
-  }
-}
-
-@include core.media-breakpoint-up(lg) {
-  .c-header {
-    position: sticky;
-
-    .c-nav {
-      height: 80px;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row;
-
-      &__left {
-        .c-menu {
-          justify-content: flex-end;
-        }
-      }
-
-      &__right {
-        background: transparent;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        transform: translateY(0);
-
-        .c-menu-icon {
-          display: none;
-        }
-
-        .c-menu {
-          opacity: 1;
-          visibility: visible;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          height: 100%;
-        }
-
-        .c-menu .menu-item {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .c-menu .menu-item > a {
-          padding: 1rem 0;
-          margin-right: 1rem;
-          margin-left: 1rem;
-        }
-
-        .c-menu .menu-item > a::after {
-          content: '';
-          width: 0;
-
-          @include mixins.transition(0.2s);
-        }
-
-        .c-menu .menu-item:hover .c-sub-menu {
-          visibility: visible;
-          opacity: 1;
-        }
-
-        .c-sub-menu {
-          border-radius: 0 0 10px 10px;
-          padding: 0.7rem;
-          background: variables.$secondary-color;
-          width: 300px;
-          z-index: 20;
-          top: 60.5px;
-          left: 0;
-          visibility: hidden;
-          opacity: 0;
-
-          @include mixins.transition(0.2s);
-
-          &__item a {
-            padding: 0.5rem 0.7rem !important;
-            color: variables.$white;
-            font-family: variables.$secondary-font-family;
-            font-size: variables.$fs-16;
-            font-weight: variables.$font-semibold;
-
-            @include mixins.transition(0.2s);
-          }
-
-          &__item a::after {
-            content: '';
-            width: 3px;
-            height: 100%;
-            background: variables.$primary-color;
-            position: absolute;
-            left: 0;
-            top: 0;
-            visibility: hidden;
-            opacity: 0;
-
-            @include mixins.transition(0.2s);
-          }
-
-          &__item a:hover {
-            color: variables.$white !important;
-            transform: translateX(5px);
-          }
-
-          &__item a:focus {
-            color: variables.$white !important;
-            transform: translateX(5px);
-          }
-
-          &__item a:focus::after,
-          &__item a:hover::after {
-            visibility: visible;
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-
-  .c-header-mobile {
-    &--visible {
-      height: 80px;
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-100%);
-    }
   }
 }

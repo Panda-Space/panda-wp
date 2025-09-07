@@ -3,11 +3,13 @@ import { defineStore } from 'pinia'
 interface Loader {
   status: boolean
   route: string
+  error?: boolean
 }
 
 interface LoaderMain {
   status: boolean
   cached: string[]
+  error: boolean
 }
 
 interface General {
@@ -31,8 +33,9 @@ export const useAppStore = defineStore('app', {
     },
     loader: {
       status: true,
-      cached: []
-    }
+      cached: [],
+      error: false
+    },
   }),
   getters: {
     loaderCached(): string[] {
@@ -41,19 +44,26 @@ export const useAppStore = defineStore('app', {
     loaderStatus(): boolean {
       return this.loader.status
     },
+    loaderError(): boolean {
+      return this.loader.error
+    },
     generalPrimaryMenu(): any[] {
       return this.general.data.primaryMenu
     },
     api(): string {
-      const hostname = window.location.hostname;
-      const protocol = window.location.protocol;
+      const hostname = window.location.hostname
+      const protocol = window.location.protocol
 
-      return import.meta.env.VITE_APP_API ?? `${protocol}//${hostname}/wp-json/custom/v1`
+      return import.meta.env.VITE_APP_API ?? `${protocol}//${hostname}/wp-json/api/v1`
     }
   },
   actions: {
     updateLoader(payload: Loader): void {
       this.loader.status = payload.status
+
+      if (payload.error) {
+        this.loader.error = payload.error
+      }
 
       if (!payload.status && !this.loader.cached.includes(payload.route)) {
         this.loader.cached.push(payload.route)

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps(['status'])
+defineProps<{
+  status: String
+}>()
 </script>
 
 <template>

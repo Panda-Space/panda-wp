@@ -1,19 +1,19 @@
 .br {
-  &--small {
+  &-small {
     border-radius: 5px;
   }
 
-  &--medium {
+  &-medium {
     border-radius: 10px;
   }
 }
 
 .of {
-  &--cover {
+  &-cover {
     object-fit: cover;
   }
 
-  &--contain {
+  &-contain {
     object-fit: contain;
   }
 }

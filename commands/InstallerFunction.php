@@ -19,7 +19,7 @@ class InstallerFunction extends Command {
             ->setDescription($this->commandDescription);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
         $this->hostname = readline('> Hostname: ');
 
         $currentDir = explode('\\', getcwd());

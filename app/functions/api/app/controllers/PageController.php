@@ -133,7 +133,7 @@ class PageController {
 
         return [
             'information' => (object)[
-                /* ACF */
+                /* ACF queries */
                 // "phone" => get_field('phone', 'options'),
                 // "email" => get_field('email', 'options')
             ],

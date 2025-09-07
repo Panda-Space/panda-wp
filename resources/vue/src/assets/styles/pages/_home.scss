@@ -1,5 +1,22 @@
+@use '../base/variables';
+@use '../base/core';
+
 .c-section {
   &--home {
     outline: none;
+
+    .c-welcome {
+      h1 {
+        color: variables.$white-color;
+      }
+    }
+  }
+}
+
+@include core.media-breakpoint-up(lg) {
+  .c-section {
+    &--home {
+      outline: none;
+    }
   }
 }

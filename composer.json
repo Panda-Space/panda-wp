@@ -16,7 +16,7 @@
         "timber/timber": "^2.0"
     },
     "require-dev": {
-        "symfony/console": "^5.0",
+        "symfony/console": "^7.2",
         "kint-php/kint": "^5.1"
     },
     "autoload": {
