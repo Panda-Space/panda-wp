@@ -6,8 +6,10 @@ class Bootstrap {
     public static function config(): void {
         self::$THEME_APP_PATH = get_theme_file_path();
 
-        self::loadCoreFiles();
+        require_once(self::$THEME_APP_PATH . '/../vendor/autoload.php');
+
         self::setEnviromentVariables();
+        self::loadCoreFiles();
         self::loadAdminPages();
         self::loadEnqueues();
         self::loadContentTypes();
@@ -15,7 +17,6 @@ class Bootstrap {
     }
 
     private static function loadCoreFiles(): void {
-        require_once(self::$THEME_APP_PATH . '/../vendor/autoload.php');
         require_once(self::$THEME_APP_PATH . '/../api/main.php');
         require_once(self::$THEME_APP_PATH . '/helpers/AppHelper.php');
         require_once(self::$THEME_APP_PATH . '/pages/routes.php');
