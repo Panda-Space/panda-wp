@@ -1,6 +1,6 @@
 {
   "name": "pandawp",
-  "version": "6.7.0",
+  "version": "8.0.0",
   "author": "Cleiver Valera Flores <hola@cleivervalera.com>",
   "license": "MIT",
   "main": "index.js",
