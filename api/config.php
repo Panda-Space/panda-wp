@@ -2,10 +2,7 @@
 
 require_once(__DIR__ . "/config/database.php");
 
-// if (ENV['APP_ENV'] === 'development') header( 'Access-Control-Allow-Origin: *' );
-header( 'Access-Control-Allow-Origin: *' );
-
-// date_default_timezone_set('America/Lima');
+if (ENV['APP_ENV'] === 'development') header( 'Access-Control-Allow-Origin: *' );
 
 function __importProviders($type, $array) {
     switch ($type) {
