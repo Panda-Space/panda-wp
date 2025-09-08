@@ -30,7 +30,7 @@ const isAtiveMenuItem = useIsAtiveMenuItem
             </li>
             <li>
               <router-link
-                class="c-link c-link--white"
+                class="c-link"
                 :class="isAtiveMenuItem('single') ? 'c-link--primary': 'c-link--white'"
                 to="/single/slug_example"
               >
@@ -39,7 +39,7 @@ const isAtiveMenuItem = useIsAtiveMenuItem
             </li>
             <li>
               <router-link
-                class="c-link c-link--white"
+                class="c-link"
                 :class="isAtiveMenuItem('category') ? 'c-link--primary': 'c-link--white'"
                 to="/category/slug_category_example"
               >

@@ -35,7 +35,7 @@ const show = () => {
           <div class="c-welcome py-5 flex flex-column gap-4">
             <div class="py-4 text-center flex flex-column align-items-center justify-content-center">
               <h1 class="fs-30">
-                Welcome to <span class="success-color">Panda WP</span>
+                Welcome to <span class="color-success">Panda WP</span>
                 <IconUI icon="noto-v1:panda" />
               </h1>
               <p>
@@ -46,9 +46,9 @@ const show = () => {
               </a>
             </div>
 
-            <h2 class="gray-color-300 w-bold text-center">Useful elements</h2>
-            <div class="black-100-background p-4 br-medium">
-              <h3 class="gray-color-300 w-bold mb-4">✅ Formularies</h3>
+            <h2 class="color-gray-300 w-bold text-center">Useful elements</h2>
+            <div class="background-black-100 p-4 br-medium">
+              <h3 class="color-gray-300 w-bold mb-4">✅ Formularies</h3>
               <p>
                 Implemented thanks to
                 <a class="c-link c-link--primary" :href="VEE_VALIDATE_LINK" target="_blank">
@@ -57,8 +57,8 @@ const show = () => {
               </p>
               <FormMain />
             </div>
-            <div class="black-100-background p-4 br-medium">
-              <h3 class="gray-color-300 w-bold mb-4">🐼 Icons</h3>
+            <div class="background-black-100 p-4 br-medium">
+              <h3 class="color-gray-300 w-bold mb-4">🐼 Icons</h3>
               <p>
                 Icons provided by
                 <a class="c-link c-link--primary" :href="ICONIFY_LINK" target="_blank"> Iconify </a>
@@ -72,14 +72,14 @@ const show = () => {
                 <IconUI icon="lucide:box" />
               </div>
             </div>
-            <div class="black-100-background p-4 br-medium">
-              <h3 class="gray-color-300 w-bold mb-4">🚀 Images with lazy loading</h3>
+            <div class="background-black-100 p-4 br-medium">
+              <h3 class="color-gray-300 w-bold mb-4">🚀 Images with lazy loading</h3>
               <router-link class="c-link c-link--primary" to="/example">
                 Check example view
               </router-link>
             </div>
-            <div class="black-100-background p-4 br-medium">
-              <h3 class="gray-color-300 w-bold mb-4">
+            <div class="background-black-100 p-4 br-medium">
+              <h3 class="color-gray-300 w-bold mb-4">
                 <IconUI icon="simple-icons:primevue" /> Prime Ecosystem
               </h3>
               <h4 class="w-bold">
