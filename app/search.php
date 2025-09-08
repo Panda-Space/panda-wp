@@ -1,7 +1,7 @@
 <?php
 
-use Timber\Timber;
+// use Timber\Timber;
 
-$context = Timber::context();
+// $context = Timber::context();
 
-Timber::render('app.twig', $context);
+// Timber::render('app.twig', $context);

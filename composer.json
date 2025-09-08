@@ -22,7 +22,11 @@
     "autoload": {
         "psr-4": {
             "PandaWP\\Console\\": "commands/",
-            "Admin\\Pages\\": "app/functions/admin/pages/"
+            "Admin\\Pages\\": "app/admin/pages/",
+            "App\\Controllers\\": "api/app/controllers/",
+            "App\\Models\\": "api/app/models/",
+            "App\\Middlewares\\": "api/app/middlewares/",
+            "App\\Services\\": "api/app/services/"
         }
     },
     "config": {

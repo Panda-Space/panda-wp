@@ -17,6 +17,14 @@ const routes = [
     }
   },
   {
+    path: '/example_custom_page',
+    name: 'example_custom_page',
+    component: () => import('@/views/example/CustomPageView.vue'),
+    meta: {
+      title: 'Example Custom Page'
+    }
+  },
+  {
     path: '/category/:category_slug',
     name: 'category',
     component: () => import('@/views/example/CategoryView.vue')

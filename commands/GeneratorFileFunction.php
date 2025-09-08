@@ -42,7 +42,7 @@ class GeneratorFileFunction extends Command {
         $this->type = $input->getOption('type');
 
         if ( $this->type == 'post-type' ) {
-            $this->dir = 'post-types';
+            $this->dir = 'post_types';
             $res = $this->functionFileExist();
         } elseif ( $this->type == 'taxonomy' ) {
             $this->dir = 'taxonomies';
@@ -58,7 +58,7 @@ class GeneratorFileFunction extends Command {
 
     protected function createFile() {
         file_put_contents(
-            "app/registers/{$this->dir}/{$this->filename}.php",
+            "app/content_types/{$this->dir}/{$this->filename}.php",
             $this->compileFunctionFileStub()
         );
 
@@ -83,7 +83,7 @@ class GeneratorFileFunction extends Command {
     }
 
     protected function functionFileExist() {
-        if ( ! file_exists("app/registers/{$this->dir}/{$this->filename}.php") ) {
+        if ( ! file_exists("app/content_types/{$this->dir}/{$this->filename}.php") ) {
             $this->createFile();
             return 'Created file.';
         } else {

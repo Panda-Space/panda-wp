@@ -34,11 +34,3 @@ app.use(PrimeVue, {
 })
 
 app.mount('#app')
-
-/*
-TODO:
-- Remove deprecated {{}}
-- General review {{}}
-- Update documentation basic README
-- Finish
-*/

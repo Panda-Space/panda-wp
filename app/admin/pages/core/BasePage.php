@@ -26,6 +26,6 @@ class BasePage {
     public function create_admin_page() {
         $folder = $this->settings['slug'];
 
-        include_once ADMIN_PATH . "/pages/{$folder}/view.php";
+        include_once APP_PATH . "/admin/pages/{$folder}/view.php";
     }
 }

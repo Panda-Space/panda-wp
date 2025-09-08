@@ -1,19 +1,5 @@
 <?php
 
-function __getResourceURL($type, $resource) {
-    $manifestTemp   = (ENV['APP_ENV'] == 'development') ? 'temp/.vite/' : '';
-    $manifest       = json_decode(file_get_contents(__DIR__ . "/../static/admin/{$manifestTemp}manifest.json"));
-
-    $staticDir      = (ENV['APP_ENV'] == 'development') ? 'temp/' : '';
-    $resourceFile   = $manifest->{$resource}->{'file'};
-
-    if ($type == 'css') {
-        return get_theme_file_uri("/static/admin/{$staticDir}{$resourceFile}");
-    } elseif ($type == 'js') {
-        return get_theme_file_uri("/static/admin/{$staticDir}{$resourceFile}");
-    }
-}
-
 function register_dashboard_view($view) {
     $manifestTemp = (ENV['APP_ENV'] == 'development') ? 'temp/.vite/' : '';
     $manifest = json_decode(file_get_contents(__DIR__ . "/../static/admin/{$manifestTemp}manifest.json"));
@@ -23,7 +9,7 @@ function register_dashboard_view($view) {
     $resourceFileJs = $manifest->{$resource}->{'file'};
     $resourceFilesCss = $manifest->{$resource}->{'css'};
 
-    register_assets('script', [
+    AppHelper::register_assets('script', [
         'handle'    => "pandawp/script/$view",
         'src'       => get_theme_file_uri("/static/admin/{$staticDir}{$resourceFileJs}"),
         'deps'      => [],
@@ -32,7 +18,7 @@ function register_dashboard_view($view) {
     ]);
 
     array_map(function ($file) use ($staticDir) {
-        register_assets('style', [
+        AppHelper::register_assets('style', [
             'handle'    => 'pandawp/style/' . $file,
             'src'       => get_theme_file_uri("/static/admin/{$staticDir}{$file}"),
             'deps'      => [],
@@ -54,7 +40,7 @@ add_action('wp_enqueue_scripts', function () {
      */
     array_map(function ($file) {
         if (!strpos($file, '.map')) {
-            register_assets('script', [
+            AppHelper::register_assets('script', [
                 'handle'    => 'pandawp/script/' . $file,
                 'src'       => get_theme_file_uri('/static/public/' . ((ENV['APP_ENV'] == 'development') ? "temp/{$file}" : "{$file}")),
                 'deps'      => [],
@@ -71,7 +57,7 @@ add_action('wp_enqueue_scripts', function () {
      *
      */
     array_map(function ($file) {
-        register_assets('style', [
+        AppHelper::register_assets('style', [
             'handle'    => 'pandawp/style/' . $file,
             'src'       => get_theme_file_uri("/static/public/" . ((ENV['APP_ENV'] == 'development') ? "temp/{$file}" : "{$file}")),
             'deps'      => [],
